@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "phases": {
+    "start": {"checks": [], "skills": ["optional-skill-profile", "multi-session-protocol"]},
+    "design": {"checks": [], "skills": ["variant-review-loop", "figma-write"]},
+    "review": {"checks": [], "skills": ["uiux-checks", "states-preview-loop", "ui-design-review", "a11y-review"]},
+    "fix": {"checks": [], "skills": ["audit-fix-loop-no-preview"]},
+    "pre-delivery": {"checks": ["package-tests"], "skills": ["uiux-checks"]},
+    "report": {"checks": [], "skills": ["work-sync-daily", "work-report-weekly", "content-pipeline-dashboard"]}
+  },
+  "checks": {
+    "package-tests": {
+      "argv": ["python", "-m", "unittest", "discover", "-s", "tests", "-v"],
+      "timeout_seconds": 60
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "external_skills": ["your-frontend-skill"],
+  "phases": {
+    "implementation": {"checks": [], "skills": ["your-frontend-skill"]},
+    "visual-review": {"checks": [], "skills": ["ui-design-review", "states-preview-loop"]},
+    "accessibility": {"checks": [], "skills": ["a11y-review"]},
+    "summary": {"checks": [], "skills": ["uiux-checks", "a11y-review"]}
+  },
+  "checks": {}
+}
