@@ -149,3 +149,9 @@ Real Clipboard API write was also repeated in the visible local workspace and re
 86 inspector checks, 125 locale/capture checks and 47 Python tests PASS. This supersedes the earlier 80/101 counts. Added DOM chevron survival after toggles, native RWD disclosure geometry, 44px rotate target, refresh/collapse/reopen behavior and labelled 44px header actions without overflow across four languages and six viewport sizes. Desktop EN/ZH and narrow EN screenshots were visually inspected. No dependencies added. Native capture, assistive technology, Firefox/Edge and real-device acceptance remain unverified.
 
 繁中：86 項指認、125 項語言／截圖、47 項 Python 通過。新增圖示大小、展開／收合、更新圖層、四語言六尺寸標頭檢查，中英桌機及窄螢幕圖片已目視檢查；未新增依賴。原生截圖、輔助科技、Firefox／Edge 與真機仍待驗。
+
+## Selection collapses RWD (2026-09-15)
+
+91 inspector, 125 locale/capture and 47 Python checks PASS. Five new assertions cover hover keeping settings open, DOM selection collapsing without changing dimensions, manual reopening, hover after reopening and page selection recollapsing. Existing copy/request, exclusions, tree position, RWD and capture regressions pass. EN/ZH selected-state screenshots visually inspected. No native capture or real-device claims.
+
+繁中：91 項指認、125 項語言／截圖與 47 項 Python 通過。只在確認選取時收合 RWD，不改尺寸、需求或步驟；Hover 不收合，手動可再展開。中英選取狀態截圖已目視檢查。

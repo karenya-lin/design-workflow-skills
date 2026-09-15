@@ -42,7 +42,10 @@ async(page)=>{
   }));
   check('step 1 explains click vs hover and blocks empty next',await panel.getByText(/Step 1 ·/).isVisible()&&await panel.getByRole('button',{name:'下一步：確認範圍 →',exact:true}).isDisabled());
   const mainName=panel.locator('.tree-name').filter({hasText:'main#demo-main'});
+  await mainName.hover();
+  check('hover leaves RWD settings open',await page.locator('#sizes').isVisible());
   await mainName.click();
+  check('DOM selection collapses RWD without changing dimensions',!await page.locator('#sizes').isVisible()&&await page.locator('#preview').evaluate(n=>n.clientWidth===768&&n.clientHeight===1024));
   const beforeExpand=await report.inputValue();
   await panel.getByRole('button',{name:'展開／收合 section.grid',exact:true}).click();
   check('arrow expands without changing selection',beforeExpand===await report.inputValue());
@@ -60,6 +63,7 @@ async(page)=>{
   await name.focus();await name.press('ArrowRight');
   check('right key expands child layer',await panel.locator('.tree-name').filter({hasText:'div.art'}).first().isVisible());
   check('RWD controls are inside the external panel',await page.locator('.side .rwd-controls').count()===1);
+  if(!await page.locator('#sizes').isVisible())await page.locator('.rwd-controls > summary').click();
   await page.locator('.rwd-controls > summary').click();
   check('RWD controls collapse to summary',!await page.locator('#sizes').isVisible());
   await page.locator('.rwd-controls > summary').click();
@@ -70,13 +74,17 @@ async(page)=>{
     return Math.abs(document.body.getBoundingClientRect().height-innerHeight)<1 && f.top>=a.top && f.bottom<=a.bottom && frame.contentWindow.innerWidth===768 && frame.contentWindow.innerHeight===1024;
   }));
   const held=await report.inputValue();
+  if(!await page.locator('#sizes').isVisible())await page.locator('.rwd-controls > summary').click();
+  check('RWD can reopen after selection',await page.locator('#sizes').isVisible());
   await preview.locator('h1').evaluate(n=>n.scrollIntoView({block:'center'}));
   const hoverBox=await preview.locator('h1').boundingBox();
   await page.mouse.move(hoverBox.x+hoverBox.width/2,hoverBox.y+hoverBox.height/2);
   await page.waitForFunction(()=>document.querySelector('#preview').contentDocument.querySelector('[data-workflow-inspector]').shadowRoot.querySelector('.label').textContent.includes('h1'));
   check('hover another element keeps selected report',held===await report.inputValue());
   check('hover name and separate outline displayed',await preview.locator('.hover-target').isVisible());
+  check('hover after reopening does not recollapse RWD',await page.locator('#sizes').isVisible());
   await page.mouse.click(hoverBox.x+hoverBox.width/2,hoverBox.y+hoverBox.height/2);
+  check('page selection recollapses manually reopened RWD',!await page.locator('#sizes').isVisible());
   check('page click syncs selected layer',await panel.locator('.tree-name[aria-pressed="true"]').innerText().then(t=>t.includes('h1')));
   await panel.locator('.tree-name').filter({hasText:'article.card'}).first().click();
   check('tree selection highlights preview',await preview.locator('[data-workflow-inspector] .selected').isVisible());
@@ -124,9 +132,11 @@ async(page)=>{
   await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.__batchCopy=text;}}}));
   await panel.getByRole('button',{name:'複製修改需求',exact:true}).click();
   check('successful retry clears manual fallback',!await manual.isVisible()&&(await panel.locator('.status').innerText()).includes('已複製'));
+  if(!await page.locator('#sizes').isVisible())await page.locator('.rwd-controls > summary').click();
   await page.locator('#fit').click();
   check('100 percent preserves layout dimensions',await preview.locator('body').evaluate(()=>innerWidth===768&&innerHeight===1024));
   await page.locator('#fit').click();
+  if(!await page.locator('#sizes').isVisible())await page.locator('.rwd-controls > summary').click();
   await page.locator('.more > summary').click();
   check('settings opens',await page.locator('.more-content').isVisible());
   await page.locator('.more > summary').press('Escape');

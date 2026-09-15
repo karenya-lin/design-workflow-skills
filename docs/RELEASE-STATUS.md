@@ -30,6 +30,6 @@ Updated 2026-09-15. Available instructions are not a guarantee of every AI host,
 
 ## Evidence / 驗證依據
 
-[Test commands and limitations](TESTING.md): 86 inspector checks, 125 language/capture checks and 47 Python tests passed on the local synthetic fixture. Includes larger icon targets and headers across four languages and six viewport sizes. Browser copy tests mock writes; the separately documented real Clipboard API write resolved, but pasting into AI was not verified. Native capture launches remain mocked. CSS variable references are candidates, not proof of the winning cascade.
+[Test commands and limitations](TESTING.md): 91 inspector checks, 125 language/capture checks and 47 Python tests passed on the local synthetic fixture. Includes larger icon targets and headers across four languages and six viewport sizes. Browser copy tests mock writes; the separately documented real Clipboard API write resolved, but pasting into AI was not verified. Native capture launches remain mocked. CSS variable references are candidates, not proof of the winning cascade.
 
-[測試指令與限制](TESTING.md)：86 項 Inspector、125 項語言／截圖、47 項 Python 通過，包含四語言、六種視窗尺寸的大圖示點擊範圍及標頭排版。瀏覽器套件使用假資料與模擬剪貼簿；另有真實 Clipboard API 寫入成功紀錄，但未驗貼進 AI。原生截圖測試為 mock；CSS 引用不等於最終生效樣式。
+[測試指令與限制](TESTING.md)：91 項 Inspector、125 項語言／截圖、47 項 Python 通過，包含四語言、六種視窗尺寸的大圖示點擊範圍及標頭排版。瀏覽器套件使用假資料與模擬剪貼簿；另有真實 Clipboard API 寫入成功紀錄，但未驗貼進 AI。原生截圖測試為 mock；CSS 引用不等於最終生效樣式。

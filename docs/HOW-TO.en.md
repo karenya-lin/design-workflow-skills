@@ -1,5 +1,7 @@
 # How to use · shortcuts
 
+Selecting an element on the page or in the DOM tree automatically collapses RWD settings. Hovering does not. Reopen the RWD row whenever you need to change dimensions; selection and your request stay intact.
+
 **Icon controls:** ↻ refreshes the layer tree (not the page), − collapses the panel, × closes it, and ⇄ swaps width and height. Click the right chevron on the RWD row to expand/collapse settings. Hover an icon for its name, or reach it with Tab and activate with Enter/Space. Toolbar buttons have 44px targets and 22px icons. Steps, language, exclusions and Copy request keep their text. [Updated pictures](VISUAL-GUIDE.md#larger-icon-controls).
 
 **Current controls:** the default language option reads **Language** (automatic detection). The standalone demo button opens the external-panel workspace. In Scope, use numbered ticks to visit matches, choose **To copy** to see included items, and open the amber **Exclude instances** control to keep exceptions unchanged. [Verification status](RELEASE-STATUS.md).

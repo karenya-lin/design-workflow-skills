@@ -2,6 +2,8 @@
 
 ## Larger icon controls
 
+Selecting an element automatically collapses RWD, leaving space for inspection. Hover does not collapse it, and the summary row can always reopen settings. The current screenshots below show this selected state. / 選取元素後自動收合 RWD，留空間給檢查；Hover 不收合，需要時可再展開。下方最新截圖呈現選取後的狀態。
+
 Updated 2026-09-15 / 更新日期：2026-09-15。These are the latest header controls; earlier captures below show older text buttons. / 以下是新版工具列，下方較早的截圖仍是舊文字按鈕。
 
 ↻ **Refresh layers / 更新圖層** · − **Collapse / 收合** · × **Close / 關閉** · ⇄ **Rotate / 交換寬高**. Hover to read the localized name. Toolbar actions use 22px icons inside 44px buttons; the RWD chevron is 24px and the DOM chevron is 20px. / Hover 可看名稱，常用按鈕放大；步驟、語言、例外、複製仍保留文字。

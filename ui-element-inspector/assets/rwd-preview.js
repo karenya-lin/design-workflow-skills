@@ -17,6 +17,8 @@
   function filterMarkers(){[...markers.children].forEach(button=>{button.hidden=railMode.value==='copy'&&button.classList.contains('excluded');});}
   railMode.addEventListener('change',filterMarkers);
   const matchDock=document.querySelector('[data-inspector-dock]');
+  // A held selection starts inspection; hovering and tree disclosure are previews only.
+  matchDock.addEventListener('inspector:selected',()=>{document.querySelector('.rwd-controls').open=false;});
   matchDock.addEventListener('inspector:matches',event=>{
     const {items,current}=event.detail;rail.hidden=!items.length;
     if(markers.children.length!==items.length){

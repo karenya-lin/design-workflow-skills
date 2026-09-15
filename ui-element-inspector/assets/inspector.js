@@ -651,6 +651,7 @@
     syncTree(lock);
     describe();
     draw();
+    if(lock)externalHost?.dispatchEvent(new CustomEvent('inspector:selected',{bubbles:true,composed:true}));
   }
   function hit(x, y) {
     return document.elementsFromPoint(x, y).find(node => node !== host && !host.contains(node));
