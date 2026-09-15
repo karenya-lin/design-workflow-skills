@@ -38,7 +38,7 @@ class PreviewServerTests(unittest.TestCase):
     def test_disabled_by_default(self):
         status, data = self.request('GET', '/_inspector/capabilities')
         self.assertEqual(status, 200)
-        self.assertEqual(json.loads(data), {'snipping': False, 'token': None})
+        self.assertEqual(json.loads(data), {'snipping': False, 'printscreen': False, 'token': None})
         self.assertEqual(self.request('POST', '/_inspector/snipping', self.valid_headers())[0], 403)
         self.assertFalse(self.calls)
 
@@ -65,6 +65,17 @@ class PreviewServerTests(unittest.TestCase):
         self.server.launcher = fail
         self.assertEqual(self.request('POST', '/_inspector/snipping', self.valid_headers())[0], 503)
         self.assertFalse(self.calls)
+
+    def test_printscreen_requires_separate_opt_in_and_fixed_post(self):
+        self.server.printscreen_launcher = lambda: self.calls.append('printscreen')
+        self.server.enable_snipping = True
+        self.assertEqual(self.request('POST', '/_inspector/printscreen', self.valid_headers())[0], 403)
+        self.server.enable_printscreen = True
+        self.assertEqual(self.request('GET', '/_inspector/printscreen')[0], 404)
+        self.assertEqual(self.request('POST', '/_inspector/printscreen', {'Origin':'http://evil.example'})[0], 403)
+        self.assertFalse(self.calls)
+        self.assertEqual(self.request('POST', '/_inspector/printscreen', self.valid_headers())[0], 200)
+        self.assertEqual(self.calls, ['printscreen'])
 
 
 if __name__ == '__main__':

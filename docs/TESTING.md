@@ -95,7 +95,7 @@ capture, annotation, actual paste and assistive-technology output remain unverif
 缺少外部 skill 時不自動安裝、規則衝突時不擴張權限。瀏覽器／OAuth 需要另行安全驗收。
 測試紀錄請分清「已測」「來源推論」「未驗」，不要把私人紀錄放公開 GitHub。
 
-## Compact inspector follow-up (2026-09-15)
+## Earlier compact inspector snapshot (2026-09-15)
 
 Current redesigned public browser smoke: 46 PASS, 0 FAIL. Includes numbered Step 1/2/3 navigation, selection prerequisites, preserved requests/exclusions on Back, one-row categories, full-viewport layout beyond 600px, fixed copy actions while context scrolls, visible unsafe-load feedback, explicit close controls in short windows, collapsible RWD controls, device presets, layer hover, stable selection, keyboard navigation, matching/exclusions/copy and cleanup.
 
@@ -104,3 +104,22 @@ A separate local flow check passed at 320×600, 390×844, 768×1024, 1280×900, 
 Current Python suite: 44 PASS, including a distribution check for all 13 portable bilingual lifecycle guides and SVG diagrams. All 13 diagrams were rendered and visually inspected; text bounds stayed inside their SVG canvases. The diagrams are instructional, not evidence of 13 AI workflows being executed. Account connections, OAuth, real deliveries and scheduled routine execution are not tested by these checks. Users must trial-run routines as described in [plain-language security](../SECURITY.md).
 
 CSS samples are approximate, not real-device verification. Native clipboard is mocked and Snipping Tool is not launched. Earlier screenshot/contrast checks above are historical, not a full re-audit of this layout. These results do not certify NN/g, WCAG or PCI compliance.
+
+## Four-language visual delivery (2026-09-15)
+
+- Python suite: 47 PASS. Includes opt-in Print Screen request guards, 14 portable skill guides and 84 step images, local documentation links, and generated locale asset consistency.
+- Public inspector smoke: 46 PASS. Locale/capture suite: 72 PASS, including four languages across six viewport sizes, first-use guidance, reduced motion, selection/request/exclusion preservation, readable capture brief, 100% preview and helper-unavailable fallback.
+- Figma rebrand coverage checker: 12 Node tests PASS. This is manifest bookkeeping, not a Figma visual or prototype test.
+- All 84 step images were visually reviewed: six actual synthetic inspector captures and 78 rendered instructional examples. Examples are not evidence that an AI ran the corresponding workflow or connected an account.
+- Both published WebM videos played locally without media errors: English 23 seconds, Traditional Chinese 20.12 seconds, 1440×900. Start/middle/end frames were visually inspected. They are silent tutorials; clipboard success is mocked and native capture buttons are not invoked.
+
+Run the extra synthetic browser suite against the same local asset server used above:
+
+```sh
+playwright-cli -s=skills-smoke run-code --filename tests/browser/locales-capture.js
+node --test figma-workflow-rebrand/scripts/check-coverage.test.mjs
+```
+
+Native Print Screen capture/paste, assistive-technology output, real-device rendering, account/OAuth flows and all AI-host combinations remain unverified. French/Japanese cover the UI and quickstart indexes; full per-skill manuals, screenshots and videos are EN/ZH. These checks do not certify WCAG or PCI compliance.
+
+繁中：本輪 47 個 Python、46 個基本瀏覽器、72 個語言／截圖、12 個 Node 測試通過。84 張圖與兩支影片已檢視；非 UI Inspect 圖為教學示範，不是各工作流程執行證據。原生截圖貼上、輔助科技與真機仍待使用者環境驗收。

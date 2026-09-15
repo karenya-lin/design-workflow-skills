@@ -1,8 +1,37 @@
 # Design Workflow Skills
 
-[13 個 skills 完整圖解 / All 13 skill guides](docs/SKILL-MAP.md) · [UI Inspect 畫面 / Screenshots](docs/VISUAL-GUIDE.md)
+## How to use · quick links
 
-![點選、確認範圍與複製 / Point, scope and copy](docs/images/inspector-02-scope.png)
+### Minimum install and optional companions
+
+Install only what your task needs; all 14 skills are not mandatory. Use the [folder-copy installation guide](docs/BEGINNER.en.md#1-download-and-install), preserving each selected skill's bundled references, scripts and assets.
+
+| When needed | Install / connect | If absent |
+|---|---|---|
+| Rebrand a Figma workflow | `figma-workflow-rebrand` and its bundled files | This workflow is unavailable |
+| Actually read/write Figma | A separately authorized connector with the required capabilities, plus its operation-specific skill when required | No Figma changes; report missing capability |
+| Save shared preferences | Optional `optional-skill-profile` | Session-only preferences; do not claim persistence |
+| Additional Figma editing guidance | Optional `figma-write` when relevant | Follow rebrand and connector rules |
+| Design/accessibility review | Optional `ui-design-review`, `uiux-checks` or `a11y-review` as needed | Identify reviews not performed |
+
+Python 3.11+ is needed for Python settings/profile helpers and the runner. Node.js (tested with Node 22) is needed only when running the rebrand coverage checker. Neither runtime is a skill or an account authorization.
+
+| English | 繁體中文 | Français | 日本語 |
+|---|---|---|---|
+| [Start & shortcuts](docs/HOW-TO.en.md) | [啟動與快捷鍵](docs/HOW-TO.zh-TW.md) | [Démarrer et raccourcis](docs/HOW-TO.fr.md) | [使い方・ショートカット](docs/HOW-TO.ja.md) |
+
+[Install](docs/BEGINNER.en.md) · [Settings & custom scripts](docs/USAGE.en.md) · [Every step below](#step-by-step-pictures) · [Keyboard / Print Screen](docs/HOW-TO.en.md#keyboard-and-screenshot-shortcuts)
+
+[![Watch the English walkthrough](docs/images/inspector-04-capture-en.png)](docs/videos/inspector-en.webm)
+
+**[▶ Watch video · 23 seconds](docs/videos/inspector-en.webm)** · [English video](docs/videos/inspector-en.webm) · [繁中影片](docs/videos/inspector-zh-TW.webm) · [Transcript / 文字步驟](docs/videos/README.md)
+
+Actual local demo, silent video. Clipboard is mocked; native capture is not invoked. Download the WebM if GitHub does not play it. French/Japanese cover the inspector and quick-start pages; full skill guides and videos are EN/ZH.
+
+
+
+[14 個 skills 完整圖解 / All 14 skill guides](docs/SKILL-MAP.md) · [UI Inspect 畫面 / Screenshots](docs/VISUAL-GUIDE.md)
+
 
 Configurable skills for design reviews, UI quality checks and work coordination.
 Installing this package does not connect accounts or create automatic schedules.
@@ -28,6 +57,7 @@ Each guide covers project types, lifecycle stages, preparation, Step 1/2/3, fini
 | [audit-fix-loop-no-preview](audit-fix-loop-no-preview/references/quickstart.md) | Continue source-backed triage and safe fixes when a browser is unavailable. Explicit visual and interaction gaps make later handoff clearer without falsely marking completion. |
 | [variant-review-loop](variant-review-loop/references/quickstart.md) | Stable IDs and side-by-side visuals make each alternative easy to reference. Recording tradeoffs and decisions reduces confusion when revisiting earlier directions. |
 | [figma-write](figma-write/references/quickstart.md) | Inspect containers and variables before editing to preserve design-system consistency. Small changes followed by property and screenshot checks help catch sizing or binding errors early. |
+| [figma-workflow-rebrand](figma-workflow-rebrand/references/quickstart.md) | Map the new brand across the complete frame set while preserving workflow and design details. Track screens, states and links individually to reduce missed overlays and partial rebrands. |
 | [multi-session-protocol](multi-session-protocol/references/quickstart.md) | Explicit owners and file scopes reduce accidental work overwrites. Revision and verification receipts make handoffs easier to assess without guessing progress. |
 | [content-pipeline-dashboard](content-pipeline-dashboard/references/quickstart.md) | Put drafts, media and locale progress in one matrix to spot blockers. Separating draft, reviewed and public states prevents private delivery from being mistaken for publication. |
 | [work-sync-daily](work-sync-daily/references/quickstart.md) | Read-only reconciliation reveals gaps and duplicates before changing records. Explicit before/after approvals make updates easier to trace. |
@@ -56,7 +86,7 @@ Combine this bundle with other installed skills using the
 coordinator, shared preflight, explicit ownership and separate evidence per step.
 External skill declarations do not install or certify those skills.
 
-## Included: 13 skills
+## Included: 14 skills
 
 - `optional-skill-profile`: optional onboarding, local persistence, preview and editing.
 - `ui-element-inspector`: hover to identify DOM elements/parent containers and copy context for AI.
@@ -66,13 +96,14 @@ External skill declarations do not install or certify those skills.
 - `variant-review-loop`: stable design IDs and recorded convergence decisions.
 - `multi-session-protocol`: acknowledged ownership and handoffs.
 - `figma-write`: inspected token/layout changes and read-back evidence.
+- `figma-workflow-rebrand`: adapt complete frame sets while preserving the source and tracking states and prototype links.
 - `ui-design-review`: design/implementation comparison and scoped corrections.
 - `a11y-review`: technical accessibility evidence; no unverified legal tables.
 - `uiux-checks`: configurable overall quality review.
 - `audit-fix-loop-no-preview`: source-backed triage and approved fixes.
 - `content-pipeline-dashboard`: content ID/locale progress reconciliation.
 
-Install these thirteen sibling directories together into the skill directory supported
+Install these fourteen sibling directories together into the skill directory supported
 by your agent. The profile helper requires Python 3.11+, standard library only.
 The other skills explicitly read the sibling profile skill. If it is missing,
 they operate without persistence and explain that limitation. There is no hook,
@@ -122,3 +153,193 @@ Run `python -m unittest discover -s tests -v`. Tests use temporary directories a
 synthetic data. They do not connect accounts, stop processes or access a website.
 Agent/browser/OAuth behavior still requires a separately authorized integration test.
 See [testing and manual acceptance](docs/TESTING.md).
+
+<a id="step-by-step-pictures"></a>
+
+## Step-by-step pictures
+
+Click a skill below to jump; expand its gallery and click a picture for full size. UI Inspect images are actual local UI captures. Other skills show locally rendered **instructional examples**, not live AI/service execution.
+
+[a11y-review](#guide-a11y-review) · [audit-fix-loop-no-preview](#guide-audit-fix-loop-no-preview) · [content-pipeline-dashboard](#guide-content-pipeline-dashboard) · [figma-workflow-rebrand](#guide-figma-workflow-rebrand) · [figma-write](#guide-figma-write) · [multi-session-protocol](#guide-multi-session-protocol) · [optional-skill-profile](#guide-optional-skill-profile) · [states-preview-loop](#guide-states-preview-loop) · [ui-design-review](#guide-ui-design-review) · [ui-element-inspector](#guide-ui-element-inspector) · [uiux-checks](#guide-uiux-checks) · [variant-review-loop](#guide-variant-review-loop) · [work-report-weekly](#guide-work-report-weekly) · [work-sync-daily](#guide-work-sync-daily)
+
+<a id="guide-a11y-review"></a>
+
+<details>
+<summary>a11y-review · Instructional examples · Step 1 → 2 → 3</summary>
+
+[Complete how-to, options and finish](a11y-review/references/quickstart.md)
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![a11y-review Step 1 en](a11y-review/references/screenshots/step-01-en.png)](a11y-review/references/screenshots/step-01-en.png) | [![a11y-review Step 2 en](a11y-review/references/screenshots/step-02-en.png)](a11y-review/references/screenshots/step-02-en.png) | [![a11y-review Step 3 en](a11y-review/references/screenshots/step-03-en.png)](a11y-review/references/screenshots/step-03-en.png) |
+
+</details>
+
+<a id="guide-audit-fix-loop-no-preview"></a>
+
+<details>
+<summary>audit-fix-loop-no-preview · Instructional examples · Step 1 → 2 → 3</summary>
+
+[Complete how-to, options and finish](audit-fix-loop-no-preview/references/quickstart.md)
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![audit-fix-loop-no-preview Step 1 en](audit-fix-loop-no-preview/references/screenshots/step-01-en.png)](audit-fix-loop-no-preview/references/screenshots/step-01-en.png) | [![audit-fix-loop-no-preview Step 2 en](audit-fix-loop-no-preview/references/screenshots/step-02-en.png)](audit-fix-loop-no-preview/references/screenshots/step-02-en.png) | [![audit-fix-loop-no-preview Step 3 en](audit-fix-loop-no-preview/references/screenshots/step-03-en.png)](audit-fix-loop-no-preview/references/screenshots/step-03-en.png) |
+
+</details>
+
+<a id="guide-content-pipeline-dashboard"></a>
+
+<details>
+<summary>content-pipeline-dashboard · Instructional examples · Step 1 → 2 → 3</summary>
+
+[Complete how-to, options and finish](content-pipeline-dashboard/references/quickstart.md)
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![content-pipeline-dashboard Step 1 en](content-pipeline-dashboard/references/screenshots/step-01-en.png)](content-pipeline-dashboard/references/screenshots/step-01-en.png) | [![content-pipeline-dashboard Step 2 en](content-pipeline-dashboard/references/screenshots/step-02-en.png)](content-pipeline-dashboard/references/screenshots/step-02-en.png) | [![content-pipeline-dashboard Step 3 en](content-pipeline-dashboard/references/screenshots/step-03-en.png)](content-pipeline-dashboard/references/screenshots/step-03-en.png) |
+
+</details>
+
+<a id="guide-figma-workflow-rebrand"></a>
+
+<details>
+<summary>figma-workflow-rebrand · Instructional examples · Step 1 → 2 → 3</summary>
+
+[Complete how-to, options and finish](figma-workflow-rebrand/references/quickstart.md)
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![figma-workflow-rebrand Step 1 en](figma-workflow-rebrand/references/screenshots/step-01-en.png)](figma-workflow-rebrand/references/screenshots/step-01-en.png) | [![figma-workflow-rebrand Step 2 en](figma-workflow-rebrand/references/screenshots/step-02-en.png)](figma-workflow-rebrand/references/screenshots/step-02-en.png) | [![figma-workflow-rebrand Step 3 en](figma-workflow-rebrand/references/screenshots/step-03-en.png)](figma-workflow-rebrand/references/screenshots/step-03-en.png) |
+
+</details>
+
+<a id="guide-figma-write"></a>
+
+<details>
+<summary>figma-write · Instructional examples · Step 1 → 2 → 3</summary>
+
+[Complete how-to, options and finish](figma-write/references/quickstart.md)
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![figma-write Step 1 en](figma-write/references/screenshots/step-01-en.png)](figma-write/references/screenshots/step-01-en.png) | [![figma-write Step 2 en](figma-write/references/screenshots/step-02-en.png)](figma-write/references/screenshots/step-02-en.png) | [![figma-write Step 3 en](figma-write/references/screenshots/step-03-en.png)](figma-write/references/screenshots/step-03-en.png) |
+
+</details>
+
+<a id="guide-multi-session-protocol"></a>
+
+<details>
+<summary>multi-session-protocol · Instructional examples · Step 1 → 2 → 3</summary>
+
+[Complete how-to, options and finish](multi-session-protocol/references/quickstart.md)
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![multi-session-protocol Step 1 en](multi-session-protocol/references/screenshots/step-01-en.png)](multi-session-protocol/references/screenshots/step-01-en.png) | [![multi-session-protocol Step 2 en](multi-session-protocol/references/screenshots/step-02-en.png)](multi-session-protocol/references/screenshots/step-02-en.png) | [![multi-session-protocol Step 3 en](multi-session-protocol/references/screenshots/step-03-en.png)](multi-session-protocol/references/screenshots/step-03-en.png) |
+
+</details>
+
+<a id="guide-optional-skill-profile"></a>
+
+<details>
+<summary>optional-skill-profile · Instructional examples · Step 1 → 2 → 3</summary>
+
+[Complete how-to, options and finish](optional-skill-profile/references/quickstart.md)
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![optional-skill-profile Step 1 en](optional-skill-profile/references/screenshots/step-01-en.png)](optional-skill-profile/references/screenshots/step-01-en.png) | [![optional-skill-profile Step 2 en](optional-skill-profile/references/screenshots/step-02-en.png)](optional-skill-profile/references/screenshots/step-02-en.png) | [![optional-skill-profile Step 3 en](optional-skill-profile/references/screenshots/step-03-en.png)](optional-skill-profile/references/screenshots/step-03-en.png) |
+
+</details>
+
+<a id="guide-states-preview-loop"></a>
+
+<details>
+<summary>states-preview-loop · Instructional examples · Step 1 → 2 → 3</summary>
+
+[Complete how-to, options and finish](states-preview-loop/references/quickstart.md)
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![states-preview-loop Step 1 en](states-preview-loop/references/screenshots/step-01-en.png)](states-preview-loop/references/screenshots/step-01-en.png) | [![states-preview-loop Step 2 en](states-preview-loop/references/screenshots/step-02-en.png)](states-preview-loop/references/screenshots/step-02-en.png) | [![states-preview-loop Step 3 en](states-preview-loop/references/screenshots/step-03-en.png)](states-preview-loop/references/screenshots/step-03-en.png) |
+
+</details>
+
+<a id="guide-ui-design-review"></a>
+
+<details>
+<summary>ui-design-review · Instructional examples · Step 1 → 2 → 3</summary>
+
+[Complete how-to, options and finish](ui-design-review/references/quickstart.md)
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![ui-design-review Step 1 en](ui-design-review/references/screenshots/step-01-en.png)](ui-design-review/references/screenshots/step-01-en.png) | [![ui-design-review Step 2 en](ui-design-review/references/screenshots/step-02-en.png)](ui-design-review/references/screenshots/step-02-en.png) | [![ui-design-review Step 3 en](ui-design-review/references/screenshots/step-03-en.png)](ui-design-review/references/screenshots/step-03-en.png) |
+
+</details>
+
+<a id="guide-ui-element-inspector"></a>
+
+<details>
+<summary>ui-element-inspector · Actual UI captures · Step 1 → 2 → 3</summary>
+
+[Complete how-to, options and finish](ui-element-inspector/references/quickstart.md)
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![ui-element-inspector Step 1 en](ui-element-inspector/references/screenshots/step-01-en.png)](ui-element-inspector/references/screenshots/step-01-en.png) | [![ui-element-inspector Step 2 en](ui-element-inspector/references/screenshots/step-02-en.png)](ui-element-inspector/references/screenshots/step-02-en.png) | [![ui-element-inspector Step 3 en](ui-element-inspector/references/screenshots/step-03-en.png)](ui-element-inspector/references/screenshots/step-03-en.png) |
+
+</details>
+
+<a id="guide-uiux-checks"></a>
+
+<details>
+<summary>uiux-checks · Instructional examples · Step 1 → 2 → 3</summary>
+
+[Complete how-to, options and finish](uiux-checks/references/quickstart.md)
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![uiux-checks Step 1 en](uiux-checks/references/screenshots/step-01-en.png)](uiux-checks/references/screenshots/step-01-en.png) | [![uiux-checks Step 2 en](uiux-checks/references/screenshots/step-02-en.png)](uiux-checks/references/screenshots/step-02-en.png) | [![uiux-checks Step 3 en](uiux-checks/references/screenshots/step-03-en.png)](uiux-checks/references/screenshots/step-03-en.png) |
+
+</details>
+
+<a id="guide-variant-review-loop"></a>
+
+<details>
+<summary>variant-review-loop · Instructional examples · Step 1 → 2 → 3</summary>
+
+[Complete how-to, options and finish](variant-review-loop/references/quickstart.md)
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![variant-review-loop Step 1 en](variant-review-loop/references/screenshots/step-01-en.png)](variant-review-loop/references/screenshots/step-01-en.png) | [![variant-review-loop Step 2 en](variant-review-loop/references/screenshots/step-02-en.png)](variant-review-loop/references/screenshots/step-02-en.png) | [![variant-review-loop Step 3 en](variant-review-loop/references/screenshots/step-03-en.png)](variant-review-loop/references/screenshots/step-03-en.png) |
+
+</details>
+
+<a id="guide-work-report-weekly"></a>
+
+<details>
+<summary>work-report-weekly · Instructional examples · Step 1 → 2 → 3</summary>
+
+[Complete how-to, options and finish](work-report-weekly/references/quickstart.md)
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![work-report-weekly Step 1 en](work-report-weekly/references/screenshots/step-01-en.png)](work-report-weekly/references/screenshots/step-01-en.png) | [![work-report-weekly Step 2 en](work-report-weekly/references/screenshots/step-02-en.png)](work-report-weekly/references/screenshots/step-02-en.png) | [![work-report-weekly Step 3 en](work-report-weekly/references/screenshots/step-03-en.png)](work-report-weekly/references/screenshots/step-03-en.png) |
+
+</details>
+
+<a id="guide-work-sync-daily"></a>
+
+<details>
+<summary>work-sync-daily · Instructional examples · Step 1 → 2 → 3</summary>
+
+[Complete how-to, options and finish](work-sync-daily/references/quickstart.md)
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![work-sync-daily Step 1 en](work-sync-daily/references/screenshots/step-01-en.png)](work-sync-daily/references/screenshots/step-01-en.png) | [![work-sync-daily Step 2 en](work-sync-daily/references/screenshots/step-02-en.png)](work-sync-daily/references/screenshots/step-02-en.png) | [![work-sync-daily Step 3 en](work-sync-daily/references/screenshots/step-03-en.png)](work-sync-daily/references/screenshots/step-03-en.png) |
+
+</details>

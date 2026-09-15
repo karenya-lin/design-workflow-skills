@@ -2,6 +2,8 @@
 
 All fields optional; absence means no configured preference. `null` clears a field.
 
+For `language`, use `auto` to follow the agent host's known preference (English if none is available), or choose `en`, `zh-TW`, `fr`, `ja` or another explicitly requested response language. The browser Inspector has its own four-language selector; the Python menu itself currently has English/Traditional Chinese labels. An agent must pass a known language explicitly rather than claiming cross-app settings access.
+
 | Field | Type / meaning |
 |---|---|
 | setup_seen | boolean; remember that setup was offered, including skip |

@@ -109,3 +109,11 @@ Sources: [PCI SSC](https://www.pcisecuritystandards.org/standards/pci-dss/),
 
 Third-party handling: [THIRD_PARTY.md](THIRD_PARTY.md).
 Reference: https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html
+
+## Optional native capture controls / 選用原生截圖
+
+The local helper disables both native actions by default. `--enable-snipping` permits the fixed Snipping Tool launch; `--enable-printscreen` permits a fixed Windows Print Screen key event. Each requires a user click and an exact local Host/Origin plus the helper token. No arbitrary command, key, path or request body is accepted. Stop the foreground helper with Ctrl+C. Print Screen behavior depends on Windows settings; a successful request is not evidence that an image was captured, saved or pasted.
+
+Both actions can expose whatever is visible on the desktop. Clear private windows first. The capture brief intentionally includes the selected selector and the text you typed: review those before sharing. The tool does not read the system clipboard, upload captures or authorize any AI service. Browser DOM separation is not isolation from a hostile inspected page.
+
+兩個原生功能預設關閉，需分別啟用並由使用者點擊。Print Screen 依 Windows 設定動作，可能包含其他桌面視窗；請先清除私密內容。修改單刻意顯示所選元素與你輸入的需求，分享前需確認。本工具不讀取剪貼簿、不上傳截圖，也不替你授權外部服務。

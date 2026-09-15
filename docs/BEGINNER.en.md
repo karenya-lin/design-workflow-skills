@@ -44,7 +44,7 @@ These are local discovery locations from the official documentation. Cloud sessi
 may not have access to local folders. Sources: [Codex](https://learn.chatgpt.com/docs/build-skills),
 [Claude Code](https://code.claude.com/docs/en/skills).
 
-Copy the **13 skill folders** listed on the home page into
+Choose the skill folders needed for your task from the **14 available skills** and copy them into
 your chosen directory, keeping them as siblings so their relative references work:
 
 ```text
@@ -70,7 +70,7 @@ If installation feels unfamiliar, ask your agent:
 
 > Read this bundle's README and SECURITY first. I use [Codex / Claude Code] and want
 > [project / personal] installation. List source and destination folders and all name
-> conflicts. Do not overwrite existing files. After my confirmation, copy the 13
+> conflicts. Do not overwrite existing files. After my confirmation, copy the selected
 > skill folders, check SKILL.md and relative references, and explain how to
 > invoke them in a new conversation.
 
@@ -201,3 +201,9 @@ After a fix, run affected verification separately; do not reuse the pre-fix PASS
 | No checks selected | AI-only plans are valid, but not evidence of passing tests |
 | Calendar enabled but unreadable | A preference is not a connection; verify tools, actual identity and authorization |
 | Reset everything | Select 6 and 7, then save each with 4 and 5; revoke OAuth separately |
+
+## Optional coverage checker / 選用清單檢查
+
+The Figma rebrand coverage checker uses Node.js (tested with Node 22), with no npm packages. Node is not required to read the skill instructions.
+
+Figma 換品牌清單檢查器使用 Node.js（Node 22 已測），不需 npm 套件；僅閱讀 skill 流程不需 Node。

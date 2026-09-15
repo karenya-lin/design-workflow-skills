@@ -110,7 +110,7 @@ def remove_item(doc, kind, name):
 
 
 class Menu:
-    def __init__(self, workspace, name='default', language='zh-TW', input_fn=input, output_fn=print):
+    def __init__(self, workspace, name='default', language='en', input_fn=input, output_fn=print):
         self.ask = input_fn
         self.out = output_fn
         self.zh = language == 'zh-TW'
@@ -153,8 +153,8 @@ class Menu:
         self.say('Enter keeps; ! clears. Boolean: 1=yes, 2=no. Lists: comma-separated.',
                  'Enter 保留；! 清除。開關：1=是，2=否。清單用逗號分隔。')
         if key == 'language':
-            self.say('Suggested: en or zh-TW; other response languages are also accepted.',
-                     '建議 en 或 zh-TW；也可輸入其他回覆語言。')
+            self.say('Response language: auto (AI default), en, zh-TW, fr or ja. Other languages are also accepted.',
+                     '回覆語言：auto（AI 預設）、en、zh-TW、fr、ja；也可輸入其他語言。')
         raw = self.prompt('New value (no secrets): ', '新值（不可放密碼或 Token）：')
         if raw:
             value = parse_value(key, raw)
@@ -306,7 +306,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--workspace', required=True)
     parser.add_argument('--profile', default='default')
-    parser.add_argument('--language', choices=['en', 'zh-TW'], default='zh-TW')
+    parser.add_argument('--language', choices=['en', 'zh-TW'], default='en')
     args = parser.parse_args()
     try:
         return Menu(args.workspace, args.profile, args.language).run()

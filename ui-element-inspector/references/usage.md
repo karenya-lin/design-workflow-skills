@@ -1,5 +1,17 @@
 # Using the UI element inspector / 使用 UI 元素指認
 
+## Language and current capture flow / 語言與目前截圖流程
+
+UI: Auto, en, zh-TW, fr, ja. Explicit choice wins; Auto uses an AI-passed `aiLanguage`/`aiLang`, then page language, browser language, finally English. Set `window.DesignWorkflowInspectorOptions = {language:'auto', aiLanguage:'en'}` before injecting, or append `?lang=en` to the included workspace. No AI-account setting is read. First use briefly highlights language and steps; reduced motion uses a static outline, with no persistence.
+
+介面四語可選，手動優先；自動模式看 AI 明確帶入的偏好、頁面、瀏覽器，最後英文。不讀取 AI 帳號設定，不偷偷保存。第一次短暫亮起語言與步驟，可關閉，減少動態效果時只用靜態框。
+
+Capture: enter your request → Screenshot → Prepare → keep outlines and show the change brief. The target, selector, exclusions and verbatim request remain readable together. The external preview switches to 100%; long content may need multiple images and full copied text. Windows PrtSc follows OS settings; Win+Shift+S and Mac Shift+Cmd+4 remain manual alternatives. The helper supports separate opt-ins `--enable-printscreen` and `--enable-snipping`, both off by default. Native requests require a user click, do not read the clipboard and do not prove capture/paste success. Automated tests mock native actions.
+
+截圖前先填需求，進截圖模式後會保留目標、位置、例外與完整需求；外框預覽改為 100%。長文需分張或附完整複製文字。PrtSc 依 Windows 設定動作；兩種原生按鈕分別需要開關，預設關閉。不讀剪貼簿，也不把成功送出請求當截圖完成。
+
+[Portable step pictures / 安裝後仍可看的圖解](quickstart.md#每步畫面--step-pictures). In a full checkout also see the four-language How-to pages under `docs/` and `docs/videos/README.md`.
+
 [圖解操作 / Visual walkthrough](../../docs/VISUAL-GUIDE.md)
 
 ## English
@@ -72,7 +84,7 @@ review this bundle and let the agent explain the exact activation in your own ap
 | 面板換邊 | Move panel to the opposite side if it covers the target |
 | 複製元素位置 | Copy a current DOM selector |
 | 複製修改需求 | Copy the report after editing/redacting it in the text field |
-| 準備截圖 | Show shortcut instructions, then hide panel and keep outlines |
+| 準備截圖 | Require a selected element and request; show a readable capture brief and keep outlines |
 | Escape | Restore screenshot panel, or close the tool if panel is already visible |
 
 The displayed selector is unique for the selected DOM snapshot (unique id/test ID,
@@ -155,7 +167,7 @@ Hover 顯示青色框與名稱；點選後的黃框和需求保持不變，仍�
 Canvas、iframe、shadow root 內部與 CSS 偽元素不能靠此工具指認。
 頁面換路由、排序或重建後，請重新選取，不沿用可能過時的 selector。
 
-「準備截圖」先顯示說明，再隱藏面板、保留框線。按 **Win+Shift+S** 剪取，
+「準備截圖」需先選取元素並填寫需求，再保留框線與可讀修改單，隱藏編輯工具。按 **Win+Shift+S** 剪取，
 在系統工具畫記／加文字後自行貼給 AI。Mac 用 Shift+Cmd+4。
 Esc 回面板，再 Esc 關閉。未開啟本機支援時，網頁按鈕不能直接叫起 Windows 原生剪取程式，也不會
 讀取截圖或確認傳送。若剪貼簿權限不允許，改 Ctrl+C／Cmd+C 複製已選取的文字。

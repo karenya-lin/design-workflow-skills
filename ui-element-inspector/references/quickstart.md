@@ -97,3 +97,19 @@ UI Inspect：按「關閉 ×」或 Esc 移除 overlay；截圖模式先按一次
 Current DOM matches do not prove all project usages or React source filenames.
 
 [回到 skill 規則 / Skill instructions](../SKILL.md)
+
+## 每步畫面 / Step pictures
+
+實際本機示範畫面 / Actual local demo captures.
+
+### English
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![Step 1 en](screenshots/step-01-en.png)](screenshots/step-01-en.png) | [![Step 2 en](screenshots/step-02-en.png)](screenshots/step-02-en.png) | [![Step 3 en](screenshots/step-03-en.png)](screenshots/step-03-en.png) |
+
+### 繁體中文
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![Step 1 zh-TW](screenshots/step-01-zh-TW.png)](screenshots/step-01-zh-TW.png) | [![Step 2 zh-TW](screenshots/step-02-zh-TW.png)](screenshots/step-02-zh-TW.png) | [![Step 3 zh-TW](screenshots/step-03-zh-TW.png)](screenshots/step-03-zh-TW.png) |

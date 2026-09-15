@@ -34,7 +34,11 @@
     <div class="sample-form"><label for="private-demo">假資料測試欄位（工具不讀取 value）</label><input id="private-demo" type="password" value="SYNTHETIC-DO-NOT-COPY" autocomplete="off"></div>
     <p>關閉工具後，頁面按鈕恢復正常。這不是對任意網站的安全隔離保證，只在已授權的本機預覽使用。</p>
   </main>
+  <script src="i18n.js"></script>
   <script>
+    window.DesignWorkflowLocale.bind(document.documentElement);
+    document.documentElement.lang=window.DesignWorkflowLocale.current();
+    window.addEventListener('workflow:language',()=>{document.documentElement.lang=window.DesignWorkflowLocale.current();});
     let count = 0;
     document.querySelectorAll('.card-action').forEach(button => button.addEventListener('click', () => {
       document.querySelector('#action-count').textContent = `頁面按鈕觸發：${++count} 次`;

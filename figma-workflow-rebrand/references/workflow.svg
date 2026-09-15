@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="350" viewBox="0 0 960 350" role="img" aria-labelledby="title desc">
+<title id="title">整套 Figma 換品牌 / Rebrand a complete Figma workflow</title>
+<desc id="desc">Three instructional steps: inventory screens and links, pilot and apply the new brand, then check states and prototype branches. Preserve the original design throughout. This is not a screenshot of an executed project.</desc>
+<rect width="960" height="350" rx="16" fill="#f4f7f8"/>
+<g font-family="system-ui, sans-serif">
+<text x="28" y="36" font-size="20" font-weight="700" fill="#20313f">整套 Figma 換品牌</text>
+<text x="28" y="61" font-size="13" fill="#526475">figma-workflow-rebrand</text>
+<rect x="28" y="88" width="288" height="198" rx="12" fill="#fff" stroke="#c9d8de"/>
+<rect x="46" y="107" width="38" height="38" rx="10" fill="#0f766e"/>
+<text x="65" y="133" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">1</text>
+<text x="46" y="180" font-size="19" font-weight="650" fill="#20313f">盤點全部畫面</text>
+<text x="46" y="207" font-size="14" fill="#526475">Inventory the whole workflow</text>
+<text x="46" y="246" font-size="13" fill="#526475">畫面、狀態、連結與品牌素材</text>
+<path d="M319 183h14m-5-5 5 5-5 5" fill="none" stroke="#0f766e" stroke-width="2"/>
+<rect x="336" y="88" width="288" height="198" rx="12" fill="#fff" stroke="#c9d8de"/>
+<rect x="354" y="107" width="38" height="38" rx="10" fill="#0f766e"/>
+<text x="373" y="133" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">2</text>
+<text x="354" y="180" font-size="19" font-weight="650" fill="#20313f">試做並套用新品牌</text>
+<text x="354" y="207" font-size="14" fill="#526475">Pilot and apply the brand</text>
+<text x="354" y="246" font-size="13" fill="#526475">保留原稿，分批處理新版本</text>
+<path d="M627 183h14m-5-5 5 5-5 5" fill="none" stroke="#0f766e" stroke-width="2"/>
+<rect x="644" y="88" width="288" height="198" rx="12" fill="#fff" stroke="#c9d8de"/>
+<rect x="662" y="107" width="38" height="38" rx="10" fill="#0f766e"/>
+<text x="681" y="133" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">3</text>
+<text x="662" y="180" font-size="19" font-weight="650" fill="#20313f">檢查狀態與流程</text>
+<text x="662" y="207" font-size="14" fill="#526475">Check every state and branch</text>
+<text x="662" y="246" font-size="13" fill="#526475">逐張檢查，走過連結再交付</text>
+<text x="28" y="323" font-size="12" fill="#526475">流程教學圖 / Instructional diagram · 原稿保持不變 / Preserve the original</text>
+</g></svg>

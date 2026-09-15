@@ -93,7 +93,7 @@ After copying, switch to your AI chat and paste/send it yourself. The tool does 
 
 ## 選用：截圖畫記 / Optional screenshot annotation
 
-**截圖 → 準備截圖 → 保留框線，隱藏面板 → Win+Shift+S**。剪取、畫記後自行貼給 AI；Esc 恢復面板。Mac 用 Shift+Cmd+4。
+**先選元素並填需求 → 截圖 → 準備截圖 → 保留框線與修改單 → Win+Shift+S**。剪取、畫記後自行貼給 AI；Esc 恢復面板。Mac 用 Shift+Cmd+4。
 
 For optional click-to-launch Windows support, start with `--enable-snipping`, click **開啟 Windows 剪取工具**, then choose New in the native app. Otherwise use the keyboard shortcut. This tool does not capture, read, upload or confirm delivery of screenshots.
 
@@ -104,3 +104,23 @@ For optional click-to-launch Windows support, start with `--enable-snipping`, cl
 > 使用 ui-element-inspector。先檢查我的本機專案與測試授權，再開啟指認工具。我會把位置、例外和修改需求貼給你；請查原始碼，不猜元件檔名，也不要自動部署。
 
 > Use ui-element-inspector. Inspect my local project and test authorization, then open the tool. I will paste locations, exceptions and requested changes. Verify source and usages; do not guess component filenames or deploy automatically.
+
+## Four languages and first-use guidance / 四語與首次引導
+
+[Start and shortcuts](HOW-TO.en.md) · [繁中快捷索引](HOW-TO.zh-TW.md) · [Français](HOW-TO.fr.md) · [日本語](HOW-TO.ja.md) · [Videos and transcript / 影片與步驟](videos/README.md)
+
+Choose a language at the highlighted control, then follow Step 1 → 2 → 3. The brief glow can be dismissed and becomes static with reduced motion. It repeats after a page reload, not every time the inspector reopens in the same page session.
+
+先在亮起的語言選單選語言，再走 Step 1 → 2 → 3。提示可關閉，減少動態效果時只顯示靜態框線；同頁重開不重複，重新載入頁面才重新提示。
+
+![English first activation](images/inspector-00-language-en.png)
+![繁中首次啟動](images/inspector-00-language-zh-TW.png)
+
+Before capture, select an element and enter the change. The capture brief retains the selector, exclusions and exact request beside the outlined target. The preview is at 100%; scroll to the target and use multiple captures for long content. Check for private information before sharing.
+
+截圖前先選元素並填需求；修改單保留元素位置、例外與原文，和目標框線一起入鏡。預覽為 100%，長文或大範圍需分張，分享前檢查私密資料。
+
+![Readable English capture brief](images/inspector-04-capture-en.png)
+![可讀的繁中修改單](images/inspector-04-capture-zh-TW.png)
+
+`--enable-printscreen` enables the explicit Print Screen button on Windows; `--enable-snipping` separately enables Snipping Tool. Both are off by default. Otherwise use your keyboard shortcuts. A successful launch request does not verify capture or paste.

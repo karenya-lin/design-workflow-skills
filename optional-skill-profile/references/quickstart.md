@@ -97,3 +97,19 @@ Profile：儲存後讀回值與 revision；重設只清本機 profile，不撤�
 Saved identity is not OAuth; preferences do not grant write permission.
 
 [回到 skill 規則 / Skill instructions](../SKILL.md)
+
+## 每步畫面 / Step pictures
+
+本機排版的教學示範，不代表已連接帳號或完成操作。 / Locally rendered instructional examples, not live account or agent execution.
+
+### English
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![Step 1 en](screenshots/step-01-en.png)](screenshots/step-01-en.png) | [![Step 2 en](screenshots/step-02-en.png)](screenshots/step-02-en.png) | [![Step 3 en](screenshots/step-03-en.png)](screenshots/step-03-en.png) |
+
+### 繁體中文
+
+| Step 1 | Step 2 | Step 3 |
+|---|---|---|
+| [![Step 1 zh-TW](screenshots/step-01-zh-TW.png)](screenshots/step-01-zh-TW.png) | [![Step 2 zh-TW](screenshots/step-02-zh-TW.png)](screenshots/step-02-zh-TW.png) | [![Step 3 zh-TW](screenshots/step-03-zh-TW.png)](screenshots/step-03-zh-TW.png) |

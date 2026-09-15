@@ -44,7 +44,7 @@ cd design-workflow-skills
 來源：[Codex](https://learn.chatgpt.com/docs/build-skills)、
 [Claude Code](https://code.claude.com/docs/en/skills)。
 
-將首頁列出的 **13 個 skill 資料夾**複製到所選目錄，
+從首頁 **14 個可用 skills** 中選擇本次需要的資料夾，複製到所選目錄，
 維持同層關係，讓相互引用可讀。例如：
 
 ```text
@@ -68,7 +68,7 @@ docs、根目錄 scripts 與 tests 留在原工具包，用來讀教學、開設
 
 > 請先讀 design-workflow-skills 的 README 與 SECURITY。我使用［Codex／Claude Code］，
 > 要安裝到［此專案／個人］範圍。先列出來源、目的資料夾與同名衝突，
-> 不覆蓋任何已有檔案。得到我的確認再複製 13 個 skill 資料夾。
+> 不覆蓋任何已有檔案。得到我的確認再複製所選的 skill 資料夾。
 > 完成後檢查 SKILL.md 及相對引用可讀，告訴我怎麼在新對話觸發。
 
 ## 2. 一個快捷 Script 開設定選單
@@ -196,3 +196,9 @@ Runner 只會跑核准指令，不會自動召喚 AI 或交錯「修補→重驗
 | 想重設全部 | 選 6、7，再各自 4、5 確認；OAuth 另行撤銷 |
 
 更多選項：[English / 繁中使用說明](USAGE.zh-TW.md)。
+
+## Optional coverage checker / 選用清單檢查
+
+The Figma rebrand coverage checker uses Node.js (tested with Node 22), with no npm packages. Node is not required to read the skill instructions.
+
+Figma 換品牌清單檢查器使用 Node.js（Node 22 已測），不需 npm 套件；僅閱讀 skill 流程不需 Node。

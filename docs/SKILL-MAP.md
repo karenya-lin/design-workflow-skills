@@ -1,4 +1,4 @@
-# 13 skills 圖解入口 / Illustrated skill guide
+# 14 skills 圖解入口 / Illustrated skill guide
 
 每個 skill 都有三步圖、使用時機、中英提示、輸出與合用方式。圖是教學示意，不表示已操作你的帳號或網站。
 
@@ -23,6 +23,7 @@ Every skill has a three-step diagram, use case, bilingual prompt, expected outpu
 | 無預覽時安全修補 / Fix without a preview | [audit-fix-loop-no-preview](../audit-fix-loop-no-preview/references/quickstart.md) |
 | 比較設計方案 / Compare design directions | [variant-review-loop](../variant-review-loop/references/quickstart.md) |
 | 修改 Figma 設計 / Edit Figma designs | [figma-write](../figma-write/references/quickstart.md) |
+| 整套換品牌 / Rebrand workflows | [figma-workflow-rebrand](../figma-workflow-rebrand/references/quickstart.md) |
 | 多 AI 安全交接 / Coordinate multiple agents | [multi-session-protocol](../multi-session-protocol/references/quickstart.md) |
 | 整理內容進度 / Track content readiness | [content-pipeline-dashboard](../content-pipeline-dashboard/references/quickstart.md) |
 | 每日工作對帳 / Reconcile daily work | [work-sync-daily](../work-sync-daily/references/quickstart.md) |
@@ -47,3 +48,9 @@ flowchart LR
 **UI:** profile → states → design → accessibility, coordinated by uiux-checks. **Point-and-change:** inspector → scoped implementation → review. **Explore:** variants → user choice → Figma → review. **Report:** daily reconciliation → weekly draft.
 
 [UI Inspect 實際畫面圖解 / Inspector screenshots](VISUAL-GUIDE.md) · [統一設定與 runner / Settings and runner](USAGE.en.md) · [測試與限制 / Tests and limits](TESTING.md)
+
+
+
+[English shortcuts](HOW-TO.en.md) · [繁中快捷索引](HOW-TO.zh-TW.md) · [Français](HOW-TO.fr.md) · [日本語](HOW-TO.ja.md)
+
+[Every step in English](../README.md#step-by-step-pictures) · [每步繁中圖](../README.zh-TW.md#step-by-step-pictures) · [Videos / 影片](videos/README.md)

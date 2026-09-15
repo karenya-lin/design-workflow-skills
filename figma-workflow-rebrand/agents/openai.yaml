@@ -1,0 +1,4 @@
+interface:
+  display_name: "Figma Workflow Rebrand"
+  short_description: "Rebrand complete Figma workflows while preserving originals"
+  default_prompt: "Use $figma-workflow-rebrand to adapt my complete Figma frame set and workflows to another brand, preserve the original, and check all screens, states, and prototype links."

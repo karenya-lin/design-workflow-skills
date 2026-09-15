@@ -3,7 +3,7 @@ async(page)=>{
   page.setDefaultTimeout(5000);
   await page.route('**/*',r=>r.continue());
   await page.setViewportSize({width:1600,height:600});
-  await page.goto('http://127.0.0.1:4321/rwd-preview.html');
+  await page.goto('http://127.0.0.1:4321/rwd-preview.html?lang=zh-TW');
   const groups=await page.locator('#preset optgroup').evaluateAll(groups=>groups.filter(g=>g.label.includes('8')).map(g=>({brand:g.label,count:new Set([...g.children].map(o=>o.dataset.model)).size})));
   check('three brands each have eight distinct models',groups.length===3&&groups.every(g=>g.count===8));
   const models=await page.locator('#preset option[data-size]').evaluateAll(options=>options.map(o=>({value:o.value,size:o.dataset.size})));

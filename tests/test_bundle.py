@@ -1,5 +1,6 @@
 """Distribution checks for skill discovery and copy-install reference integrity."""
 from pathlib import Path
+import json
 import re
 import shutil
 import tempfile
@@ -10,6 +11,30 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class BundleTests(unittest.TestCase):
+    def test_step_images_are_portable_and_indexed_by_readme_language(self):
+        for locale, filename in [('en', 'README.md'), ('zh-TW', 'README.zh-TW.md')]:
+            readme = (ROOT / filename).read_text(encoding='utf8')
+            for skill in ROOT.glob('*/SKILL.md'):
+                for step in range(1, 4):
+                    image = skill.parent / 'references/screenshots' / f'step-{step:02}-{locale}.png'
+                    with self.subTest(image=image.relative_to(ROOT)):
+                        self.assertTrue(image.read_bytes().startswith(b'\x89PNG\r\n\x1a\n'))
+                        self.assertIn(image.relative_to(ROOT).as_posix(), readme)
+                        guide = (skill.parent / 'references/quickstart.md').read_text(encoding='utf8')
+                        self.assertIn(f'screenshots/{image.name}', guide)
+
+    def test_embedded_locale_runtime_matches_offline_sources(self):
+        base = ROOT / 'ui-element-inspector'
+        catalog = json.loads((base / 'assets/locales.json').read_text(encoding='utf8'))
+        for values in catalog.values():
+            self.assertEqual(len(values), 3)
+            self.assertTrue(all(isinstance(v, str) and v for v in values))
+        expected = (base / 'scripts/locale-runtime.js').read_text(encoding='utf8').replace(
+            '/* LOCALE_CATALOG */ {}', json.dumps(catalog, ensure_ascii=False))
+        self.assertEqual((base / 'assets/i18n.js').read_text(encoding='utf8'), expected)
+        self.assertTrue((base / 'assets/inspector.js').read_text(encoding='utf8').startswith(
+            '/* BEGIN GENERATED LOCALES */\n' + expected + '\n/* END GENERATED LOCALES */'))
+
     def test_every_skill_has_portable_bilingual_visual_lifecycle_guide(self):
         for skill in ROOT.glob('*/SKILL.md'):
             with self.subTest(skill=skill.parent.name):

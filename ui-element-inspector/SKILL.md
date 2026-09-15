@@ -103,6 +103,10 @@ Report any temporary source files still needing cleanup. Activation does not aut
 
 ## Visual onboarding
 
+The local UI supports Auto/en/zh-TW/fr/ja. Use the user's explicit choice; in Auto, pass the host's known language as `aiLanguage` before injection or `aiLang` in the local workspace URL. Without that input it follows the page/browser, then English. Do not claim the browser can read private AI settings. The first-use hint is page-session-only and respects reduced motion. See [language, shortcuts and capture](references/usage.md).
+
+Screenshot mode requires a typed request and keeps a readable change brief with the selected target and exclusions. Native Print Screen is a separate, disabled-by-default helper opt-in (`--enable-printscreen`); only explicit button clicks send that fixed key. Do not read the clipboard or claim a completed capture from an accepted launch request. Preserve the user's request and identifiers verbatim when switching language.
+
 Prefer the screenshot walkthrough in ../docs/VISUAL-GUIDE.md when available in the checkout; installed copies can use references/usage.md. Show the one-row categories, color legend, and one concrete point → scope → copy example before long technical explanations. Hover previews names without replacing a held selection. No resume-selection button is needed.
 
 ## Illustrated quickstart / 圖解開始

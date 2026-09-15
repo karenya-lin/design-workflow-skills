@@ -1,6 +1,10 @@
 (() => {
   'use strict';
   const $ = id => document.getElementById(id);
+  const locale=window.DesignWorkflowLocale;
+  locale.bind(document.documentElement);
+  document.documentElement.lang=locale.current();
+  window.addEventListener('workflow:language',()=>{document.documentElement.lang=locale.current();});
   const width = $('width'), height = $('height'), preset = $('preset');
   const frame = $('preview'), result = $('result');
   const stage=document.querySelector('.stage'), shell=document.querySelector('.preview-shell');
@@ -71,6 +75,15 @@
     } catch { $('inspect-status').hidden=false;$('inspect-status').textContent='不同來源不可讀 DOM；請在該專案另行批准開發接線。不繞過瀏覽器限制。 / Cross-origin DOM unavailable'; }
   });
   document.querySelector('[data-inspector-dock]').addEventListener('inspector:closed',()=>{$('inspect').hidden=false;});
+  document.querySelector('[data-inspector-dock]').addEventListener('inspector:capture',event=>{
+    // Readable capture: actual CSS scale, centered on the selected element.
+    fit=false;fitPreview();
+    requestAnimationFrame(()=>{
+      const rect=event.detail.rect;
+      stage.scrollLeft=Math.max(0,rect.x+rect.width/2-stage.clientWidth/2);
+      stage.scrollTop=Math.max(0,rect.y+rect.height/2-stage.clientHeight/2);
+    });
+  });
   frame.addEventListener('load',()=>{
     $('inspect').hidden=false;
     document.querySelector('[data-inspector-dock]').replaceChildren();

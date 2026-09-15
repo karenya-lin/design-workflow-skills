@@ -10,7 +10,7 @@ It does not edit external skills' own settings or connect accounts.
 
 ## Install and trigger
 
-Copy the 13 sibling skill folders into your agent's configured skill directory.
+Copy the 14 sibling skill folders into your agent's configured skill directory.
 Do not overwrite an existing private skill with the same name: use a separate agent
 profile/installation or compare and explicitly migrate first. Keep this checkout
 for runner/scripts/tests; do not copy runtime profiles into it.
@@ -106,3 +106,11 @@ Changes/sends/pushes are individually scoped approvals, never remembered write g
 using temporary synthetic data. It does not prove browser correctness, OAuth access,
 email delivery, live process stopping, assistive technology behavior or legal compliance.
 Do not publish real profiles, execution logs, customer examples or confidential screenshots.
+
+## How-to shortcuts / 使用快捷索引
+
+[Start, language and keyboard shortcuts](HOW-TO.en.md) · [Figma workflow rebrand](../figma-workflow-rebrand/references/quickstart.md)
+
+The optional Figma rebrand manifest checker requires Node.js (tested with Node 22), no npm packages. It checks declared coverage, not Figma visuals or authorization.
+
+選用 Figma 整套換品牌清單工具需 Node.js（Node 22 已測），不需 npm 套件；只查宣告的清單，不代表 Figma 畫面或權限已驗證。
