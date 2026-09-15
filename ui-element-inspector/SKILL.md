@@ -55,6 +55,8 @@ before release. Prefer no project source change when supported tooling can activ
 - In the external workspace, controls and the initial DOM tree are outside the iframe.
   Separate expand arrows and selection buttons expose container children (up to 100 per level). Selecting
   a tree node highlights and scrolls to it. Refresh the tree after structural changes.
+- In the workspace, numbered ticks locate each match; Matches shows the group and To copy hides exclusions. Empty groups hide the rail. The selected element carries the same number; numbering is local to this match group, not persistent IDs.
+- CSS variable details list candidate references from readable matching declarations, not cascade proof. Do not claim React state or complete token usage. Review identifiers before sharing.
 - Group matching uses an explicit component annotation, class or HTML tag, never
   guessed React identity. Show current-page match counts and up/down navigation.
   Up to 200 instances can be listed; exclusions are dashed gray, included matches

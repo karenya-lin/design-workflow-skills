@@ -141,3 +141,14 @@ Before capture, select an element and enter the change. The capture brief retain
 ![可讀的繁中修改單](images/inspector-04-capture-zh-TW.png)
 
 `--enable-printscreen` enables the explicit Print Screen button on Windows; `--enable-snipping` separately enables Snipping Tool. Both are off by default. Otherwise use your keyboard shortcuts. A successful launch request does not verify capture or paste.
+# Current external panel and numbered matches / 新版外側面板與編號
+
+The demo's launch button now opens the workspace. The panel sits outside the preview, with a Language selector and an amber Exclude instances control. Click a right-edge tick to jump to an instance. Switch Matches / To copy to inspect the complete group or included items. Numbers remain stable within that group.
+
+示範頁啟動後進入工作區，面板在預覽外側。「語言」選單與琥珀色例外入口清楚可見。點右側刻度前往對應編號，切換「同類／本次」查看完整群組或這次修改項目，群組內編號保持一致。
+
+![繁中：外側面板、編號與例外](images/inspector-numbered-scope-zh-TW.png)
+
+![English: external panel, numbered scope and exclusions](images/inspector-numbered-scope-en.png)
+
+Synthetic local demo, not customer material. CSS references are candidates only. [Release status and remaining tests](RELEASE-STATUS.md).

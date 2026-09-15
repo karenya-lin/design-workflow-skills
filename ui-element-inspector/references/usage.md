@@ -6,7 +6,7 @@ UI: Auto, en, zh-TW, fr, ja. Explicit choice wins; Auto uses an AI-passed `aiLan
 
 介面四語可選，手動優先；自動模式看 AI 明確帶入的偏好、頁面、瀏覽器，最後英文。不讀取 AI 帳號設定，不偷偷保存。第一次短暫亮起語言與步驟，可關閉，減少動態效果時只用靜態框。
 
-Capture: enter your request → Screenshot → Prepare → keep outlines and show the change brief. The target, selector, exclusions and verbatim request remain readable together. The external preview switches to 100%; long content may need multiple images and full copied text. Windows PrtSc follows OS settings; Win+Shift+S and Mac Shift+Cmd+4 remain manual alternatives. The helper supports separate opt-ins `--enable-printscreen` and `--enable-snipping`, both off by default. Native requests require a user click, do not read the clipboard and do not prove capture/paste success. Automated tests mock native actions.
+Capture: enter your request → Screenshot → the change brief opens directly. The target, selector, exclusions and verbatim request remain readable together. The external preview switches to 100%; long content may need multiple images and full copied text. Windows PrtSc follows OS settings; Win+Shift+S and Mac Shift+Cmd+4 remain manual alternatives. The helper supports separate opt-ins `--enable-printscreen` and `--enable-snipping`, both off by default. Native requests require a user click, do not read the clipboard and do not prove capture/paste success. Automated tests mock native actions.
 
 截圖前先填需求，進截圖模式後會保留目標、位置、例外與完整需求；外框預覽改為 100%。長文需分張或附完整複製文字。PrtSc 依 Windows 設定動作；兩種原生按鈕分別需要開關，預設關閉。不讀剪貼簿，也不把成功送出請求當截圖完成。
 
@@ -25,8 +25,8 @@ port (example 4321; it never kills an occupied port):
 python ui-element-inspector/scripts/preview_server.py --port 4321
 ```
 
-On Windows use `py -3`. Open `http://127.0.0.1:4321/rwd-preview.html`, then click
-**UI Inspect**. The website is on the left; its DOM structure and
+On Windows use `py -3`. Open `http://127.0.0.1:4321/rwd-preview.html`, then hover the approved preview to open
+**UI Inspect** automatically. The website is on the left; its DOM structure and
 change form are in the right sidebar. Narrow screens place tools below the preview.
 Hover a tree row to preview its cyan outline. Click its name to select; the separate arrow expands children. Selection preserves the panel position.
 The tree excludes script/style/meta/link nodes, shows at most 100 children per level,
@@ -67,9 +67,10 @@ Invoke the skill naturally:
 > container/button is named. First inspect the project and propose a temporary
 > development-only activation. Don't edit the design or deploy anything.
 
-For a standalone demo, open `assets/demo.html` from this skill folder in Chrome/Edge
-and click **開啟元素指認**. Keep `inspector.js` next to it. No server, account or port
-is needed for this file-based demo. Do not paste unknown scripts into DevTools;
+For the demo, use the helper above and open `/demo.html` in Chrome/Edge.
+Click **開啟元素指認** to enter the external-panel workspace, without covering the page.
+Use HTTP localhost: browsers may block iframe inspection of `file://` pages.
+No account is needed. Do not paste unknown scripts into DevTools;
 review this bundle and let the agent explain the exact activation in your own app.
 
 ### Controls
@@ -154,8 +155,8 @@ RWD 設定在右側面板最上方，可收合為摘要；可選三品牌各八�
 > 使用 ui-element-inspector。我不知道這個容器／按鈕叫什麼，請在已有的本機預覽
 > 開啟指認工具。先讀專案，列出暫時開發模式的啟用方式，不改設計、不部署。
 
-先體驗：以 Chrome／Edge 開本 skill 的 `assets/demo.html`，按「開啟元素指認」。
-`inspector.js` 要保持在同一資料夾。示範頁不用帳號、不用啟動 server。
+先體驗：啟動上述 helper，再以 Chrome／Edge 開 `/demo.html`，按「開啟元素指認」會進入外側面板工作區，不蓋住網頁。
+不用帳號；請用 HTTP localhost，直接開 `file://` 時瀏覽器可能阻擋 iframe 指認。
 
 Hover 顯示青色框與名稱；點選後的黃框和需求保持不變，仍能 Hover 別處。
 點選自動標亮同類；不用切換選取模式。可收合面板保留選取；獨立浮動模式另可面板換邊。

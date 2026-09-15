@@ -136,3 +136,10 @@ Updated inspector smoke: 52 PASS, including owner-window routing, iframe denial,
 ## Automatic hover and simplified controls (2026-09-15)
 
 66 inspector smoke checks and 101 locale/capture checks PASS. Includes hover activation without a launch click, delayed iframe load, one panel after loading, hover without replacing selection, reopen after close, initial narrow-window DOM space, brand/model filtering, immediate sizes, invalid size preservation and direct Screenshot entry. Four languages were checked at six viewport sizes. Python suite: 47 PASS. These are local synthetic browser and unit checks, not real-device, native screenshot/paste or accessibility certification. Earlier videos show the former RWD/Prepare controls; follow the current how-to pages and updated visual guide.
+# Current scope and panel regression (2026-09-15)
+
+80 inspector checks, 101 locale/capture checks and 47 Python tests PASS. New checks cover standalone demo navigation into the external workspace, visible Language label, prominent exclusions, CSS shorthand references, numbered selection, match/copy-only ticks, stable exclusion numbers, success-only copy notifications and empty-list cleanup. EN/ZH synthetic screenshots were inspected. These results supersede earlier counts below for the same suites.
+
+Real Clipboard API write was also repeated in the visible local workspace and resolved, preserving the user's request and report. No clipboard read or AI paste was performed. Browser suite writes and OS capture launches are mocked. Chrome/Edge/Firefox DevTools extension work is excluded from this release. See [per-skill verification status](RELEASE-STATUS.md).
+
+繁中：80 項指認、101 項語言／截圖、47 項 Python 通過。中英畫面已檢視。本機可見面板的真實剪貼簿寫入也成功，未讀剪貼簿、未驗貼給 AI。擴充套件未納入本次交付，其餘待驗項目逐 skill 列於狀態表。

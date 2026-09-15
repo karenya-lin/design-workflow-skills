@@ -1328,5 +1328,60 @@
     "Hover the left preview to inspect; click to select. The activation button also supports keyboard use.",
     "Survolez l’aperçu à gauche pour inspecter ; cliquez pour sélectionner. Le bouton permet aussi l’activation au clavier.",
     "左のプレビューにカーソルを合わせて確認、クリックで選択。キーボード用の開始ボタンも使えます。"
+  ],
+  "已複製！可以貼給 AI。": [
+    "Copied! Paste into your AI chat.",
+    "Copié ! Collez dans votre conversation IA.",
+    "コピーしました。AI に貼り付けてください。"
+  ],
+  "CSS 變數引用 / CSS variable references": [
+    "CSS variable references",
+    "Références aux variables CSS",
+    "CSS 変数の参照"
+  ],
+  "僅列可讀且匹配的樣式引用，可能被覆蓋；不是 React 變數或完整 CSS 優先序分析。": [
+    "Readable matching declarations only; they may be overridden. Not React variables or a complete cascade analysis.",
+    "Déclarations lisibles correspondantes uniquement ; elles peuvent être remplacées. Ce ne sont pas des variables React ni une analyse complète de la cascade.",
+    "読み取り可能な一致する宣言のみ。他の規則で上書きされる場合があります。React 変数や完全なカスケード解析ではありません。"
+  ],
+  "未找到直接引用；不代表沒有使用變數。": [
+    "No direct reference found; variables may still be used.",
+    "Aucune référence directe trouvée ; des variables peuvent être utilisées.",
+    "直接の参照は見つかりません。変数が使われていないとは限りません。"
+  ],
+  "可能不完整：繼承、覆蓋、巢狀或無法讀取的樣式需另查 source。": [
+    "May be incomplete: check source for inheritance, overrides, nesting and unreadable styles.",
+    "Peut être incomplet : vérifiez l’héritage, les remplacements, l’imbrication et les styles illisibles dans le code.",
+    "継承、上書き、ネスト、読み取り不可のスタイルはソースで確認が必要です。"
+  ],
+  "已選取 / Selected": [
+    "Selected",
+    "Sélectionné",
+    "選択中"
+  ],
+  "例外 / Excluded": [
+    "Excluded",
+    "Exclu",
+    "対象外"
+  ],
+  "同類定位 / Match positions": [
+    "Match positions",
+    "Positions des correspondances",
+    "一致する要素の位置"
+  ],
+  "定位清單 / Position list": [
+    "Position list",
+    "Liste de positions",
+    "位置リスト"
+  ],
+  "同類 / Matches": [
+    "Matches",
+    "Similaires",
+    "同類"
+  ],
+  "本次 / To copy": [
+    "To copy",
+    "À copier",
+    "コピー対象"
   ]
 }

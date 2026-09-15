@@ -8,6 +8,35 @@
   const width = $('width'), height = $('height'), preset = $('preset');
   const frame = $('preview'), result = $('result');
   const stage=document.querySelector('.stage'), shell=document.querySelector('.preview-shell');
+  const rail=document.createElement('nav');rail.className='match-rail';rail.hidden=true;
+  rail.setAttribute('aria-label','同類定位 / Match positions');
+  document.querySelector('.preview-area').append(rail);
+  const railMode=document.createElement('select');railMode.setAttribute('aria-label','定位清單 / Position list');
+  for(const [value,text] of [['all','同類 / Matches'],['copy','本次 / To copy']]){const option=document.createElement('option');option.value=value;option.textContent=text;railMode.append(option);}
+  const markers=document.createElement('div');markers.className='match-markers';rail.append(railMode,markers);
+  function filterMarkers(){[...markers.children].forEach(button=>{button.hidden=railMode.value==='copy'&&button.classList.contains('excluded');});}
+  railMode.addEventListener('change',filterMarkers);
+  const matchDock=document.querySelector('[data-inspector-dock]');
+  matchDock.addEventListener('inspector:matches',event=>{
+    const {items,current}=event.detail;rail.hidden=!items.length;
+    if(markers.children.length!==items.length){
+      markers.replaceChildren(...items.map(item=>{
+        const button=document.createElement('button');button.type='button';button.dataset.matchIndex=String(item.index);const number=document.createElement('span');number.textContent=String(item.index+1);button.append(number);
+        button.addEventListener('click',()=>matchDock.querySelector('[data-inspector-external]')?.dispatchEvent(new CustomEvent('inspector:visit',{detail:{index:item.index}})));
+        return button;
+      }));
+    }
+    items.forEach((item,index)=>{
+      const button=markers.children[index];button.disabled=!item.available;
+      button.setAttribute('aria-current',String(index===current));button.classList.toggle('excluded',item.excluded);
+      button.title=`#${index+1} · ${item.name}`+(item.excluded?' · '+locale.translate('例外 / Excluded'):'');
+      button.setAttribute('aria-label',button.title);
+    });
+    railMode.options[1].disabled=!items.some(item=>!item.excluded);
+    if(railMode.options[1].disabled)railMode.value='all';
+    filterMarkers();
+  });
+  matchDock.addEventListener('inspector:closed',()=>{rail.hidden=true;markers.replaceChildren();});
   // Leave space for the DOM tree on initial narrow/short windows; settings remain expandable.
   if(innerHeight<500||innerWidth<=700)document.querySelector('.rwd-controls').open=false;
   let fit=true;
@@ -105,6 +134,7 @@
     });
   });
   frame.addEventListener('load',()=>{
+    rail.hidden=true;markers.replaceChildren();
     $('inspect').hidden=false;
     document.querySelector('[data-inspector-dock]').replaceChildren();
     $('inspect-status').hidden=false;

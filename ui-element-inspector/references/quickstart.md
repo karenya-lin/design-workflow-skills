@@ -35,9 +35,9 @@ Hover the approved same-origin workspace preview to open UI Inspect and its DOM 
 
 ### Step 2 · 確認範圍與例外 / Check scope and exceptions
 
-看同類數量，用上下一個找位置，勾選不修改的例外。
+看同類數量，點右側編號刻度或上下一個找位置，勾選不修改的例外。「本次」只顯示要修改的項目；沒有清單就不顯示刻度。
 
-Review matches, navigate instances and exclude items you want to keep.
+Review matches, jump with numbered ticks or previous/next, and exclude items you want to keep. To copy shows included items only; an empty list hides the rail.
 
 ### Step 3 · 寫需求並複製 / Write and copy
 

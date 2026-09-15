@@ -1,5 +1,29 @@
 # Design Workflow Skills
 
+**Release status:** [What is verified and what is still testing, for every skill](docs/RELEASE-STATUS.md). UI Inspect's main local workflow is tested. DevTools extensions are not released.
+
+## Who does what? Start with the AI-assisted skill
+
+**The skill does not send requests to AI automatically.** You review the context, click **Copy change request**, and paste it into the AI conversation you choose.
+
+| Step | You | AI / tool |
+|---|---|---|
+| Start | Tell your AI: “Use ui-element-inspector on this project. Reuse my running local server and its port.” | AI checks project rules and the actual URL, then proposes/sets up authorized temporary development-only inspection. The host must support the needed file/browser operations. |
+| Select | Hover to see names; click the page or DOM tree. | Tool highlights the element and current-page matches. No guessed source filenames or React state. |
+| Scope | Click numbered ticks to locate #1, #2, etc.; exclude items to keep. | “Matches” lists the current group; “To copy” shows included items only. Numbers stay tied to that group until it is rebuilt. |
+| Request | Write “Make #3 orange, keep #2.” Review, copy, paste into your AI chat. | Tool copies selectors, scope, exceptions and your words. **You choose the destination.** |
+| Implement | Ask the AI to make the reviewed change. | AI locates the actual source, edits within scope and verifies. The inspector itself does not edit your project. |
+| Finish | Close the inspector. | AI removes temporary project integration and verifies it is excluded from production. Existing servers are not killed. |
+
+**Already running localhost?** Reuse it; a different-port iframe can preview but cannot read its DOM. Ask the AI for authorized project integration. The bundled `rwd-preview.html` demonstrates the tool; it is not a universal URL inspector.
+
+**Online URL?** The current skill overlay is limited to local/file pages. The separately planned Chrome/Edge/Firefox DevTools extension will offer direct inspection after per-page approval. **That extension remains under development and is not included as a verified release.** Both approaches will be retained; this delivery prioritizes the skill.
+
+CSS variable output lists `var(--name)` reference candidates in readable matching declarations. It can miss inherited/nested/inaccessible styles and cannot prove the winning cascade. Arbitrary custom-property values, React state and network payloads are not collected.
+
+[Illustrated walkthrough](docs/VISUAL-GUIDE.md) · [Precise activation and limitations](ui-element-inspector/references/usage.md)
+
+
 Current interaction: hover the preview to open Inspect; click to select. [Updated RWD and hover screenshots](docs/VISUAL-GUIDE.md). Videos below show the earlier controls.
 
 ## How to use · quick links

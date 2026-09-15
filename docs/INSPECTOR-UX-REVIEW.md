@@ -28,3 +28,9 @@ See [visual walkthrough](VISUAL-GUIDE.md) and [test instructions](TESTING.md).
 ## Follow-up: fewer mode switches (2026-09-15)
 
 Hovering the approved preview now starts identification directly and preserves held selections. RWD uses separate brand/model filters and immediate changes, without Apply. Screenshot opens the brief directly; Back/Escape restores the request field. Narrow initial windows collapse RWD settings to leave DOM tree space. Settings can still expand explicitly. See the latest scoped results in TESTING.md; earlier recordings are historical.
+# Latest corrections / 本輪修正
+
+- The standalone demo previously launched a floating panel over content. It now navigates into the external workspace, while the embedded demo hides its duplicate launch button.
+- The automatic-language option visibly says Language. Exclusions use an amber background, strong border and keyboard focus ring.
+- Selected markers use compact numbers. Matching/copy-only tick navigation appears only for a nonempty group. The editable report and request are preserved when language changes.
+- 示範入口改為外側面板，語言入口改名、例外加強對比、選取標記縮為編號。刻度只在有群組時出現，切語言保留手寫需求。
