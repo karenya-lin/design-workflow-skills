@@ -10,7 +10,7 @@ Updated 2026-09-15. Available instructions are not a guarantee of every AI host,
 | optional-skill-profile | Python settings save/reset, conflicts, optional prompts / 設定儲存、重設、衝突與選填 | Every AI host's repeated invocation / 各 AI 多次啟動 |
 | uiux-checks | Runner plans, stage composition and deduplication / runner 計畫、階段組合去重 | Real multi-skill end-to-end runs / 真實多 skill 全流程 |
 | states-preview-loop | Instructions, portable guide and links / 文件與可攜圖解 | Project servers and actual state sweeps / 專案 server 與完整狀態巡查 |
-| ui-design-review | Instructions and illustrated guide / 文件圖解 | Real design-to-implementation reviews / 真實設計對照 |
+| ui-design-review | Instructions, illustrated guide and the author's UX principles checklist KUX-01 to KUX-07 (added 2026-09-15) / 文件圖解與作者 UX 準則清單 KUX-01 至 KUX-07 | Real design-to-implementation reviews / 真實設計對照 |
 | a11y-review | Instructions and illustrated guide / 文件圖解 | Assistive technology and project audits; no WCAG/PCI certification / 輔助科技與專案驗收，不提供合規認證 |
 | audit-fix-loop-no-preview | Instructions and illustrated guide / 文件圖解 | Project-specific repair and regression / 個別專案修補回歸 |
 | variant-review-loop | Instructions and illustrated guide / 文件圖解 | Real design variants and user approval / 真實方案及使用者決策 |

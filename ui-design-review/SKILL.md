@@ -1,6 +1,6 @@
 ---
 name: ui-design-review
-description: Compare an implemented UI with an approved design and separate visual discrepancies from functional defects before scoped fixes.
+description: Compare an implemented UI with an approved design, separate visual discrepancies from functional defects before scoped fixes, and check the author's UX principles (related content stacked vertically, positive action on the right, verification and password rules, shared components, tokens).
 ---
 
 # UI design review / 設計還原審查
@@ -24,8 +24,20 @@ scope. Repeat the smallest relevant comparison/test. Separate fixed, remaining,
 inferred and unverified findings. Additional reviewer agents are optional and require
 available authorized delegation; do not manufacture review receipts.
 
+Beyond fidelity, check the author's own UX principles in
+[references/ux-principles.md](references/ux-principles.md): related content stacks
+vertically for F-pattern reading, with no wide left-right spreads of a title and its
+content; the positive action sits on the right; verification, password and sign-in
+rules; card form error-proofing when a card form is in scope; a shared component
+where markup repeats; variables or tokens for colour, spacing and type. Report each
+finding with its KUX id. These are recommendations, not absolutes: an exception is
+recorded with its reason and kept consistent, never waived silently.
+
 繁中：對照同狀態、同尺寸的設計與實作，把視覺與功能問題分開。
 變更先定範圍；沒有瀏覽器證據就標未驗，不以靜態檢查冒充完整驗收。
+另依 references/ux-principles.md 檢查作者的 UX 準則：相關內容上下排、正向按鈕在右邊、
+驗證碼與密碼訊息、信用卡表單防呆、重複標記做成元件、顏色與間距走變數與 token。
+每項回報帶 KUX 編號。這些是通常建議，例外要寫明原因並保持一致。
 
 ## Illustrated quickstart / 圖解開始
 

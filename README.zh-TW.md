@@ -76,7 +76,7 @@ Python 3.11+ 在執行 Python 設定／profile helper、runner 時需要。Node.
 | [optional-skill-profile](optional-skill-profile/references/quickstart.md) | 不用每次重複交代專案偏好，開始前仍能檢查與修改。個人設定留在專案外，降低誤把帳號或私人資訊公開的風險。 |
 | [states-preview-loop](states-preview-loop/references/quickstart.md) | 把正常、空白、載入與錯誤狀態放在同一份檢查流程，較不容易漏掉邊界。明確確認 port 與程序，可減少誤停其他開發服務的風險。 |
 | [ui-element-inspector](ui-element-inspector/references/quickstart.md) | 直接點畫面就能取得元素位置與容器，不必先學會寫 selector。把同類位置、例外和修改需求一起複製，讓交辦範圍更清楚。 |
-| [ui-design-review](ui-design-review/references/quickstart.md) | 把視覺差異和功能問題分開，能更快決定先修哪裡。沿用既有元件和 token，減少修一處卻讓其他畫面變樣的風險。 |
+| [ui-design-review](ui-design-review/references/quickstart.md) | 把視覺差異和功能問題分開，能更快決定先修哪裡。沿用既有元件和 token，減少修一處卻讓其他畫面變樣的風險。另外檢查作者自己的 UX 準則：相關內容上下排、正向按鈕在右、驗證與密碼訊息、元件與 token 統一（[清單](ui-design-review/references/ux-principles.md)）。 |
 | [a11y-review](a11y-review/references/quickstart.md) | 提早找出鍵盤、焦點與標籤問題，讓更多人能使用介面。把實測與未驗分開，避免把掃描結果誤當完整合規證明。 |
 | [uiux-checks](uiux-checks/references/quickstart.md) | 用一個協調流程串起多個檢查，避免相同設定與測試重複處理。依需求選範圍，讓小修改不必每次都變成整站重驗。 |
 | [audit-fix-loop-no-preview](audit-fix-loop-no-preview/references/quickstart.md) | 沒有瀏覽器時也能整理來源證據，繼續處理可安全修的問題。把待驗的視覺與互動明列出來，方便之後接手而不誤判完成。 |
@@ -270,7 +270,7 @@ Nielsen 的來源／MIT 條件及 TWG 排除理由見 [第三方聲明](THIRD_PA
 <details>
 <summary>ui-design-review · 教學示範 · Step 1 → 2 → 3</summary>
 
-[完整使用方式、選填與結束交接](ui-design-review/references/quickstart.md)
+[完整使用方式、選填與結束交接](ui-design-review/references/quickstart.md) · [額外檢查的 UX 準則](ui-design-review/references/ux-principles.md)
 
 | Step 1 | Step 2 | Step 3 |
 |---|---|---|

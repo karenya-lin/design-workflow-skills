@@ -35,9 +35,9 @@ Provide the approved design, implementation revision, state and viewport; inspec
 
 ### Step 2 · 並列找差異 / Compare side by side
 
-同狀態比較，分開列間距、字體、視覺層級與功能問題。
+同狀態比較，分開列間距、字體、視覺層級與功能問題。同時對照[作者的 UX 準則清單](ux-principles.md)：相關內容上下排、正向按鈕在右、驗證與密碼訊息、元件與 token。
 
-Compare the same state; separate spacing, type and hierarchy issues from behavioral defects.
+Compare the same state; separate spacing, type and hierarchy issues from behavioral defects. Also check the [author's UX principles](ux-principles.md): related content stacked vertically, the positive action on the right, verification and password rules, components and tokens.
 
 ### Step 3 · 修正並複查 / Fix and recheck
 
@@ -53,9 +53,9 @@ Approve the exact fixes, reuse components/tokens, and repeat affected comparison
 
 ## 你會拿到 / Expected output
 
-有編號的差異清單、核准修正與剩餘風險。
+有編號的差異清單（視覺、功能與 KUX 準則項目）、核准修正與剩餘風險。
 
-Numbered differences, approved corrections and remaining risks.
+Numbered differences (visual, functional and KUX principle findings), approved corrections and remaining risks.
 
 ## 和其他 skill 合用 / Combine with others
 
@@ -90,9 +90,11 @@ Task-specific nodes, comparison dimensions, standards and variant IDs are genera
 
 ## 邊界 / Limits
 
-未取到瀏覽器畫面就標視覺未驗，不捏造像素差異。
+未取到瀏覽器畫面就標視覺未驗，不捏造像素差異。準則項目是通常建議，例外要寫明原因，不能默默放過。
 
-Without browser evidence, mark visual checks unverified; never invent pixel measurements.
+Without browser evidence, mark visual checks unverified; never invent pixel measurements. Principle items are recommendations; an exception is recorded with its reason, never waived silently.
+
+[額外檢查的 UX 準則 / UX principles checked here](ux-principles.md)
 
 [回到 skill 規則 / Skill instructions](../SKILL.md)
 

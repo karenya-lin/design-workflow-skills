@@ -79,7 +79,7 @@ Each guide covers project types, lifecycle stages, preparation, Step 1/2/3, fini
 | [optional-skill-profile](optional-skill-profile/references/quickstart.md) | Avoid repeating project preferences while keeping them reviewable before each run. Keeping personal settings outside the project reduces accidental public disclosure. |
 | [states-preview-loop](states-preview-loop/references/quickstart.md) | Check normal, empty, loading and error states in one workflow to reduce omissions. Explicit port and process checks reduce the risk of interrupting another development service. |
 | [ui-element-inspector](ui-element-inspector/references/quickstart.md) | Point at the page to identify an element and its containers without writing a selector. Copy matches, exceptions and the requested change together for a clearer handoff. |
-| [ui-design-review](ui-design-review/references/quickstart.md) | Separate visual differences from functional problems to prioritize corrections. Reusing components and tokens reduces unintended inconsistency across screens. |
+| [ui-design-review](ui-design-review/references/quickstart.md) | Separate visual differences from functional problems to prioritize corrections. Reusing components and tokens reduces unintended inconsistency across screens. Also checks the author's own UX principles: related content stacked vertically, the positive action on the right, verification and password rules, shared components and tokens ([checklist](ui-design-review/references/ux-principles.md)). |
 | [a11y-review](a11y-review/references/quickstart.md) | Find keyboard, focus and labeling barriers early so more people can use the interface. Separating tested and untested results prevents scans from being mistaken for complete conformance evidence. |
 | [uiux-checks](uiux-checks/references/quickstart.md) | Coordinate several checks without repeating the same setup and evidence gathering. Scope selection keeps small changes from turning into unnecessary whole-site audits. |
 | [audit-fix-loop-no-preview](audit-fix-loop-no-preview/references/quickstart.md) | Continue source-backed triage and safe fixes when a browser is unavailable. Explicit visual and interaction gaps make later handoff clearer without falsely marking completion. |
@@ -125,7 +125,7 @@ External skill declarations do not install or certify those skills.
 - `multi-session-protocol`: acknowledged ownership and handoffs.
 - `figma-write`: inspected token/layout changes and read-back evidence.
 - `figma-workflow-rebrand`: adapt complete frame sets while preserving the source and tracking states and prototype links.
-- `ui-design-review`: design/implementation comparison and scoped corrections.
+- `ui-design-review`: design/implementation comparison, the author's UX principles (KUX-01 to KUX-07) and scoped corrections.
 - `a11y-review`: technical accessibility evidence; no unverified legal tables.
 - `uiux-checks`: configurable overall quality review.
 - `audit-fix-loop-no-preview`: source-backed triage and approved fixes.
@@ -299,7 +299,7 @@ Click a skill below to jump; expand its gallery and click a picture for full siz
 <details>
 <summary>ui-design-review · Instructional examples · Step 1 → 2 → 3</summary>
 
-[Complete how-to, options and finish](ui-design-review/references/quickstart.md)
+[Complete how-to, options and finish](ui-design-review/references/quickstart.md) · [UX principles checked here](ui-design-review/references/ux-principles.md)
 
 | Step 1 | Step 2 | Step 3 |
 |---|---|---|
