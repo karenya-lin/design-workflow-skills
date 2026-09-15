@@ -38,3 +38,7 @@ Hovering the approved preview now starts identification directly and preserves h
 ## Larger icon actions (2026-09-15)
 
 Refresh layers, collapse, close and rotate now use local SVG icons with localized titles and accessible names. Toolbar icons are 22px with 44px targets; the full RWD disclosure row is 44px with a right-aligned 24px chevron. DOM chevrons are 20px. Keep words for steps, language, exclusions and Copy request to avoid ambiguous primary tasks. Reuse existing handlers, focus styling and color tokens; no icon package or remote asset was added. See TESTING.md for scoped evidence, not compliance certification.
+
+## Simplified DOM view
+
+Simplified / Full DOM share one compact row next to Page layers. A grouped row has a 20px disclosure icon, count, title and aria-expanded state. Expanding exposes individually selectable original wrappers without mutating the target DOM. Important attributes break grouping. Structure notes and raw locations use separate disclosures to preserve tree space, and the selected row remains visible after opening notes. Copy uses the existing owner-window clipboard/fallback/notification path. No automated node deletion, severity score or speed claim.

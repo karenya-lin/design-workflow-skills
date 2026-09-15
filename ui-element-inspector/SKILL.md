@@ -55,6 +55,7 @@ before release. Prefer no project source change when supported tooling can activ
 - In the external workspace, controls and the initial DOM tree are outside the iframe.
   Separate expand arrows and selection buttons expose container children (up to 100 per level). Selecting
   a tree node highlights and scrolls to it. Refresh the tree after structural changes.
+- Default Simplified view folds consecutive single-child div wrappers only in the tool. Expand a group to select each actual layer, or switch to Full DOM without clearing selection, scope or drafts. Read [DOM structure review](references/dom-structure.md) when inspecting excessive nesting: candidates do not establish redundancy or performance. The copy action requests source review, never automatic deletion. Preserve necessary layout, events, refs, selectors, focus and accessibility; consider Fragment only for pure grouping.
 - In the workspace, numbered ticks locate each match; Matches shows the group and To copy hides exclusions. Empty groups hide the rail. The selected element carries the same number; numbering is local to this match group, not persistent IDs.
 - CSS variable details list candidate references from readable matching declarations, not cascade proof. Do not claim React state or complete token usage. Review identifiers before sharing.
 - Group matching uses an explicit component annotation, class or HTML tag, never

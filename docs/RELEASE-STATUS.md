@@ -6,7 +6,7 @@ Updated 2026-09-15. Available instructions are not a guarantee of every AI host,
 
 | Skill | Verified scope / 已驗範圍 | Still testing / 待驗範圍 |
 |---|---|---|
-| ui-element-inspector | Local synthetic Chromium workflow: hover/tree, external panel, RWD, matches, numbered navigation, exclusions, request/copy feedback, four languages / 本機假資料主要流程 | Real projects, other browser engines, native screenshot/paste, assistive technology / 真實專案、其他瀏覽器、原生截圖貼上、輔助科技 |
+| ui-element-inspector | Local synthetic Chromium workflow: hover/tree, simplified wrapper groups, structure review, external panel, RWD, matches, numbered navigation, exclusions, request/copy feedback, four languages / 本機假資料主要流程 | Real projects, other browser engines, native screenshot/paste, assistive technology / 真實專案、其他瀏覽器、原生截圖貼上、輔助科技 |
 | optional-skill-profile | Python settings save/reset, conflicts, optional prompts / 設定儲存、重設、衝突與選填 | Every AI host's repeated invocation / 各 AI 多次啟動 |
 | uiux-checks | Runner plans, stage composition and deduplication / runner 計畫、階段組合去重 | Real multi-skill end-to-end runs / 真實多 skill 全流程 |
 | states-preview-loop | Instructions, portable guide and links / 文件與可攜圖解 | Project servers and actual state sweeps / 專案 server 與完整狀態巡查 |
@@ -30,6 +30,6 @@ Updated 2026-09-15. Available instructions are not a guarantee of every AI host,
 
 ## Evidence / 驗證依據
 
-[Test commands and limitations](TESTING.md): 91 inspector checks, 125 language/capture checks and 47 Python tests passed on the local synthetic fixture. Includes larger icon targets and headers across four languages and six viewport sizes. Browser copy tests mock writes; the separately documented real Clipboard API write resolved, but pasting into AI was not verified. Native capture launches remain mocked. CSS variable references are candidates, not proof of the winning cascade.
+[Test commands and limitations](TESTING.md): 106 inspector checks, 154 language/capture checks and 47 Python tests passed on the local synthetic fixture. Includes larger icon targets and headers across four languages and six viewport sizes. Browser copy tests mock writes; the separately documented real Clipboard API write resolved, but pasting into AI was not verified. Native capture launches remain mocked. CSS variable references are candidates, not proof of the winning cascade.
 
-[測試指令與限制](TESTING.md)：91 項 Inspector、125 項語言／截圖、47 項 Python 通過，包含四語言、六種視窗尺寸的大圖示點擊範圍及標頭排版。瀏覽器套件使用假資料與模擬剪貼簿；另有真實 Clipboard API 寫入成功紀錄，但未驗貼進 AI。原生截圖測試為 mock；CSS 引用不等於最終生效樣式。
+[測試指令與限制](TESTING.md)：106 項 Inspector、154 項語言／截圖、47 項 Python 通過，包含四語言、六種視窗尺寸的大圖示點擊範圍及標頭排版。瀏覽器套件使用假資料與模擬剪貼簿；另有真實 Clipboard API 寫入成功紀錄，但未驗貼進 AI。原生截圖測試為 mock；CSS 引用不等於最終生效樣式。

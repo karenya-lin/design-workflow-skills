@@ -1,5 +1,7 @@
 # 指認畫面元素 / Point at UI elements
 
+**DOM 太多層？ / Too many DOM layers?** [精簡 → 展開／完整 DOM → 複製結構檢查需求，含中英逐步截圖 / Illustrated wrapper review](dom-structure.md).
+
 ## 兩句優點 / Two benefits
 
 直接點畫面就能取得元素位置與容器，不必先學會寫 selector。把同類位置、例外和修改需求一起複製，讓交辦範圍更清楚。

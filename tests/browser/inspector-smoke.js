@@ -231,5 +231,60 @@ async(page)=>{
   check('icon-only collapse hides panel and exposes reopen',!await panel.locator('.panel').isVisible()&&await panel.getByRole('button',{name:'詳情 / Details',exact:true}).isVisible());
   await panel.getByRole('button',{name:'詳情 / Details',exact:true}).click();
   check('collapsed panel can reopen',await panel.locator('.panel').isVisible());
+  const practice=preview.locator('[data-component="WrapperPractice"]');
+  const sourceBefore=await practice.evaluate(n=>n.outerHTML);
+  await panel.getByRole('button',{name:'展開／收合 section',exact:true}).click();
+  const wrapperGroup=panel.locator('.wrapper-group').first();
+  const groupToggle=wrapperGroup.locator('.wrapper-toggle').first();
+  check('simplified is default and groups three actual wrapper layers',await panel.getByRole('button',{name:'精簡',exact:true}).getAttribute('aria-pressed')==='true'&&(await groupToggle.innerText()).includes('3'));
+  check('group folds wrappers but leaves the meaningful endpoint visible',!await wrapperGroup.locator('.wrapper-layers').isVisible()&&await wrapperGroup.locator('.tree-name').filter({hasText:'button#wrapper-action'}).isVisible());
+  const unselectedReport=await report.inputValue();
+  await groupToggle.press('ArrowRight');
+  check('keyboard expands every wrapper without selecting',await wrapperGroup.locator('.wrapper-layers .tree-name:visible').count()===3&&await report.inputValue()===unselectedReport);
+  const firstWrapper=wrapperGroup.locator('.wrapper-layers .tree-name').first();
+  check('keyboard focus previews actual wrapper on page',(await preview.locator('.label').innerText()).includes('div.wrapper-stage'));
+  await firstWrapper.press('Enter');
+  check('wrapper can be selected individually',await firstWrapper.getAttribute('aria-pressed')==='true'&&(await panel.locator('.structure-details p').first().textContent()).includes('3 層'));
+  await panel.locator('[role=tab]').nth(2).click();
+  const structureDraft='保留 RWD，請檢查容器。<script>not executable</script>';
+  await panel.locator('#inspector-view-2 label textarea').first().fill(structureDraft);
+  await panel.locator('[role=tab]').nth(0).click();
+  const selectedReport=await report.inputValue();
+  await panel.getByRole('button',{name:'完整 DOM',exact:true}).click();
+  check('full DOM removes only grouping UI and preserves held selection',await panel.locator('.wrapper-toggle').count()===0&&(await panel.locator('.tree-name[aria-pressed=true]').innerText()).includes('div.wrapper-stage'));
+  check('mode switch preserves edited request and report',await report.inputValue()===selectedReport&&await panel.locator('#inspector-view-2 label textarea').first().inputValue()===structureDraft);
+  await panel.getByRole('button',{name:'精簡',exact:true}).click();
+  check('returning to simplified reveals selected wrapper instead of hiding it',await wrapperGroup.locator('.wrapper-layers').isVisible()&&await panel.locator('.tree-name[aria-pressed=true]').isVisible());
+  await panel.locator('.structure-details > summary').click();
+  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+  check('opening structure notes keeps selected tree row in view',await panel.locator('.tree-name[aria-pressed=true]').evaluate(n=>{const row=n.getBoundingClientRect(),tree=n.closest('.tree').getBoundingClientRect();return row.top>=tree.top-1&&row.bottom<=tree.bottom+1;}));
+  await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.__structureCopy=text;}}}));
+  await panel.getByRole('button',{name:'複製結構檢查需求',exact:true}).click();
+  const structureCopy=await page.evaluate(()=>window.__structureCopy);
+  check('structure copy contains locator, observed layers, source-first caution and original request',structureCopy.includes('Selector:')&&structureCopy.includes('3 層')&&structureCopy.includes('先讀原始碼')&&structureCopy.includes('CSS selector')&&structureCopy.includes(structureDraft));
+  check('structure copy uses success notification and does not collect input values',await panel.locator('.copy-toast').isVisible()&&!structureCopy.includes('SYNTHETIC-DO-NOT-COPY'));
+  check('folding and structure review never modify inspected markup',await practice.evaluate(n=>n.outerHTML)===sourceBefore);
+  await groupToggle.click();await groupToggle.press('ArrowDown');
+  check('keyboard can pass a collapsed wrapper group to its endpoint',await wrapperGroup.locator('.tree-name').filter({hasText:'button#wrapper-action'}).evaluate(n=>n.getRootNode().activeElement===n));
+  // Meaningful attributes break a wrapper chain, even without visible text or styles.
+  await practice.evaluate(n=>{
+    const section=document.createElement('section');section.id='wrapper-boundaries';
+    for(const [name,value] of [['id','important-id'],['role','region'],['aria-label','Synthetic region'],['data-component','SyntheticComponent'],['tabindex','0'],['onclick','void 0']]){
+      const outer=document.createElement('div'),inner=document.createElement('div');outer.className='boundary-outer';inner.setAttribute(name,value);inner.append(document.createElement('button'));outer.append(inner);section.append(outer);
+    }n.append(section);
+  });
+  await panel.getByRole('button',{name:'更新圖層',exact:true}).click();
+  await panel.getByRole('button',{name:'展開／收合 section#wrapper-boundaries',exact:true}).click();
+  const boundaryRows=panel.getByRole('button',{name:'展開／收合 div.boundary-outer',exact:true});
+  for(let i=0;i<await boundaryRows.count();i++)await boundaryRows.nth(i).click();
+  check('ID, role, aria, component, focus and inline-event boundaries are not folded',await panel.locator('.wrapper-toggle').count()===1&&await boundaryRows.count()===6&&await panel.locator('.tree-name').filter({hasText:'div#important-id'}).isVisible());
+  await practice.evaluate(n=>{
+    const section=document.createElement('section');section.id='deep-wrapper-practice';let parent=section;
+    for(let i=0;i<95;i++){const child=document.createElement('div');parent.append(child);parent=child;}
+    parent.append(document.createElement('button'));n.append(section);
+  });
+  await panel.getByRole('button',{name:'更新圖層',exact:true}).click();
+  await panel.getByRole('button',{name:'展開／收合 section#deep-wrapper-practice',exact:true}).click();
+  check('deep chains group at most 40 and keep continuation lazy',await panel.locator('.wrapper-toggle').count()===2&&(await panel.locator('.wrapper-toggle').last().innerText()).includes('40')&&await preview.locator('#deep-wrapper-practice div').count()===95);
   return {results,passed:results.filter(r=>r.pass).length,failed:results.filter(r=>!r.pass).length};
 }

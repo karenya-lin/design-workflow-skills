@@ -19,11 +19,18 @@ async(page)=>{
   const request=panel.locator('#inspector-view-2 label textarea').first();
   const text='Make included cards orange. Keep the second unchanged. <script>not executable</script>';
   await request.fill(text);
+  const beforeMode=await panel.locator('[aria-label="AI locator report"]').inputValue();
+  await panel.locator('[role=tab]').nth(0).click();await panel.locator('.tree-modes button').last().click();await panel.locator('.tree-modes button').first().click();
+  check('DOM view switches preserve matching group, exclusions, report and request',await panel.locator('.exceptions input').count()===3&&await panel.locator('.exceptions input').nth(1).isChecked()&&await request.inputValue()===text&&await panel.locator('[aria-label="AI locator report"]').inputValue()===beforeMode);
+  await panel.locator('[role=tab]').nth(2).click();
   for(const [locale,name] of [['fr','③ Demande'],['ja','③ 変更内容'],['zh-TW','③ 寫需求'],['en','③ Request']]){
     await panel.locator('select').selectOption(locale);
     await panel.getByRole('tab',{name,exact:true}).waitFor();
     check(locale+' preserves request and selection',(await request.inputValue())===text&&(await panel.locator('.selection-hint').textContent()).includes('article.card'));
     check(locale+' preserves exclusions',await panel.locator('.exceptions input').nth(1).isChecked());
+    const structureWords={en:['Simplified','Full DOM','Ancestor levels'],fr:['Simplifiée','DOM complet','Niveaux ancêtres'],ja:['簡略','完全な DOM','html まで'], 'zh-TW':['精簡','完整 DOM','距離 html']};
+    const words=structureWords[locale];
+    check(locale+' translates DOM modes and live structure summary',await panel.locator('.tree-modes button').first().textContent()===words[0]&&await panel.locator('.tree-modes button').last().textContent()===words[1]&&(await panel.locator('.structure-details p').first().textContent()).includes(words[2]));
   }
   check('language choice dismisses hint',!await panel.locator('.welcome').isVisible());
   await panel.getByRole('tab',{name:'Screenshot',exact:true}).click();
@@ -64,6 +71,8 @@ async(page)=>{
       check(`${lang} ${width}x${height} language reachable`,await panel.locator('select').isVisible());
       check(`${lang} ${width}x${height} no document overflow`,await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
       check(`${lang} ${width}x${height} RWD controls fit without horizontal scrolling`,await page.locator('.toolbar').evaluate(n=>n.scrollWidth<=n.clientWidth));
+      await panel.locator('[role=tab]').nth(0).click();
+      check(`${lang} ${width}x${height} DOM view controls fit`,await panel.locator('.section-heading').first().evaluate(n=>n.scrollWidth<=n.clientWidth));
       check(`${lang} ${width}x${height} header fits with labelled 44px icon controls`,await panel.locator('.panel-header').evaluate(n=>{
         const controls=[...n.querySelectorAll('.controls button')].filter(b=>!b.hidden);
         return n.scrollWidth<=n.clientWidth&&controls.length===3&&controls.every(b=>{

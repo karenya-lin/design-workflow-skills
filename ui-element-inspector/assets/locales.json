@@ -1383,5 +1383,100 @@
     "To copy",
     "À copier",
     "コピー対象"
+  ],
+  "DOM 檢視方式": [
+    "DOM view",
+    "Vue DOM",
+    "DOM 表示"
+  ],
+  "精簡": [
+    "Simplified",
+    "Simplifiée",
+    "簡略"
+  ],
+  "完整 DOM": [
+    "Full DOM",
+    "DOM complet",
+    "完全な DOM"
+  ],
+  "DOM 結構提醒": [
+    "DOM structure notes",
+    "Remarques sur le DOM",
+    "DOM 構造の注意点"
+  ],
+  "僅依單一子元素的 div 結構提出檢查候選；不能判定容器無用或效能差。": [
+    "Single-child div chains are review candidates, not proof of useless containers or poor performance.",
+    "Les chaînes de div à enfant unique sont des pistes de vérification, pas la preuve de conteneurs inutiles ou de mauvaises performances.",
+    "子要素が一つの div の連続を確認候補として示します。不要なコンテナや性能低下の証拠ではありません。"
+  ],
+  "精簡只收合工具內的顯示，不改網頁。事件、ref、CSS 與無障礙用途需回原始碼確認。": [
+    "Simplified view folds tool rows only. Check source for events, refs, CSS and accessibility before changing the page.",
+    "La vue simplifiée replie seulement les lignes de cet outil. Vérifiez les événements, refs, CSS et besoins d’accessibilité dans le code avant toute modification.",
+    "簡略表示はツールの行だけを折りたたみます。ページ変更前にイベント、ref、CSS、アクセシビリティをソースで確認してください。"
+  ],
+  "複製結構檢查需求": [
+    "Copy structure review request",
+    "Copier la demande de revue DOM",
+    "構造の確認依頼をコピー"
+  ],
+  "距離 html 的祖先層數：{0}": [
+    "Ancestor levels to html: {0}",
+    "Niveaux ancêtres jusqu’à html : {0}",
+    "html までの祖先階層数：{0}"
+  ],
+  "連續包裝 div：{0} 層（本次最多 40）": [
+    "Consecutive wrapper divs: {0} (up to 40 per group)",
+    "Div conteneurs consécutifs : {0} (40 maximum par groupe)",
+    "連続するラッパー div：{0} 層（1 グループ最大 40）"
+  ],
+  "此處未找到符合收合規則的連續包裝層，不代表無法優化。": [
+    "No chain matching the folding rules here; optimisation may still be possible.",
+    "Aucune chaîne correspondant aux règles de repli ici ; une optimisation peut rester possible.",
+    "折りたたみ条件に一致する連続ラッパーはありません。最適化できないという意味ではありません。"
+  ],
+  "請檢查此處 DOM 是否可精簡，先讀原始碼，不要直接刪除容器。": [
+    "Review whether this DOM can be simplified. Read the source first; do not delete containers directly.",
+    "Vérifiez si ce DOM peut être simplifié. Lisez d’abord le code ; ne supprimez pas directement les conteneurs.",
+    "この DOM を簡略化できるか確認してください。まずソースを読み、コンテナを直接削除しないでください。"
+  ],
+  "確認各層的排版、RWD、事件、ref、CSS selector、焦點與無障礙用途。只有純分組才考慮 Fragment；有必要用途就保留。修改後驗證外觀及互動，不以層數判定效能。": [
+    "Check each layer’s layout, RWD, events, refs, CSS selectors, focus and accessibility. Consider Fragment only for pure grouping; keep necessary containers. Verify visuals and interactions after changes. Depth alone does not establish performance.",
+    "Vérifiez mise en page, RWD, événements, refs, sélecteurs CSS, focus et accessibilité de chaque couche. Envisagez Fragment uniquement pour un simple regroupement ; gardez les conteneurs nécessaires. Vérifiez le rendu et les interactions après modification. La profondeur seule ne mesure pas les performances.",
+    "各層のレイアウト、RWD、イベント、ref、CSS セレクター、フォーカス、アクセシビリティを確認してください。純粋なグループ化のみ Fragment を検討し、必要なコンテナは残してください。変更後は見た目と操作を検証してください。階層数だけで性能を判断しないでください。"
+  ],
+  "⋯ {0} 層包裝容器": [
+    "⋯ {0} wrapper layers",
+    "⋯ {0} couches de conteneurs",
+    "⋯ {0} 層のラッパー"
+  ],
+  "展開查看各層；不是刪除建議。": [
+    "Expand to inspect each layer; not a deletion recommendation.",
+    "Dépliez pour examiner chaque couche ; ce n’est pas une recommandation de suppression.",
+    "展開して各層を確認。削除の推奨ではありません。"
+  ],
+  "DOM 包裝層練習": [
+    "DOM wrapper practice",
+    "Exercice de conteneurs DOM",
+    "DOM ラッパーの練習"
+  ],
+  "練習：找出多層容器": [
+    "Practice: find nested containers",
+    "Exercice : repérer les conteneurs imbriqués",
+    "練習：入れ子のコンテナを見つける"
+  ],
+  "切換精簡與完整 DOM。這三層只用來示範收合顯示，工具不會刪除它們。": [
+    "Switch between Simplified and Full DOM. These three layers demonstrate folding only; the tool never removes them.",
+    "Alternez entre Simplifiée et DOM complet. Ces trois couches illustrent seulement le repli ; l’outil ne les supprime jamais.",
+    "簡略と完全な DOM を切り替えてください。この 3 層は折りたたみの例です。ツールは削除しません。"
+  ],
+  "檢查這個包裝結構": [
+    "Inspect this wrapper structure",
+    "Examiner cette structure",
+    "このラッパー構造を確認"
+  ],
+  "查看容器位置": [
+    "View wrapper locations",
+    "Voir les emplacements des conteneurs",
+    "ラッパーの位置を表示"
   ]
 }

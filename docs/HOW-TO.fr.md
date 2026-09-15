@@ -1,5 +1,7 @@
 # Mode d’emploi · raccourcis
 
+**Conteneurs DOM :** ① Sélection → Simplifiée / DOM complet. Dépliez un groupe pour examiner chaque couche. Ouvrez Remarques sur le DOM → Copier la demande de revue DOM, puis relisez et collez dans votre IA. [Images et limites en anglais/chinois](../ui-element-inspector/references/dom-structure.md).
+
 Sélectionner un élément sur la page ou dans l’arbre DOM replie automatiquement les réglages RWD. Le survol ne les replie pas. Rouvrez la ligne RWD pour modifier les dimensions ; la sélection et votre demande restent intactes.
 
 **Icônes :** ↻ actualise les calques, sans recharger la page ; − réduit le panneau ; × le ferme ; ⇄ échange largeur et hauteur. Le chevron à droite de RWD ouvre ou ferme les réglages. Survolez une icône pour lire son nom, ou utilisez Tab puis Entrée/Espace. Les boutons ont une cible de 44px et une icône de 22px. Les étapes, la langue, les exclusions et la copie gardent leur texte. [Images actualisées](VISUAL-GUIDE.md#larger-icon-controls).

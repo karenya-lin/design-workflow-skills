@@ -1,5 +1,15 @@
 # 圖解操作 / Visual walkthrough
 
+## Simplified DOM / 精簡 DOM
+
+**① Select → Simplified → expand wrapper layers or Full DOM → DOM structure notes → copy review request.** The page is unchanged; the AI still needs to read source before proposing removal. / **① 選元素 → 精簡 → 展開包裝層或完整 DOM → DOM 結構提醒 → 複製檢查需求。** 網頁結構不變，由 AI 另讀原始碼後判斷。
+
+![Three wrapper layers folded into one row / 三層包裝收成一列](../ui-element-inspector/references/screenshots/dom-simplified-zh-TW.png)
+
+![Full DOM shows the original hierarchy / 完整 DOM 顯示原有層級](../ui-element-inspector/references/screenshots/dom-full-en.png)
+
+[All steps, EN/ZH screenshots, keyboard controls and limits / 完整中英步驟、截圖、鍵盤與限制](../ui-element-inspector/references/dom-structure.md). Existing videos predate this feature. / 舊影片尚未包含此功能。
+
 ## Larger icon controls
 
 Selecting an element automatically collapses RWD, leaving space for inspection. Hover does not collapse it, and the summary row can always reopen settings. The current screenshots below show this selected state. / 選取元素後自動收合 RWD，留空間給檢查；Hover 不收合，需要時可再展開。下方最新截圖呈現選取後的狀態。

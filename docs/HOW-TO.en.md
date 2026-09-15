@@ -1,5 +1,7 @@
 # How to use · shortcuts
 
+**DOM wrappers:** ① Select → Simplified / Full DOM. Expand a wrapper group to inspect individual layers. Open DOM structure notes → Copy structure review request → review and paste into AI. [Step pictures and limits](../ui-element-inspector/references/dom-structure.md).
+
 Selecting an element on the page or in the DOM tree automatically collapses RWD settings. Hovering does not. Reopen the RWD row whenever you need to change dimensions; selection and your request stay intact.
 
 **Icon controls:** ↻ refreshes the layer tree (not the page), − collapses the panel, × closes it, and ⇄ swaps width and height. Click the right chevron on the RWD row to expand/collapse settings. Hover an icon for its name, or reach it with Tab and activate with Enter/Space. Toolbar buttons have 44px targets and 22px icons. Steps, language, exclusions and Copy request keep their text. [Updated pictures](VISUAL-GUIDE.md#larger-icon-controls).

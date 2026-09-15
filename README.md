@@ -4,6 +4,8 @@
 
 ## Who does what? Start with the AI-assisted skill
 
+**Too many wrapper divs?** UI Inspect now offers Simplified / Full DOM views and a copyable structure-review request. It folds tool rows without modifying page nodes. [Four illustrated steps](ui-element-inspector/references/dom-structure.md).
+
 **The skill does not send requests to AI automatically.** You review the context, click **Copy change request**, and paste it into the AI conversation you choose.
 
 | Step | You | AI / tool |

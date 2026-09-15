@@ -155,3 +155,11 @@ Real Clipboard API write was also repeated in the visible local workspace and re
 91 inspector, 125 locale/capture and 47 Python checks PASS. Five new assertions cover hover keeping settings open, DOM selection collapsing without changing dimensions, manual reopening, hover after reopening and page selection recollapsing. Existing copy/request, exclusions, tree position, RWD and capture regressions pass. EN/ZH selected-state screenshots visually inspected. No native capture or real-device claims.
 
 繁中：91 項指認、125 項語言／截圖與 47 項 Python 通過。只在確認選取時收合 RWD，不改尺寸、需求或步驟；Hover 不收合，手動可再展開。中英選取狀態截圖已目視檢查。
+
+## Simplified DOM and structure review (2026-09-15)
+
+106 inspector, 154 locale/capture and 47 Python checks PASS. Added grouping and endpoint visibility, keyboard expand/focus/select/navigation, Full DOM switching, selected-row visibility after opening notes, preserved requests/reports/matches/exclusions, copy content and feedback, untouched inspected markup, conservative attribute boundaries and lazy continuation of a 95-wrapper fixture. Four languages and six viewport sizes include DOM mode control fit. Eight EN/ZH synthetic step screenshots visually reviewed.
+
+The grouping rule is structural, not a redundancy, React-component or performance audit. CSS/event/ref dependencies need source review. Browser clipboard writes and native captures in these suites are mocked. Actual AI paste, assistive technologies, Firefox/Edge and real-device acceptance remain unverified. No customer pages or accounts were used.
+
+繁中：106 項指認、154 項語言／截圖、47 項 Python 通過。新增包裝層收合、展開與鍵盤、模式切換保留內容、複製提醒、原始 DOM 不變、屬性邊界、95 層 DOM 延後展開等檢查。中英共八張操作圖已檢視。不能據此判定 div 多餘、React 元件身份、效能或合規；原生操作與其他瀏覽器仍待驗。

@@ -1,5 +1,7 @@
 # Using the UI element inspector / 使用 UI 元素指認
 
+[Simplified / Full DOM and structure-review pictures / 精簡、完整 DOM 與結構檢查圖解](dom-structure.md): select a target, optionally inspect wrapper layers, then copy a source-review request. The tool never deletes page nodes. / 選取後可檢查包裝層、複製原始碼檢查需求，工具不刪網頁節點。
+
 ## Language and current capture flow / 語言與目前截圖流程
 
 UI: Auto, en, zh-TW, fr, ja. Explicit choice wins; Auto uses an AI-passed `aiLanguage`/`aiLang`, then page language, browser language, finally English. Set `window.DesignWorkflowInspectorOptions = {language:'auto', aiLanguage:'en'}` before injecting, or append `?lang=en` to the included workspace. No AI-account setting is read. First use briefly highlights language and steps; reduced motion uses a static outline, with no persistence.
