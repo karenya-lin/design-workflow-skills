@@ -17,7 +17,7 @@ Every skill has a three-step diagram, use case, bilingual prompt, expected outpu
 | 選填偏好設定 / Optional preferences | [optional-skill-profile](../optional-skill-profile/references/quickstart.md) |
 | 檢查介面狀態 / Preview UI states | [states-preview-loop](../states-preview-loop/references/quickstart.md) |
 | 指認畫面元素 / Point at UI elements | [ui-element-inspector](../ui-element-inspector/references/quickstart.md) |
-| 對照設計與實作 / Compare design and UI | [ui-design-review](../ui-design-review/references/quickstart.md) |
+| 對照設計與實作 / Compare design and UI | [ui-design-review](../ui-design-review/references/quickstart.md) · [UX 準則 / principles](../ui-design-review/references/ux-principles.md) |
 | 無障礙檢查 / Accessibility review | [a11y-review](../a11y-review/references/quickstart.md) |
 | 安排整體品質檢查 / Coordinate UI quality | [uiux-checks](../uiux-checks/references/quickstart.md) |
 | 無預覽時安全修補 / Fix without a preview | [audit-fix-loop-no-preview](../audit-fix-loop-no-preview/references/quickstart.md) |
