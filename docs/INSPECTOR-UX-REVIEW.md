@@ -23,3 +23,8 @@ Reference: [NN/g usability heuristics](https://www.nngroup.com/articles/ten-usab
 - 原生剪貼簿在自動測試中使用 mock。未驗真機、輔助科技、實際截圖畫記／貼上；不宣稱完整 WCAG、PCI 或全站通過。
 
 See [visual walkthrough](VISUAL-GUIDE.md) and [test instructions](TESTING.md).
+
+
+## Follow-up: fewer mode switches (2026-09-15)
+
+Hovering the approved preview now starts identification directly and preserves held selections. RWD uses separate brand/model filters and immediate changes, without Apply. Screenshot opens the brief directly; Back/Escape restores the request field. Narrow initial windows collapse RWD settings to leave DOM tree space. Settings can still expand explicitly. See the latest scoped results in TESTING.md; earlier recordings are historical.

@@ -39,6 +39,8 @@
     window.DesignWorkflowLocale.bind(document.documentElement);
     document.documentElement.lang=window.DesignWorkflowLocale.current();
     window.addEventListener('workflow:language',()=>{document.documentElement.lang=window.DesignWorkflowLocale.current();});
+    // The workspace owns activation; keep a button only for the standalone demo.
+    try { if(parent!==window&&parent.document.querySelector('[data-inspector-dock]'))document.querySelector('#start-inspector').hidden=true; } catch { /* Never bypass another origin. */ }
     let count = 0;
     document.querySelectorAll('.card-action').forEach(button => button.addEventListener('click', () => {
       document.querySelector('#action-count').textContent = `頁面按鈕觸發：${++count} 次`;

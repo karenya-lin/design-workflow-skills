@@ -131,3 +131,8 @@ Reproduced with the actual Chromium Clipboard API and synthetic text: clicking t
 Updated inspector smoke: 52 PASS, including owner-window routing, iframe denial, outer denial with complete manual selection, retained request/exclusions, unavailable API and retry recovery. The public smoke still mocks writes; it is distinct from the actual API experiment above. Python suite: 47 PASS. No permissions-policy changes, clipboard reads or native screenshot checks were made by this fix.
 
 繁中：已用真實 Clipboard API 重現 iframe 未取得焦點的失敗，改用面板所屬視窗後寫入成功。未讀剪貼簿、未驗實際貼到 AI。52 個瀏覽器回歸與 47 個 Python 測試通過，拒絕時完整內容可手動複製。
+
+
+## Automatic hover and simplified controls (2026-09-15)
+
+66 inspector smoke checks and 101 locale/capture checks PASS. Includes hover activation without a launch click, delayed iframe load, one panel after loading, hover without replacing selection, reopen after close, initial narrow-window DOM space, brand/model filtering, immediate sizes, invalid size preservation and direct Screenshot entry. Four languages were checked at six viewport sizes. Python suite: 47 PASS. These are local synthetic browser and unit checks, not real-device, native screenshot/paste or accessibility certification. Earlier videos show the former RWD/Prepare controls; follow the current how-to pages and updated visual guide.

@@ -53,7 +53,7 @@ project integration; do not proxy around restrictions or weaken CSP.
 py -3 ui-element-inspector/scripts/preview_server.py --port 4321 --enable-snipping
 ```
 
-This opt-in permits **準備截圖 → 開啟 Windows 剪取工具** to launch the installed
+This opt-in permits **截圖 → 開啟 Windows 剪取工具** to launch the installed
 Snipping Tool via a validated loopback request. In the native app choose New, capture,
 annotate, and paste to AI yourself. Launch does not prove a screenshot was captured.
 The helper never reads images/clipboard, uploads, runs arbitrary commands, registers
@@ -84,7 +84,7 @@ review this bundle and let the agent explain the exact activation in your own ap
 | 面板換邊 | Move panel to the opposite side if it covers the target |
 | 複製元素位置 | Copy a current DOM selector |
 | 複製修改需求 | Copy the report after editing/redacting it in the text field |
-| 準備截圖 | Require a selected element and request; show a readable capture brief and keep outlines |
+| 截圖 | Require a selected element and request; show a readable capture brief and keep outlines |
 | Escape | Restore screenshot panel, or close the tool if panel is already visible |
 
 The displayed selector is unique for the selected DOM snapshot (unique id/test ID,
@@ -142,7 +142,7 @@ also removes a tool-only injection. Temporary app source changes need explicit c
 權限拒絕時會出現獨立的手動複製欄，不覆蓋你原本的需求稿。
 
 「元素位置」就是網頁裡的定位地址，技術名稱 CSS selector，不是元件名或檔名。
-「準備截圖」本身不截圖、不上傳；若以上方 `--enable-snipping` 選擇啟用本機支援，
+「截圖」本身不截圖、不上傳；若以上方 `--enable-snipping` 選擇啟用本機支援，
 可再按「開啟 Windows 剪取工具」，在原生程式按「新增」剪取及畫記。未啟用則用 Win+Shift+S。
 不安裝常駐服務、不讀你的截圖或剪貼簿；終端機按 Ctrl+C 即停止本機支援。
 
@@ -167,7 +167,7 @@ Hover 顯示青色框與名稱；點選後的黃框和需求保持不變，仍�
 Canvas、iframe、shadow root 內部與 CSS 偽元素不能靠此工具指認。
 頁面換路由、排序或重建後，請重新選取，不沿用可能過時的 selector。
 
-「準備截圖」需先選取元素並填寫需求，再保留框線與可讀修改單，隱藏編輯工具。按 **Win+Shift+S** 剪取，
+「截圖」需先選取元素並填寫需求，再保留框線與可讀修改單，隱藏編輯工具。按 **Win+Shift+S** 剪取，
 在系統工具畫記／加文字後自行貼給 AI。Mac 用 Shift+Cmd+4。
 Esc 回面板，再 Esc 關閉。未開啟本機支援時，網頁按鈕不能直接叫起 Windows 原生剪取程式，也不會
 讀取截圖或確認傳送。若剪貼簿權限不允許，改 Ctrl+C／Cmd+C 複製已選取的文字。
@@ -197,3 +197,34 @@ The copy action uses the window owning the button. In the external workspace thi
 外側面板會使用按鈕所在視窗執行複製，不再誤用內側 iframe。若瀏覽器仍拒絕或沒有此 API，完整修改單會選取，按 Ctrl+C（Mac：Cmd+C）即可手動複製；需求與例外不會遺失。不要求讀取剪貼簿，也不降低瀏覽器安全限制。
 
 If an older open page still shows the old generic message, preserve any unsaved request first, reload the local workspace and reopen UI Inspect. A rejected write does not mean the request was erased or sent to AI.
+
+## Which preview? How is this different from F12? / 啟用與 F12 差異
+
+| Situation / 情境 | Current support / 目前方式 |
+|---|---|
+| Included demo / 內附示範 | Start the helper using an explicit available port, open its printed RWD URL, then UI Inspect. / 明確指定可用 port，開 helper 印出的網址，再按 UI Inspect。 |
+| Your local project / 自己的 local | Same-origin integration can inspect DOM. Different ports are different origins: outer workspace can preview but cannot inspect it; use separately approved dev-only integration in that project. / 同來源可讀 DOM；不同 port 屬跨來源，只能預覽，需另核准專案內開發接線。 |
+| Deployed remote URL / 已部署遠端網址 | Not supported by this local-only inspector; use authorized DevTools or another approved tool. No CSP weakening or cross-origin bypass. / 本版本不支援；用已授權 DevTools 等工具，不降低 CSP 或繞過跨來源限制。 |
+
+F12 is the browser's developer toolbox: styles, network, console and performance. UI Inspect is a visual handoff helper: identify a target, highlight current-page matches, exclude exceptions and copy the change request. It is not a project-wide dependency search, source filename detector, accessibility certification or performance profiler.
+
+F12 用來深入除錯 CSS、網路、Console 與效能；UI Inspect 的優勢是少打定位文字，直接將元素、同類、例外與需求整理給 AI。它不是全專案影響分析，也不能從 DOM 保證找到 React 原始碼檔名。
+
+The user may specify the port or delegate choosing an available one to the AI. The printed URL is authoritative, not a hard-coded example. The helper's port and your project's port are distinct; matching hostnames alone does not make them same-origin.
+
+使用者可指定 port，或讓 AI 選可用值，再回報啟動網址；不固定為 5173。工具與專案可能使用不同 port，hostname 相同不代表同來源。
+
+## Simplified controls / 簡化操作
+
+Filter by Brand, choose Model: it applies immediately. Custom width/height apply when leaving the input or pressing Enter; invalid values keep the last valid viewport. There is no separate Apply button. Rotate and display scale remain independent from device emulation.
+
+品牌篩選 → 選機型立即更新；自訂寬高離開欄位或按 Enter 更新，不合法數字保留上一個有效尺寸。不再顯示多餘的「套用」。
+
+Click Screenshot once to show the outlined target and change brief; choose an OS capture action or use its shortcut. The outline is visual location guidance for AI, not a second verification step. Back/Escape restores the request. No screenshot is automatically saved, read or uploaded by merely opening the brief.
+
+
+### Automatic hover entry / Hover 自動進入
+
+In the approved same-origin workspace, entering the preview activates inspection and the DOM tree. Hover keeps any existing selection and request; clicking changes the selected element. Keyboard users can still use the activation button. Narrow or short windows start with RWD settings collapsed, expandable from its summary. Cross-origin restrictions remain unchanged.
+
+移到已核准的同來源預覽就自動開啟指認與 DOM 樹；Hover 不覆蓋原選取與需求，點一下才換選取。鍵盤使用者仍可用啟用按鈕。窄或矮視窗先收合 RWD 設定，可隨時展開；不同來源限制不變。

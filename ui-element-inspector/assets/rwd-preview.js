@@ -8,8 +8,8 @@
   const width = $('width'), height = $('height'), preset = $('preset');
   const frame = $('preview'), result = $('result');
   const stage=document.querySelector('.stage'), shell=document.querySelector('.preview-shell');
-  // Start compact in short windows; the user can still expand settings explicitly.
-  if(innerHeight<500)document.querySelector('.rwd-controls').open=false;
+  // Leave space for the DOM tree on initial narrow/short windows; settings remain expandable.
+  if(innerHeight<500||innerWidth<=700)document.querySelector('.rwd-controls').open=false;
   let fit=true;
   function fitPreview() {
     const css=getComputedStyle(stage);
@@ -39,14 +39,27 @@
   $('sizes').addEventListener('submit', event => { event.preventDefault(); apply(); });
   $('fit').addEventListener('click',()=>{fit=!fit;fitPreview();});
   new ResizeObserver(fitPreview).observe(stage);
+  const brand=$('brand');
+  brand.addEventListener('change',()=>{
+    const current=preset.selectedOptions[0];
+    [...preset.querySelectorAll('optgroup')].forEach((group,index)=>{
+      group.hidden=brand.value!=='all'&&brand.value!==String(index);
+      group.disabled=group.hidden;
+    });
+    if(current?.parentElement.hidden)preset.value='';
+  });
   preset.addEventListener('change', () => {
+    if (!preset.value) return;
     if (preset.value === 'custom') { width.focus(); return; }
     [width.value, height.value] = (preset.selectedOptions[0].dataset.size || preset.value).split(','); apply();
   });
-  for (const input of [width,height]) input.addEventListener('input', () => { preset.value = 'custom'; });
+  for (const input of [width,height]) {
+    input.addEventListener('input', () => { preset.value = 'custom'; brand.value='all'; [...preset.querySelectorAll('optgroup')].forEach(group=>{group.hidden=false;group.disabled=false;}); });
+    input.addEventListener('change', apply);
+  }
   $('rotate').addEventListener('click', () => {
     if (!$('sizes').reportValidity()) return;
-    [width.value,height.value] = [height.value,width.value]; preset.value = 'custom'; apply();
+    [width.value,height.value] = [height.value,width.value]; brand.value='all'; brand.dispatchEvent(new Event('change')); preset.value = 'custom'; apply();
   });
   $('load').addEventListener('click', () => {
     if (!$('approved').checked) { setStatus('請先確認授權、資料及分析門檻 / Confirm the safety gates first'); return; }
@@ -63,18 +76,25 @@
   });
   $('url').addEventListener('input', () => { $('approved').checked = false; });
   $('demo').addEventListener('click', () => { frame.src = 'demo.html'; $('approved').checked = false; apply(); });
-  $('inspect').addEventListener('click',()=>{
+  let inspectorLoading=false, inspectorRequested=false;
+  function startInspector(){
+    inspectorRequested=true;
+    if(inspectorLoading)return;
     try {
       const doc=frame.contentDocument;
       if(!doc || new URL(frame.src).origin!==location.origin) throw new Error('Cross origin');
-      if(frame.contentWindow.DesignWorkflowInspector) frame.contentWindow.DesignWorkflowInspector.stop();
+      if(frame.contentWindow.DesignWorkflowInspector)return;
+      if(doc.readyState!=='complete')return;
+      inspectorLoading=true;
       const script=doc.createElement('script'); script.src=new URL('inspector.js',location.href).href;
-      script.onload=()=>{script.remove();$('inspect-status').hidden=true;$('inspect').hidden=true;$('inspect').textContent='重新開啟指認 / Restart';$('inspect-status').textContent='點畫面或圖層名稱定位，箭頭展開子層。 / Click a layer name to select; arrows expand';};
-      script.onerror=()=>{script.remove();$('inspect-status').hidden=false;$('inspect-status').textContent='腳本被阻擋；不修改 CSP。 / Script blocked; do not weaken CSP';};
+      script.onload=()=>{inspectorLoading=false;script.remove();$('inspect-status').hidden=true;$('inspect').hidden=true;$('inspect').textContent='重新開啟指認 / Restart';$('inspect-status').textContent='點畫面或圖層名稱定位，箭頭展開子層。 / Click a layer name to select; arrows expand';};
+      script.onerror=()=>{inspectorLoading=false;script.remove();$('inspect-status').hidden=false;$('inspect-status').textContent='腳本被阻擋；不修改 CSP。 / Script blocked; do not weaken CSP';};
       doc.head.append(script);
     } catch { $('inspect-status').hidden=false;$('inspect-status').textContent='不同來源不可讀 DOM；請在該專案另行批准開發接線。不繞過瀏覽器限制。 / Cross-origin DOM unavailable'; }
-  });
-  document.querySelector('[data-inspector-dock]').addEventListener('inspector:closed',()=>{$('inspect').hidden=false;});
+  }
+  $('inspect').addEventListener('click',startInspector);
+  stage.addEventListener('pointerenter',startInspector);
+  document.querySelector('[data-inspector-dock]').addEventListener('inspector:closed',()=>{inspectorRequested=false;$('inspect').hidden=false;});
   document.querySelector('[data-inspector-dock]').addEventListener('inspector:capture',event=>{
     // Readable capture: actual CSS scale, centered on the selected element.
     fit=false;fitPreview();
@@ -88,7 +108,9 @@
     $('inspect').hidden=false;
     document.querySelector('[data-inspector-dock]').replaceChildren();
     $('inspect-status').hidden=false;
-    $('inspect-status').textContent='預覽已換頁，請重新開啟指認 / Preview navigated; activate inspector again';
+    inspectorLoading=false;
+    $('inspect-status').textContent='移到左側預覽即可指認；點一下選取。也可用鍵盤啟用按鈕。';
+    if(inspectorRequested||stage.matches(':hover'))startInspector();
   });
   apply();
 })();

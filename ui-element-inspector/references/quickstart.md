@@ -29,9 +29,9 @@ Confirm the agent has loaded this skill and reports its actual SKILL.md path. Ch
 
 ### Step 1 · 點選元素 / Select an element
 
-開 UI Inspect，點畫面或 DOM 名稱；Hover 只預覽，不改選取。
+移到已核准的同來源工作區預覽，自動開啟 UI Inspect 與 DOM 樹；點畫面或 DOM 名稱選取。Hover 只預覽，不改選取與需求。
 
-Open UI Inspect and click the page or a DOM name. Hover previews without changing selection.
+Hover the approved same-origin workspace preview to open UI Inspect and its DOM tree automatically. Click the page or a DOM name to select. Hover preserves the selected element and request.
 
 ### Step 2 · 確認範圍與例外 / Check scope and exceptions
 

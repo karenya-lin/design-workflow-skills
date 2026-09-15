@@ -45,8 +45,15 @@ Le sélecteur de langue s’illumine brièvement au premier lancement. Choisisse
 | Win+Maj+S | Sélection de capture Windows |
 | Maj+Cmd+4 | Sélection de capture macOS |
 
-Pour une capture : saisissez la demande, ouvrez Capture → Préparer → Garder les cadres. Capturez la cible **et** la fiche lisible. Pour un contenu long, faites plusieurs images ou joignez le texte copié. Vérifiez les données privées avant de partager.
+Pour une capture : saisissez la demande, ouvrez Capture : la fiche et les contours apparaissent directement. Capturez la cible **et** la fiche lisible. Pour un contenu long, faites plusieurs images ou joignez le texte copié. Vérifiez les données privées avant de partager.
 
 Les boutons Windows nécessitent le serveur local avec `--enable-snipping` et/ou `--enable-printscreen`, désactivés par défaut. Ils ne lisent pas le presse-papiers. Une requête acceptée ne prouve ni la capture ni le collage. Arrêtez votre serveur avec Ctrl+C ; ne fermez pas les processus d’autrui. Une routine doit être essayée manuellement puis vérifiée lors de sa première exécution réelle.
 
 [Minimum install & optional companions / 最小安裝與選用搭配](../README.md#minimum-install-and-optional-companions) · [繁體中文](../README.zh-TW.md#最小安裝與建議搭配)
+
+## Port
+
+Le port n’est pas fixe : choisissez-le ou demandez à l’IA d’en choisir un disponible et d’indiquer l’URL réelle. `--port` doit contenir ce numéro. Réutilisez un aperçu autorisé ; ne terminez pas le processus d’autrui.
+
+
+Dans l’espace autorisé de même origine, survolez l’aperçu pour ouvrir automatiquement l’inspecteur et l’arbre DOM. Aucun clic Démarrer/Reprendre n’est nécessaire. Le survol conserve la sélection et la demande ; cliquez pour changer de sélection. Sur un écran étroit, développez RWD pour afficher les réglages.

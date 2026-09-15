@@ -10,10 +10,27 @@ async(page)=>{
   let sizesPass=true;
   for(const model of models){await page.locator('#preset').selectOption(model.value);const actual=await page.locator('#preview').evaluate(n=>[n.clientWidth,n.clientHeight].join(','));sizesPass&&=actual===model.size;}
   check('every device display preset applies its declared viewport',sizesPass);
+  check('redundant Apply button removed',await page.locator('#sizes button[type=submit]').count()===0);
+  await page.locator('#brand').selectOption('1');
+  check('brand filters model groups without changing the viewport',await page.locator('#preset optgroup:not([hidden])').count()===1);
+  await page.locator('#preset').selectOption('iphone-16-8');
+  check('model selection applies immediately',await page.locator('#preview').evaluate(n=>n.clientWidth===393&&n.clientHeight===852));
+  await page.locator('#width').fill('777');await page.locator('#height').focus();
+  check('custom width applies on leaving the input',await page.locator('#preview').evaluate(n=>n.clientWidth===777));
+  await page.locator('#height').fill('999');await page.locator('#height').press('Enter');
+  check('custom height applies on Enter',await page.locator('#preview').evaluate(n=>n.clientHeight===999));
+  await page.locator('#width').fill('10');await page.locator('#height').focus();
+  check('invalid custom size preserves last valid viewport',await page.locator('#preview').evaluate(n=>n.clientWidth===777));
+  await page.locator('#width').fill('777');await page.locator('#height').focus();
+  await page.locator('#rotate').click();
+  check('rotate applies both dimensions immediately',await page.locator('#preview').evaluate(n=>n.clientWidth===999&&n.clientHeight===777));
+  await page.locator('#brand').selectOption('all');
   await page.locator('#preset').selectOption('768,1024');
-  await page.locator('#inspect').click();
+  await page.locator('.stage').hover();
   const panel=page.locator('[data-inspector-external]');
   await panel.locator('.tree').waitFor();
+  check('hovering preview starts inspector without launch click',await panel.count()===1);
+  check('embedded demo hides duplicate launch button',!await page.frameLocator('#preview').locator('#start-inspector').isVisible());
   const preview=page.frameLocator('#preview');
   const report=panel.locator('[aria-label="AI locator report"]');
   check('category slider stays one row',await panel.locator('[role=tab]').evaluateAll(nodes=>new Set(nodes.map(n=>Math.round(n.getBoundingClientRect().top))).size===1));
@@ -46,7 +63,7 @@ async(page)=>{
   await page.locator('.rwd-controls > summary').click();
   check('RWD controls collapse to summary',!await page.locator('#sizes').isVisible());
   await page.locator('.rwd-controls > summary').click();
-  check('toolbar is one row within 60px',await page.locator('header').evaluate(n=>n.getBoundingClientRect().height<=60));
+  check('RWD controls fit their panel without horizontal scrolling',await page.locator('.toolbar').evaluate(n=>n.scrollWidth<=n.clientWidth));
   check('workspace fills current window and preserves test viewport',await page.evaluate(()=>{
     const frame=document.querySelector('#preview'),stage=document.querySelector('.stage');
     const f=frame.getBoundingClientRect(),a=stage.getBoundingClientRect();
@@ -115,7 +132,7 @@ async(page)=>{
   await page.locator('.more > summary').press('Escape');
   check('Escape closes settings',!await page.locator('.more-content').isVisible());
   await page.setViewportSize({width:390,height:600});
-  check('mobile header within 60px and no document overflow',await page.evaluate(()=>document.querySelector('header').getBoundingClientRect().height<=60&&document.documentElement.scrollWidth<=390&&document.body.getBoundingClientRect().height<=600));
+  check('mobile size controls and document do not overflow',await page.evaluate(()=>document.querySelector('.toolbar').scrollWidth<=document.querySelector('.toolbar').clientWidth&&document.documentElement.scrollWidth<=390&&document.body.getBoundingClientRect().height<=600));
   check('narrow screen panel below preview',await page.evaluate(()=>{
     const a=document.querySelector('.stage').getBoundingClientRect(),b=document.querySelector('.side').getBoundingClientRect();return b.top>=a.bottom;
   }));
@@ -135,5 +152,21 @@ async(page)=>{
   await panel.getByRole('button',{name:'關閉 ×',exact:true}).click();
   check('closing restores UI Inspect launch button',await page.locator('#inspect').isVisible());
   check('close removes both control and overlay',await panel.count()===0&&await preview.locator('[data-workflow-inspector]').count()===0);
+  await page.locator('.stage').hover();await panel.locator('.tree').waitFor();
+  check('returning to preview after close reactivates without launch click',await panel.count()===1);
+  await panel.getByRole('button',{name:'關閉 ×',exact:true}).click();
+  await page.setViewportSize({width:390,height:844});
+  let releaseDemo;
+  const delayedDemo=new Promise(resolve=>{releaseDemo=resolve;});
+  await page.route('**/demo.html',async route=>{await delayedDemo;await route.continue();});
+  await page.goto('http://127.0.0.1:4321/rwd-preview.html?lang=zh-TW',{waitUntil:'domcontentloaded'});
+  await page.locator('.stage').hover();releaseDemo();
+  await panel.locator('.tree').waitFor();
+  check('hover before iframe load opens exactly one working panel',await panel.count()===1&&await panel.locator('.tree-name').count()>0);
+  check('narrow initial window starts with collapsible RWD summary',!await page.locator('#sizes').isVisible());
+  check('narrow initial DOM tree has usable visible space',await panel.locator('.tree').evaluate(n=>n.getBoundingClientRect().height>=80));
+  await page.locator('.rwd-controls > summary').click();
+  check('narrow window can expand size controls explicitly',await page.locator('#sizes').isVisible());
+  await page.unroute('**/demo.html');
   return {results,passed:results.filter(r=>r.pass).length,failed:results.filter(r=>!r.pass).length};
 }

@@ -16,8 +16,10 @@
     .side{background:#fff;min-height:0;min-width:0;display:flex;flex-direction:column;border-left:1px solid var(--line);overflow:hidden}
     [data-inspector-dock]{display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden}
     .rwd-controls{flex:none;margin:0;background:#f8fafb;border-bottom:1px solid var(--line)}.rwd-controls>summary{display:flex;align-items:center;gap:8px;list-style:none;padding:10px 12px;font-size:11px;min-height:38px}.rwd-controls>summary::-webkit-details-marker{display:none}.rwd-controls>summary::before{content:'▸';color:var(--muted)}.rwd-controls[open]>summary::before{content:'▾'}.collapse-hint{margin-left:auto;color:var(--muted);font-size:10px}#size-summary{font-variant-numeric:tabular-nums;font-weight:650}
-    header{position:relative;display:flex;align-items:center;gap:6px;height:52px;max-height:60px;padding:4px 10px;border-top:1px solid var(--line);z-index:8}
-    .toolbar{display:flex;align-items:center;gap:8px;overflow-x:auto;min-width:0;flex:1;padding:1px;scrollbar-width:thin}.toolbar h1{display:none}#sizes{display:flex;flex-wrap:nowrap;gap:6px;align-items:center;flex:none}#sizes label{display:flex;align-items:center;gap:4px;white-space:nowrap;font-size:11px}#sizes select{width:162px;font-size:11px}#sizes input{width:65px;font-size:11px}#sizes button{white-space:nowrap;font-size:11px}#result{display:none}
+    header{position:relative;padding:10px 12px;border-top:1px solid var(--line);z-index:8;min-width:0}
+    .toolbar{min-width:0}.toolbar h1{display:none}#sizes{display:grid;grid-template-columns:100px minmax(0,1fr);gap:8px;align-items:end;min-width:0}#sizes label{min-width:0;font-size:11px;font-weight:600}#sizes select{width:100%;font-size:12px;min-width:0;min-height:38px}#sizes input{width:100%;font-size:12px;min-width:0}#sizes button{font-size:11px;min-width:0;padding:7px 5px;min-height:36px}.size-actions{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto minmax(82px,1.4fr);gap:6px;align-items:end}#result{display:none}.auto-hint{font-size:10px;color:var(--muted);margin:8px 0 0}.more{margin-top:8px!important}
+    @media(max-width:380px){#sizes{grid-template-columns:88px minmax(0,1fr)}header{padding:8px}.size-actions{grid-template-columns:minmax(0,1fr) minmax(0,1fr) 38px minmax(78px,1.4fr)}}
+    @media(max-height:450px){.rwd-controls[open]{max-height:45dvh;overflow:auto}}
     .more{margin:0;flex:none}.more>summary{list-style:none;border:1px solid var(--line);border-radius:6px;padding:7px 9px;font-size:11px;min-height:34px;background:#fff}.more>summary::-webkit-details-marker{display:none}.more>summary::after{content:' ▾'}.more-content{position:absolute;right:10px;top:calc(100% + 4px);width:min(340px,calc(100vw - 24px));max-height:65dvh;overflow:auto;padding:16px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 30px #20313f24;font-size:12px}.more-content details{margin:10px 0}.more-content input[type=url]{width:100%;min-width:0}.more-content label{max-width:100%}.row{display:flex;flex-wrap:wrap;gap:8px;min-width:0}.row label{width:100%}.check{display:flex;align-items:start;gap:6px;margin-top:12px}.check input{min-height:auto;accent-color:var(--accent)}.hint{color:var(--muted)}
     #inspect{margin:20px 16px 0;background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600;min-height:42px}#inspect-status{font-size:12px;line-height:1.7;color:var(--muted);margin:12px 16px}#rwd-feedback{flex:none;font-size:11px;background:#fff7df;color:#754600;padding:8px 12px;margin:0;max-height:20dvh;overflow:auto}
     @media(min-width:1600px){.workspace{grid-template-columns:minmax(0,1fr) 440px}}
@@ -32,54 +34,57 @@
     <aside class="side" aria-label="預覽外側工具面板 / External inspector panel">
       <details class="rwd-controls" open><summary>RWD <span id="size-summary">390 × 844</span><span class="collapse-hint"> · 展開／收合</span></summary>
   <header>
-    <div class="toolbar" role="region" aria-label="RWD 尺寸工具列，可左右捲動 / Scrollable size controls" tabindex="0">
+    <div class="toolbar" role="region" aria-label="RWD 尺寸設定 / Responsive size settings">
     <h1>RWD</h1>
     <form id="sizes">
-      <label>版型<select aria-label="版型 / Preset" id="preset">
-<optgroup label="通用 / Generic"><option value="390,844">常用手機 / Mobile · 390 × 844</option><option value="320,568">窄螢幕 / Narrow · 320 × 568</option><option value="768,1024">平板 / Tablet · 768 × 1024</option><option value="1280,800">桌機 / Desktop · 1280 × 800</option><option value="custom">自訂 / Custom</option></optgroup>
+      <label>品牌 / Brand<select id="brand"><option value="all">全部 / All</option><option value="0">通用 / Generic</option><option value="1">Apple</option><option value="2">Samsung</option><option value="3">Google Pixel</option></select></label>
+      <label>機型 / Model<select aria-label="版型 / Preset" id="preset"><option value="" disabled hidden>選擇機型 / Choose a model</option>
+<optgroup label="通用 / Generic"><option value="390,844">常用手機 / Mobile</option><option value="320,568">窄螢幕 / Narrow</option><option value="768,1024">平板 / Tablet</option><option value="1280,800">桌機 / Desktop</option><option value="custom">自訂 / Custom</option></optgroup>
 <optgroup label="Apple · 8 款">
-<option value="iphone-18-pro-0" data-model="iphone-18-pro" data-size="402,874">iPhone 18 Pro · 約 402 × 874</option>
-<option value="iphone-18-pro-max-1" data-model="iphone-18-pro-max" data-size="440,956">iPhone 18 Pro Max · 約 440 × 956</option>
-<option value="iphone-duo-2" data-model="iphone-duo" data-size="466,678">iPhone Duo 外螢幕 / Cover · 約 466 × 678</option>
-<option value="iphone-duo-3" data-model="iphone-duo" data-size="890,626">iPhone Duo 展開 / Inner · 約 890 × 626</option>
-<option value="iphone-air-4" data-model="iphone-air" data-size="420,912">iPhone Air · 約 420 × 912</option>
-<option value="iphone-17-5" data-model="iphone-17" data-size="402,874">iPhone 17 · 約 402 × 874</option>
-<option value="iphone-17-pro-6" data-model="iphone-17-pro" data-size="402,874">iPhone 17 Pro · 約 402 × 874</option>
-<option value="iphone-17-pro-max-7" data-model="iphone-17-pro-max" data-size="440,956">iPhone 17 Pro Max · 約 440 × 956</option>
-<option value="iphone-16-8" data-model="iphone-16" data-size="393,852">iPhone 16 · 約 393 × 852</option>
+<option value="iphone-18-pro-0" data-model="iphone-18-pro" data-size="402,874">iPhone 18 Pro</option>
+<option value="iphone-18-pro-max-1" data-model="iphone-18-pro-max" data-size="440,956">iPhone 18 Pro Max</option>
+<option value="iphone-duo-2" data-model="iphone-duo" data-size="466,678">iPhone Duo 外螢幕 / Cover</option>
+<option value="iphone-duo-3" data-model="iphone-duo" data-size="890,626">iPhone Duo 展開 / Inner</option>
+<option value="iphone-air-4" data-model="iphone-air" data-size="420,912">iPhone Air</option>
+<option value="iphone-17-5" data-model="iphone-17" data-size="402,874">iPhone 17</option>
+<option value="iphone-17-pro-6" data-model="iphone-17-pro" data-size="402,874">iPhone 17 Pro</option>
+<option value="iphone-17-pro-max-7" data-model="iphone-17-pro-max" data-size="440,956">iPhone 17 Pro Max</option>
+<option value="iphone-16-8" data-model="iphone-16" data-size="393,852">iPhone 16</option>
 </optgroup>
 <optgroup label="Samsung · 8 款">
-<option value="galaxy-s26-0" data-model="galaxy-s26" data-size="360,780">Galaxy S26 · 約 360 × 780</option>
-<option value="galaxy-s26+-1" data-model="galaxy-s26+" data-size="411,891">Galaxy S26+ · 約 411 × 891</option>
-<option value="galaxy-s26-Ultra-2" data-model="galaxy-s26-Ultra" data-size="411,891">Galaxy S26 Ultra · 約 411 × 891</option>
-<option value="galaxy-s25-3" data-model="galaxy-s25" data-size="360,780">Galaxy S25 · 約 360 × 780</option>
-<option value="galaxy-s25+-4" data-model="galaxy-s25+" data-size="411,891">Galaxy S25+ · 約 411 × 891</option>
-<option value="galaxy-s25-Ultra-5" data-model="galaxy-s25-Ultra" data-size="411,891">Galaxy S25 Ultra · 約 411 × 891</option>
-<option value="galaxy-z-fold7-6" data-model="galaxy-z-fold7" data-size="360,840">Galaxy Z Fold7 外螢幕 / Cover · 約 360 × 840</option>
-<option value="galaxy-z-fold7-7" data-model="galaxy-z-fold7" data-size="750,832">Galaxy Z Fold7 展開 / Inner · 約 750 × 832</option>
-<option value="galaxy-z-flip7-8" data-model="galaxy-z-flip7" data-size="360,840">Galaxy Z Flip7 主螢幕 / Main · 約 360 × 840</option>
+<option value="galaxy-s26-0" data-model="galaxy-s26" data-size="360,780">Galaxy S26</option>
+<option value="galaxy-s26+-1" data-model="galaxy-s26+" data-size="411,891">Galaxy S26+</option>
+<option value="galaxy-s26-Ultra-2" data-model="galaxy-s26-Ultra" data-size="411,891">Galaxy S26 Ultra</option>
+<option value="galaxy-s25-3" data-model="galaxy-s25" data-size="360,780">Galaxy S25</option>
+<option value="galaxy-s25+-4" data-model="galaxy-s25+" data-size="411,891">Galaxy S25+</option>
+<option value="galaxy-s25-Ultra-5" data-model="galaxy-s25-Ultra" data-size="411,891">Galaxy S25 Ultra</option>
+<option value="galaxy-z-fold7-6" data-model="galaxy-z-fold7" data-size="360,840">Galaxy Z Fold7 外螢幕 / Cover</option>
+<option value="galaxy-z-fold7-7" data-model="galaxy-z-fold7" data-size="750,832">Galaxy Z Fold7 展開 / Inner</option>
+<option value="galaxy-z-flip7-8" data-model="galaxy-z-flip7" data-size="360,840">Galaxy Z Flip7 主螢幕 / Main</option>
 </optgroup>
 <optgroup label="Google Pixel · 8 款">
-<option value="pixel-11-0" data-model="pixel-11" data-size="411,923">Pixel 11 · 約 411 × 923</option>
-<option value="pixel-11-pro-1" data-model="pixel-11-pro" data-size="410,914">Pixel 11 Pro · 約 410 × 914</option>
-<option value="pixel-11-pro-xl-2" data-model="pixel-11-pro-xl" data-size="448,997">Pixel 11 Pro XL · 約 448 × 997</option>
-<option value="pixel-11-pro-fold-3" data-model="pixel-11-pro-fold" data-size="411,892">Pixel 11 Pro Fold 外螢幕 / Cover · 約 411 × 892</option>
-<option value="pixel-11-pro-fold-4" data-model="pixel-11-pro-fold" data-size="791,820">Pixel 11 Pro Fold 展開 / Inner · 約 791 × 820</option>
-<option value="pixel-10-5" data-model="pixel-10" data-size="411,923">Pixel 10 · 約 411 × 923</option>
-<option value="pixel-10-pro-6" data-model="pixel-10-pro" data-size="410,914">Pixel 10 Pro · 約 410 × 914</option>
-<option value="pixel-10-pro-xl-7" data-model="pixel-10-pro-xl" data-size="448,997">Pixel 10 Pro XL · 約 448 × 997</option>
-<option value="pixel-9a-8" data-model="pixel-9a" data-size="411,923">Pixel 9a · 約 411 × 923</option>
+<option value="pixel-11-0" data-model="pixel-11" data-size="411,923">Pixel 11</option>
+<option value="pixel-11-pro-1" data-model="pixel-11-pro" data-size="410,914">Pixel 11 Pro</option>
+<option value="pixel-11-pro-xl-2" data-model="pixel-11-pro-xl" data-size="448,997">Pixel 11 Pro XL</option>
+<option value="pixel-11-pro-fold-3" data-model="pixel-11-pro-fold" data-size="411,892">Pixel 11 Pro Fold 外螢幕 / Cover</option>
+<option value="pixel-11-pro-fold-4" data-model="pixel-11-pro-fold" data-size="791,820">Pixel 11 Pro Fold 展開 / Inner</option>
+<option value="pixel-10-5" data-model="pixel-10" data-size="411,923">Pixel 10</option>
+<option value="pixel-10-pro-6" data-model="pixel-10-pro" data-size="410,914">Pixel 10 Pro</option>
+<option value="pixel-10-pro-xl-7" data-model="pixel-10-pro-xl" data-size="448,997">Pixel 10 Pro XL</option>
+<option value="pixel-9a-8" data-model="pixel-9a" data-size="411,923">Pixel 9a</option>
 </optgroup>
       </select></label>
-      <label>寬<input aria-label="寬 / Width" id="width" type="number" min="240" max="3840" step="1" value="390" required></label>
+      <div class="size-actions"><label>寬<input aria-label="寬 / Width" id="width" type="number" min="240" max="3840" step="1" value="390" required></label>
       <label>高<input aria-label="高 / Height" id="height" type="number" min="240" max="3840" step="1" value="844" required></label>
-      <button type="submit" aria-label="套用尺寸 / Apply">套用</button><button type="button" id="rotate" aria-label="橫直切換 / Rotate">⇄ 橫直</button><button type="button" id="fit" aria-pressed="true" title="只縮放顯示，不改測試 CSS 尺寸 / Display scale only">適合畫面</button>
+      <button type="button" id="rotate" aria-label="橫直切換 / Rotate" title="橫直切換 / Rotate">⇄</button><button type="button" id="fit" aria-pressed="true" title="只縮放顯示，不改測試 CSS 尺寸 / Display scale only">適合畫面</button>
+      </div>
     </form>
+    <p class="auto-hint">機型立即切換；自訂尺寸離開欄位或按 Enter 更新。</p>
     <p id="result" role="status"></p>
     </div>
     <details class="more" id="more"><summary>說明／設定</summary><div class="more-content">
     <p>選寬度，看文字換行、卡片排列與按鈕是否被切掉。這是桌面瀏覽器中的排版視窗，不是真機模擬。</p>
-    <p class="hint">工具列空間不足時可左右捲動，或用 Tab 移到下一個控制。Esc 可關閉這個說明面板。</p>
+    <p class="hint">先選品牌縮小清單，再選機型。可用 Tab 與方向鍵操作；Esc 關閉說明。</p>
     <details><summary>換成自己的本機預覽 / Use your local preview</summary>
       <p>先確認測試資料及分析停送。localhost 也可能連到真實後端；本工具不會替你阻擋網站分析或交易。</p>
       <div class="row"><label>本機網址 / Local URL<input id="url" type="url" placeholder="http://localhost:3000/"></label>
@@ -98,7 +103,7 @@
       </details>
       <p id="rwd-feedback" role="status" hidden></p>
       <button id="inspect" type="button">UI Inspect · 圖層指認</button>
-      <p id="inspect-status" role="status">先按 UI Inspect → ① 選元素 → ② 確認範圍 → ③ 寫需求與複製。可先展開 RWD 選尺寸。 / Open UI Inspect, then follow steps 1–3.</p>
+      <p id="inspect-status" role="status">移到左側預覽即可指認；點一下選取。也可用鍵盤啟用按鈕。</p>
       <div data-inspector-dock></div>
     </aside>
   </main>

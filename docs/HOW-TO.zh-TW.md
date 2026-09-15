@@ -50,7 +50,7 @@ Python 設定選單目前是中英介面；其中「AI 回覆語言」也可填 
 | 範圍的「上一個／下一個」 | 捲動到對應匹配元素 |
 | Escape | 截圖模式回編輯；其他情況關閉 Inspector。RWD 設定中則關閉說明浮層 |
 | 複製修改需求 | 一起複製元素、範圍、例外與需求；拒絕時用選取文字搭配 Ctrl+C／Cmd+C |
-| 截圖 → 準備截圖 → 保留框線，隱藏面板 | 顯示清楚的修改單和選取框；需先填寫需求 |
+| 截圖 → 直接顯示修改單 | 顯示清楚的修改單和選取框；需先填寫需求 |
 | PrtSc／Print Screen | 依 Windows 設定擷取或開啟剪取工具；**先準備修改單，再按鍵** |
 | Win+Shift+S | 手動啟動 Windows 區域剪取 |
 | Shift+Cmd+4 | 手動啟動 macOS 區域截圖 |
@@ -66,3 +66,10 @@ py -3 ui-element-inspector/scripts/preview_server.py --port 你選定且未占�
 結束按關閉／Escape；自己啟動的預覽 server 在原終端按 Ctrl+C 停止。連線、發布、push 與 routine 仍須獨立確認；routine 先手動跑，再驗第一次真正排程與送達結果。
 
 [Minimum install & optional companions / 最小安裝與選用搭配](../README.md#minimum-install-and-optional-companions) · [繁體中文](../README.zh-TW.md#最小安裝與建議搭配)
+
+## Port
+
+Port 不固定：你可以指定，或交由 AI 選可用值並回報實際網址。`--port` 仍須填明確數字。已有核准預覽可沿用，不為騰出 port 終止別人的程序。
+
+
+在已核准的同來源工作區，移到預覽就會自動開啟指認與 DOM 樹，不必按開始／繼續。Hover 其他元素只看名稱，保留原本選取與需求；點一下才更換選取。窄螢幕初次開啟會收合 RWD 設定，需要時再點 RWD 展開。

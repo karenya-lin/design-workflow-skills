@@ -1,5 +1,7 @@
 # Design Workflow Skills — 可自訂設計工作流程包
 
+目前操作：移到預覽就開啟 Inspect，點一下才選取。[新版 RWD／Hover 圖解](docs/VISUAL-GUIDE.md)。下方影片仍為較早的介面。
+
 ## How to use · 使用快捷索引
 
 ### 最小安裝與建議搭配

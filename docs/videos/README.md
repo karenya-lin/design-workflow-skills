@@ -17,3 +17,9 @@ Two silent screen recordings (English 23 seconds; Traditional Chinese about 20 s
 Pause or replay any step. For complete text and all keyboard shortcuts see [English](../HOW-TO.en.md), [繁中](../HOW-TO.zh-TW.md), [Français](../HOW-TO.fr.md), [日本語](../HOW-TO.ja.md).
 
 Videos cover UI Inspect only. Other skill galleries are explicitly labeled instructional examples, not recorded execution of every workflow.
+
+## Earlier recording / 較早版本錄影
+
+These recordings predate the simplified Brand/Model controls and direct Screenshot entry. Current UI has no Apply, Prepare or Keep outlines confirmation: Screenshot opens the brief directly. See the current [How-to](../HOW-TO.en.md).
+
+影片錄於本次簡化之前；新版已取消「套用」「準備截圖」「保留框線」確認，點「截圖」直接開修改單。以[最新操作說明](../HOW-TO.zh-TW.md)為準。

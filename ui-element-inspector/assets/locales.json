@@ -1128,5 +1128,205 @@
     "The browser did not allow automatic copy. All text is selected: press Ctrl+C (Mac: Cmd+C), then paste into AI. Your request is still here.",
     "Le navigateur a refusé la copie automatique. Tout le texte est sélectionné : appuyez sur Ctrl+C (Mac : Cmd+C), puis collez-le dans votre IA. Votre demande est conservée.",
     "ブラウザーが自動コピーを許可しませんでした。全文を選択済みです。Ctrl+C（Mac：Cmd+C）を押して AI に貼り付けてください。入力内容は保持されています。"
+  ],
+  "常用手機 / Mobile": [
+    "Mobile",
+    "Mobile",
+    "スマートフォン"
+  ],
+  "窄螢幕 / Narrow": [
+    "Narrow",
+    "Étroit",
+    "狭い画面"
+  ],
+  "平板 / Tablet": [
+    "Tablet",
+    "Tablette",
+    "タブレット"
+  ],
+  "桌機 / Desktop": [
+    "Desktop",
+    "Ordinateur",
+    "デスクトップ"
+  ],
+  "iPhone 18 Pro": [
+    "iPhone 18 Pro",
+    "iPhone 18 Pro",
+    "iPhone 18 Pro"
+  ],
+  "iPhone 18 Pro Max": [
+    "iPhone 18 Pro Max",
+    "iPhone 18 Pro Max",
+    "iPhone 18 Pro Max"
+  ],
+  "iPhone Duo 外螢幕 / Cover": [
+    "iPhone Duo Cover",
+    "iPhone Duo Écran externe",
+    "iPhone Duo 外側画面"
+  ],
+  "iPhone Duo 展開 / Inner": [
+    "iPhone Duo Inner",
+    "iPhone Duo Écran interne",
+    "iPhone Duo 内側画面"
+  ],
+  "iPhone Air": [
+    "iPhone Air",
+    "iPhone Air",
+    "iPhone Air"
+  ],
+  "iPhone 17": [
+    "iPhone 17",
+    "iPhone 17",
+    "iPhone 17"
+  ],
+  "iPhone 17 Pro": [
+    "iPhone 17 Pro",
+    "iPhone 17 Pro",
+    "iPhone 17 Pro"
+  ],
+  "iPhone 17 Pro Max": [
+    "iPhone 17 Pro Max",
+    "iPhone 17 Pro Max",
+    "iPhone 17 Pro Max"
+  ],
+  "iPhone 16": [
+    "iPhone 16",
+    "iPhone 16",
+    "iPhone 16"
+  ],
+  "Galaxy S26": [
+    "Galaxy S26",
+    "Galaxy S26",
+    "Galaxy S26"
+  ],
+  "Galaxy S26+": [
+    "Galaxy S26+",
+    "Galaxy S26+",
+    "Galaxy S26+"
+  ],
+  "Galaxy S26 Ultra": [
+    "Galaxy S26 Ultra",
+    "Galaxy S26 Ultra",
+    "Galaxy S26 Ultra"
+  ],
+  "Galaxy S25": [
+    "Galaxy S25",
+    "Galaxy S25",
+    "Galaxy S25"
+  ],
+  "Galaxy S25+": [
+    "Galaxy S25+",
+    "Galaxy S25+",
+    "Galaxy S25+"
+  ],
+  "Galaxy S25 Ultra": [
+    "Galaxy S25 Ultra",
+    "Galaxy S25 Ultra",
+    "Galaxy S25 Ultra"
+  ],
+  "Galaxy Z Fold7 外螢幕 / Cover": [
+    "Galaxy Z Fold7 Cover",
+    "Galaxy Z Fold7 Écran externe",
+    "Galaxy Z Fold7 外側画面"
+  ],
+  "Galaxy Z Fold7 展開 / Inner": [
+    "Galaxy Z Fold7 Inner",
+    "Galaxy Z Fold7 Écran interne",
+    "Galaxy Z Fold7 内側画面"
+  ],
+  "Galaxy Z Flip7 主螢幕 / Main": [
+    "Galaxy Z Flip7 Main",
+    "Galaxy Z Flip7 Écran principal",
+    "Galaxy Z Flip7 メイン画面"
+  ],
+  "Pixel 11": [
+    "Pixel 11",
+    "Pixel 11",
+    "Pixel 11"
+  ],
+  "Pixel 11 Pro": [
+    "Pixel 11 Pro",
+    "Pixel 11 Pro",
+    "Pixel 11 Pro"
+  ],
+  "Pixel 11 Pro XL": [
+    "Pixel 11 Pro XL",
+    "Pixel 11 Pro XL",
+    "Pixel 11 Pro XL"
+  ],
+  "Pixel 11 Pro Fold 外螢幕 / Cover": [
+    "Pixel 11 Pro Fold Cover",
+    "Pixel 11 Pro Fold Écran externe",
+    "Pixel 11 Pro Fold 外側画面"
+  ],
+  "Pixel 11 Pro Fold 展開 / Inner": [
+    "Pixel 11 Pro Fold Inner",
+    "Pixel 11 Pro Fold Écran interne",
+    "Pixel 11 Pro Fold 内側画面"
+  ],
+  "Pixel 10": [
+    "Pixel 10",
+    "Pixel 10",
+    "Pixel 10"
+  ],
+  "Pixel 10 Pro": [
+    "Pixel 10 Pro",
+    "Pixel 10 Pro",
+    "Pixel 10 Pro"
+  ],
+  "Pixel 10 Pro XL": [
+    "Pixel 10 Pro XL",
+    "Pixel 10 Pro XL",
+    "Pixel 10 Pro XL"
+  ],
+  "Pixel 9a": [
+    "Pixel 9a",
+    "Pixel 9a",
+    "Pixel 9a"
+  ],
+  "品牌 / Brand": [
+    "Brand",
+    "Marque",
+    "ブランド"
+  ],
+  "全部 / All": [
+    "All",
+    "Toutes",
+    "すべて"
+  ],
+  "機型 / Model": [
+    "Model",
+    "Modèle",
+    "機種"
+  ],
+  "選擇機型 / Choose a model": [
+    "Choose a model",
+    "Choisir un modèle",
+    "機種を選択"
+  ],
+  "RWD 尺寸設定 / Responsive size settings": [
+    "Responsive size settings",
+    "Dimensions de l’aperçu",
+    "表示サイズ設定"
+  ],
+  "機型立即切換；自訂尺寸離開欄位或按 Enter 更新。": [
+    "Models apply immediately. For custom sizes, leave the field or press Enter.",
+    "Le modèle s’applique immédiatement. Pour une taille personnalisée, quittez le champ ou appuyez sur Entrée.",
+    "機種はすぐ反映。カスタムサイズは入力欄を離れるか Enter で更新。"
+  ],
+  "先選品牌縮小清單，再選機型。可用 Tab 與方向鍵操作；Esc 關閉說明。": [
+    "Filter by brand, then choose a model. Use Tab and arrow keys; Esc closes help.",
+    "Filtrez par marque, puis choisissez un modèle. Utilisez Tab et les flèches ; Échap ferme l’aide.",
+    "ブランドで絞り込み、機種を選択。Tab と矢印キーで操作、Esc で説明を閉じます。"
+  ],
+  "黃框指出你要修改的元素，讓 AI 看懂位置；不是另一個檢查步驟。": [
+    "The yellow outline shows AI which element to change. It is not another check.",
+    "Le contour jaune indique à l’IA l’élément à modifier. Ce n’est pas une vérification supplémentaire.",
+    "黄色の枠は変更したい要素を AI に示します。追加の確認手順ではありません。"
+  ],
+  "移到左側預覽即可指認；點一下選取。也可用鍵盤啟用按鈕。": [
+    "Hover the left preview to inspect; click to select. The activation button also supports keyboard use.",
+    "Survolez l’aperçu à gauche pour inspecter ; cliquez pour sélectionner. Le bouton permet aussi l’activation au clavier.",
+    "左のプレビューにカーソルを合わせて確認、クリックで選択。キーボード用の開始ボタンも使えます。"
   ]
 }

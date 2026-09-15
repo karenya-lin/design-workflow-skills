@@ -27,13 +27,14 @@ live payment, admin or customer-account page.
 ## Activate only the requested preview
 
 Prefer `assets/rwd-preview.html` for the external control panel and DOM tree.
+Entering its approved same-origin preview activates inspection automatically; no Start/Resume click is needed. The launch button remains available for keyboard users. Hover previews names without replacing a held selection or request.
 The exact same-origin demo supports this directly. Cross-origin app previews can
 be resized but cannot be inspected from the outer page; do not bypass that boundary.
 Start with `assets/demo.html` for standalone overlay controls: it is a local,
 synthetic example with no external requests. For their app, propose exact temporary
 dev-only integration paths or an allowed browser-tool injection, then use the host's
 authorized mechanism. Reuse the existing preview; starting a server requires an
-explicit port and process ownership. Do not blindly install extensions or weaken CSP.
+explicit port and process ownership. The user may supply the port or delegate choosing an available port to the agent. Report the actual bound URL; on a collision only choose another port when selection was delegated. Never terminate an unrelated process to make room. Do not blindly install extensions or weaken CSP.
 
 The self-contained `assets/inspector.js` activates when loaded on localhost,
 127.0.0.1, IPv6 loopback or file pages only. It adds a removable shadow-root UI,
@@ -69,7 +70,7 @@ before release. Prefer no project source change when supported tooling can activ
   “複製修改需求 / Copy change request” combines the editable
   report. Review it for confidential IDs/class names before sharing. Input values,
   full page text, URLs/query strings, cookies and framework internals are not collected.
-- “準備截圖 / Prepare screenshot” offers instructions and hides the panel while keeping outlines.
+- “截圖 / Screenshot” opens the readable change brief and target outlines directly after a selection and request exist. Do not add another Prepare/Keep outlines confirmation. Back/Escape returns to the request field.
   The user presses Win+Shift+S (macOS Shift+Cmd+4), annotates the screenshot, then
   shares it manually. Escape restores the panel; Escape again closes the inspector.
   Plain web mode cannot launch native tools by itself. The optional foreground

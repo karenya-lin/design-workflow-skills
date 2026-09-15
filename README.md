@@ -1,5 +1,7 @@
 # Design Workflow Skills
 
+Current interaction: hover the preview to open Inspect; click to select. [Updated RWD and hover screenshots](docs/VISUAL-GUIDE.md). Videos below show the earlier controls.
+
 ## How to use · quick links
 
 ### Minimum install and optional companions

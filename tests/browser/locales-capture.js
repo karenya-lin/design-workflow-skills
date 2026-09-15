@@ -5,7 +5,7 @@ async(page)=>{
   await page.setViewportSize({width:1440,height:900});
   await page.goto('http://127.0.0.1:4321/rwd-preview.html?lang=en');
   await page.locator('#preset').selectOption('1280,800');
-  await page.locator('#inspect').click();
+  if(await page.locator('#inspect').isVisible())await page.locator('#inspect').click();
   const panel=page.locator('[data-inspector-external]');await panel.locator('.tree').waitFor();
   check('first use highlights language',await panel.locator('select.first-use').count()===1);
   check('English first step',await panel.getByRole('tab',{name:'① Select',exact:true}).isVisible());
@@ -27,9 +27,8 @@ async(page)=>{
   }
   check('language choice dismisses hint',!await panel.locator('.welcome').isVisible());
   await panel.getByRole('tab',{name:'Screenshot',exact:true}).click();
-  await panel.getByRole('button',{name:'Prepare screenshot',exact:true}).click();
-  await panel.getByRole('button',{name:'Keep outlines, hide tools',exact:true}).click();
   const card=panel.locator('.capture-card');await card.waitFor();
+  check('screenshot opens brief directly without preparation buttons',await panel.getByRole('button',{name:'Prepare screenshot',exact:true}).count()===0&&await panel.getByRole('button',{name:'Keep outlines, hide tools',exact:true}).count()===0);
   check('capture includes exact user text',(await card.locator('.capture-request').textContent())===text);
   check('capture request is text, not executable HTML',await card.locator('.capture-request script').count()===0);
   check('capture has selection and exclusion',(await card.locator('.capture-selector').textContent()).includes('article:nth-of-type(1)')&&(await card.locator('.capture-scope').textContent()).includes('article:nth-of-type(2)'));
@@ -42,12 +41,21 @@ async(page)=>{
   check('missing helper explains manual fallback',true);
   await card.getByRole('button',{name:'Back to edit',exact:true}).click();
   check('back restores panel and preserves request',await panel.locator('.panel').isVisible()&&(await request.inputValue())===text);
+  check('back to edit opens Request and focuses it',await panel.getByRole('tab',{name:'③ Request',exact:true}).getAttribute('aria-selected')==='true'&&await request.evaluate(n=>n.getRootNode().activeElement===n));
+  await request.fill('');
+  await panel.getByRole('tab',{name:'Screenshot',exact:true}).click();
+  check('empty request stays in editor with explanation',!await card.isVisible()&&await request.evaluate(n=>n.getRootNode().activeElement===n));
+  await request.fill(text);
+  await panel.getByRole('tab',{name:'Screenshot',exact:true}).focus();await panel.getByRole('tab',{name:'Screenshot',exact:true}).press('Enter');
+  check('keyboard opens screenshot brief directly',await card.isVisible());
+  await card.press('Escape');
+  check('Escape returns to editable request',await request.isVisible()&&await request.inputValue()===text);
   await page.emulateMedia({reducedMotion:'reduce'});
   await panel.locator('select').evaluate(n=>n.classList.add('first-use'));
   check('reduced motion stops animation',await panel.locator('select').evaluate(n=>getComputedStyle(n).animationName==='none'));
   await page.emulateMedia({reducedMotion:'no-preference'});
   await panel.getByRole('button',{name:'Close ×',exact:true}).click();
-  await page.locator('#inspect').click();await panel.locator('.tree').waitFor();
+  if(await page.locator('#inspect').isVisible())await page.locator('#inspect').click();await panel.locator('.tree').waitFor();
   check('reopen does not repeat onboarding',!await panel.locator('.welcome').isVisible());
   for(const [width,height] of [[320,600],[390,844],[768,1024],[1280,900],[1920,1080],[640,300]]){
     await page.setViewportSize({width,height});
@@ -55,6 +63,7 @@ async(page)=>{
       await panel.locator('select').selectOption(lang);
       check(`${lang} ${width}x${height} language reachable`,await panel.locator('select').isVisible());
       check(`${lang} ${width}x${height} no document overflow`,await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+      check(`${lang} ${width}x${height} RWD controls fit without horizontal scrolling`,await page.locator('.toolbar').evaluate(n=>n.scrollWidth<=n.clientWidth));
     }
   }
   await page.goto('http://127.0.0.1:4321/rwd-preview.html?aiLang=ja');

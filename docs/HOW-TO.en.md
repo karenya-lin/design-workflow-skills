@@ -50,7 +50,7 @@ The Python settings menu is English/Traditional Chinese; its **response language
 | Previous / Next buttons in Scope | Scroll to a matching page element |
 | Escape | Leave screenshot mode; otherwise close the inspector. In RWD settings, close that popover |
 | Copy change request | Copy locator, scope, exceptions and typed request; if denied, use selected text with Ctrl+C / Cmd+C |
-| Screenshot → Prepare → Keep outlines, hide tools | Show a readable change brief beside the outlined target. A request must be entered first |
+| Screenshot → change brief opens directly | Show a readable change brief beside the outlined target. A request must be entered first |
 | PrtSc / Print Screen | Windows behavior depends on your OS settings; prepare the brief **before** pressing the key |
 | Win+Shift+S | Open Windows capture selection manually |
 | Shift+Cmd+4 | macOS capture selection manually |
@@ -66,3 +66,10 @@ Both native actions are **off by default** and require an explicit button click.
 Finish with Close/Escape. Stop only the preview server you started with Ctrl+C in its terminal. Connections, publishing, Git push and routines need their own scope; trial-run a routine and verify its first actual scheduled execution and delivery.
 
 [Minimum install & optional companions / 最小安裝與選用搭配](../README.md#minimum-install-and-optional-companions) · [繁體中文](../README.zh-TW.md#最小安裝與建議搭配)
+
+## Port
+
+The port is not fixed: provide your own, or ask the AI to choose an available one and report the actual URL. `--port` must contain that explicit number. Reuse an existing approved preview; never kill someone else’s process to free a port.
+
+
+In the approved same-origin workspace, hover the preview to open the inspector and DOM tree automatically. No Start/Resume click is needed. Hovering another element keeps your selection and request; click to change the selection. Narrow windows initially collapse RWD settings; expand the RWD summary when needed.

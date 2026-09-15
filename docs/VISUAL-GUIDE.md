@@ -1,5 +1,22 @@
 # 圖解操作 / Visual walkthrough
 
+## Current hover and RWD controls / 最新 Hover 與 RWD 操作
+
+1. **Hover preview / 移到預覽** → identification and DOM tree open automatically. No Start/Resume click. / 自動開啟指認與 DOM 樹，不必按開始或繼續。
+2. **Click to select / 點一下選取** → hover another element to see its name without losing the held selection or request. / Hover 其他元素只預覽名稱，保留選取與需求。
+3. **Scope → Request → Copy / 範圍 → 需求 → 複製**. Optional Screenshot opens the change brief directly; no second Prepare click. / 選用截圖會直接開修改單，不需再準備一次。
+
+Brand filters the model list; choosing a model applies immediately. Custom dimensions apply on blur or Enter. / 品牌篩選機型；選機型立即更新，自訂尺寸離開欄位或 Enter 更新。
+
+![Current desktop controls / 最新桌機操作](images/inspector-hover-rwd-desktop.png)
+
+Narrow windows initially collapse RWD settings to preserve DOM tree space. Expand the RWD summary when needed. / 窄螢幕先收合 RWD，留下 DOM 樹空間，需要時可展開。
+
+![Current narrow layout / 最新窄螢幕排列](images/inspector-hover-rwd-mobile.png)
+
+Actual synthetic local captures at 1440×900 and 390×844. Not real-device verification. The older step images and videos below retain the former RWD/Prepare controls; follow the current flow above. / 本機示範實拍，非真機驗證。下方舊步驟圖片與影片仍包含舊 RWD／準備截圖按鈕，操作以本節為準。
+
+
 這是 **Skill + 本機網頁工具，不是 Chrome extension**。Skill 指導 AI 工作；瀏覽器工具讓你指出位置。以下截圖皆為工具自帶的假資料。
 
 This is a **skill plus a local web tool, not a Chrome extension**. The skill guides an AI agent; the browser tool helps you point to elements. All screenshots use synthetic demo data.
@@ -93,7 +110,7 @@ After copying, switch to your AI chat and paste/send it yourself. The tool does 
 
 ## 選用：截圖畫記 / Optional screenshot annotation
 
-**先選元素並填需求 → 截圖 → 準備截圖 → 保留框線與修改單 → Win+Shift+S**。剪取、畫記後自行貼給 AI；Esc 恢復面板。Mac 用 Shift+Cmd+4。
+**先選元素並填需求 → 截圖 → 直接顯示框線與修改單 → Win+Shift+S**。剪取、畫記後自行貼給 AI；Esc 恢復面板。Mac 用 Shift+Cmd+4。
 
 For optional click-to-launch Windows support, start with `--enable-snipping`, click **開啟 Windows 剪取工具**, then choose New in the native app. Otherwise use the keyboard shortcut. This tool does not capture, read, upload or confirm delivery of screenshots.
 
