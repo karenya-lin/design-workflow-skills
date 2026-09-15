@@ -1,5 +1,7 @@
 # How to use · shortcuts
 
+**Current controls:** the default language option reads **Language** (automatic detection). The standalone demo button opens the external-panel workspace. In Scope, use numbered ticks to visit matches, choose **To copy** to see included items, and open the amber **Exclude instances** control to keep exceptions unchanged. [Verification status](RELEASE-STATUS.md).
+
 [English](HOW-TO.en.md) · [繁體中文](HOW-TO.zh-TW.md) · [Français](HOW-TO.fr.md) · [日本語](HOW-TO.ja.md)
 
 ## Start / configure / finish

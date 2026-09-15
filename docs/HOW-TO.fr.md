@@ -1,5 +1,7 @@
 # Mode d’emploi · raccourcis
 
+**Commandes actuelles :** l’option par défaut affiche **Langue** et détecte la langue automatiquement. Le bouton de la démo ouvre le panneau extérieur. Dans Périmètre, les repères numérotés permettent de rejoindre les éléments. **À copier** affiche les éléments inclus et le bouton ambré permet de choisir les exclusions. [État des vérifications](RELEASE-STATUS.md).
+
 [Français](HOW-TO.fr.md) · [English](HOW-TO.en.md) · [繁體中文](HOW-TO.zh-TW.md) · [日本語](HOW-TO.ja.md)
 
 L’interface UI Inspect et RWD existe en français. Les manuels complets des skills, captures et vidéos existent en anglais et chinois traditionnel ; cette page est un démarrage rapide, pas leur traduction intégrale.

@@ -26,7 +26,7 @@ Updated 2026-09-15. Available instructions are not a guarantee of every AI host,
 - Chrome/Edge/Firefox DevTools extension: development only, not a verified installable release. Console/Network integration is not part of the released Skill.
 - DevTools 擴充套件仍開發中，尚未完成安裝及主要流程驗收；Skill 不提供 F12 Console/Network 即時資料。
 - Automatic AI sending and automatic GitHub error uploads are not enabled. Review and copy locally, then choose where to paste. No private screenshot or log is uploaded automatically.
-- 不自動傳送 AI，也不自動上传 GitHub 錯誤；先在本機審閱、複製，再自行貼上，不自動送出私密截圖或 log。
+- 不自動傳送 AI，也不自動上傳 GitHub 錯誤；先在本機審閱、複製，再自行貼上，不自動送出私密截圖或 log。
 
 ## Evidence / 驗證依據
 
