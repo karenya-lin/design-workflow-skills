@@ -36,3 +36,7 @@ unverified counts and evidence. Persist only approved summaries, not full inbox 
 
 繁中：預設只對帳與列缺口；Google 日曆不等於 Gmail 權限，寫 Jira、改日曆與寄送
 分別確認。更新先查重、保留既有內容，結果不確定就先讀回，不盲目重送。
+
+## Illustrated quickstart / 圖解開始
+
+[Step 1 → 2 → 3, copyable prompts and limits / 三步圖解、可貼提示與限制](references/quickstart.md). The diagram is instructional, not evidence of execution.

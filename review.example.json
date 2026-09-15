@@ -2,6 +2,7 @@
   "version": 1,
   "phases": {
     "start": {"checks": [], "skills": ["optional-skill-profile", "multi-session-protocol"]},
+    "inspect": {"checks": [], "skills": ["ui-element-inspector"]},
     "design": {"checks": [], "skills": ["variant-review-loop", "figma-write"]},
     "review": {"checks": [], "skills": ["uiux-checks", "states-preview-loop", "ui-design-review", "a11y-review"]},
     "fix": {"checks": [], "skills": ["audit-fix-loop-no-preview"]},

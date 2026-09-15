@@ -27,3 +27,7 @@ bump follow the actual project's rules and task authorization, not this skill al
 
 繁中：靜態發現先分實證與疑點，使用者選擇範圍後才修。
 只跑必要驗證，不刪未知檔、不把無預覽當作 UI 已通過。
+
+## Illustrated quickstart / 圖解開始
+
+[Step 1 → 2 → 3, copyable prompts and limits / 三步圖解、可貼提示與限制](references/quickstart.md). The diagram is instructional, not evidence of execution.

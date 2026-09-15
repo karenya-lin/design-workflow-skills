@@ -53,3 +53,7 @@ checked coverage and unverified interactions. Do not mutate Git without approval
 
 繁中：先指定 port；被占用時辨識 Node 程序並提示影響，取得對該 PID 的批准後才停止。
 不殺未知服務或全部 node。截圖必須標明實際頁面或合成 preview，以及未驗的操作。
+
+## Illustrated quickstart / 圖解開始
+
+[Step 1 → 2 → 3, copyable prompts and limits / 三步圖解、可貼提示與限制](references/quickstart.md). The diagram is instructional, not evidence of execution.

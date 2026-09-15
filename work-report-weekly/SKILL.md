@@ -31,3 +31,7 @@ Save any requested report only to the approved output location outside public as
 
 繁中：選填帳號與資料源，只讀選定範圍，先產週報草稿。日曆不是工作完成證明；
 寄送要先確認完整內容與收件對象，不因保存設定而取得永久寄信許可。
+
+## Illustrated quickstart / 圖解開始
+
+[Step 1 → 2 → 3, copyable prompts and limits / 三步圖解、可貼提示與限制](references/quickstart.md). The diagram is instructional, not evidence of execution.

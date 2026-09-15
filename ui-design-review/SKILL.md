@@ -26,3 +26,7 @@ available authorized delegation; do not manufacture review receipts.
 
 繁中：對照同狀態、同尺寸的設計與實作，把視覺與功能問題分開。
 變更先定範圍；沒有瀏覽器證據就標未驗，不以靜態檢查冒充完整驗收。
+
+## Illustrated quickstart / 圖解開始
+
+[Step 1 → 2 → 3, copyable prompts and limits / 三步圖解、可貼提示與限制](references/quickstart.md). The diagram is instructional, not evidence of execution.

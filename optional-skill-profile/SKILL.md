@@ -68,6 +68,13 @@ Send email/Chat, create or edit calendar events, write Jira and push Git are sep
 actions: present exact targets and proposed content/diff and obtain task-scoped approval.
 Do not save reusable write grants. No schedule is created merely by installing a skill.
 
+If the user separately requests a routine, resolve the actual host's scheduling
+capability. Trial-run the same prompt manually with approved read-only/synthetic
+inputs and check account, timezone, output and failures. Separately approve any real
+write/delivery test. Verify the first scheduled trigger and duplicate handling.
+Keep configured, manually verified, scheduled execution and delivery verified as
+separate states; an enabled switch proves none of the latter.
+
 Google scope reference: https://developers.google.com/workspace/calendar/api/auth
 
 ## Local helper
@@ -90,3 +97,7 @@ See [fields.md](references/fields.md) for the allowed data.
 
 繁中：第一次詢問是否選填與保存，之後每次先顯示設定。可修改、單次覆寫或重設；
 私人值不回寫 skill。Google 日曆、Gmail、Jira 各自選擇，寫入與寄送需另行批准。
+
+## Illustrated quickstart / 圖解開始
+
+[Step 1 → 2 → 3, copyable prompts and limits / 三步圖解、可貼提示與限制](references/quickstart.md). The diagram is instructional, not evidence of execution.

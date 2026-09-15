@@ -33,3 +33,7 @@ separate dated primary-source review before use.
 
 繁中：以證據區分實測、推論與未驗；掃描通過不等於全站符合標準。
 不附未核實法規表，不因品牌偏好把不合格項目改標通過。
+
+## Illustrated quickstart / 圖解開始
+
+[Step 1 → 2 → 3, copyable prompts and limits / 三步圖解、可貼提示與限制](references/quickstart.md). The diagram is instructional, not evidence of execution.

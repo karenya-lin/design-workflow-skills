@@ -26,3 +26,7 @@ publishing, deleting drafts or changing another owner's files.
 
 繁中：以內容 ID × 語系對帳，區分本機、已審、已上傳與已公開。
 來源讀不到要標未知；面板可以彙整，但不能因此自行發布內容。
+
+## Illustrated quickstart / 圖解開始
+
+[Step 1 → 2 → 3, copyable prompts and limits / 三步圖解、可貼提示與限制](references/quickstart.md). The diagram is instructional, not evidence of execution.

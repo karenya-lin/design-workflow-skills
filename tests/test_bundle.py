@@ -4,11 +4,30 @@ import re
 import shutil
 import tempfile
 import unittest
+import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class BundleTests(unittest.TestCase):
+    def test_every_skill_has_portable_bilingual_visual_lifecycle_guide(self):
+        for skill in ROOT.glob('*/SKILL.md'):
+            with self.subTest(skill=skill.parent.name):
+                guide = skill.parent / 'references' / 'quickstart.md'
+                text = guide.read_text(encoding='utf-8')
+                for section in ('Two benefits', 'Projects and stages', 'Before starting',
+                                'Step 1', 'Step 2', 'Step 3', 'Expected output',
+                                'Customize and optional', 'Finish and hand off'):
+                    self.assertIn(section, text)
+                diagram = ET.parse(guide.with_name('workflow.svg')).getroot()
+                tags = {el.tag.rsplit('}', 1)[-1] for el in diagram.iter()}
+                self.assertIn('title', tags)
+                self.assertIn('desc', tags)
+                self.assertFalse(tags & {'script', 'foreignObject', 'image'})
+                for el in diagram.iter():
+                    self.assertFalse(any(key.rsplit('}', 1)[-1] == 'href' or key.startswith('on')
+                                         for key in el.attrib))
+
     def test_skill_frontmatter_and_directory_names(self):
         skills = list(ROOT.glob('*/SKILL.md'))
         self.assertTrue(skills)

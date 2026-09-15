@@ -10,12 +10,13 @@ It does not edit external skills' own settings or connect accounts.
 
 ## Install and trigger
 
-Copy the 12 sibling skill folders into your agent's configured skill directory.
+Copy the 13 sibling skill folders into your agent's configured skill directory.
 Do not overwrite an existing private skill with the same name: use a separate agent
 profile/installation or compare and explicitly migrate first. Keep this checkout
 for runner/scripts/tests; do not copy runtime profiles into it.
 
 Examples of agent requests:
+- “Use ui-element-inspector: I don't know what this button/container is named.”
 - “Use states-preview-loop to preview this component; ask me for the port.”
 - “Use uiux-checks for this page, accessibility and mobile layout only.”
 - “Use work-report-weekly. Read my selected Calendar, not Gmail; draft only.”

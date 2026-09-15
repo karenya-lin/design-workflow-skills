@@ -28,3 +28,7 @@ this protocol enforces global exclusivity when the platform cannot enforce it.
 
 繁中：先宣告精確範圍並取得 ACK，再動共用檔；訊息不等於真正鎖。
 跨機狀態不可猜測，交付必須附差異與驗證，不能搶 index 或覆蓋別人的工作。
+
+## Illustrated quickstart / 圖解開始
+
+[Step 1 → 2 → 3, copyable prompts and limits / 三步圖解、可貼提示與限制](references/quickstart.md). The diagram is instructional, not evidence of execution.

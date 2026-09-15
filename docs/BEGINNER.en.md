@@ -1,5 +1,7 @@
 # Getting started for frontend and UI/UX beginners
 
+[圖解操作 / Visual walkthrough](VISUAL-GUIDE.md)
+
 [繁體中文](BEGINNER.zh-TW.md) · [Home](../README.md) · [Advanced usage](USAGE.en.md)
 
 ## What this package does
@@ -42,7 +44,7 @@ These are local discovery locations from the official documentation. Cloud sessi
 may not have access to local folders. Sources: [Codex](https://learn.chatgpt.com/docs/build-skills),
 [Claude Code](https://code.claude.com/docs/en/skills).
 
-Copy the **12 skill folders** listed on the home page into
+Copy the **13 skill folders** listed on the home page into
 your chosen directory, keeping them as siblings so their relative references work:
 
 ```text
@@ -68,7 +70,7 @@ If installation feels unfamiliar, ask your agent:
 
 > Read this bundle's README and SECURITY first. I use [Codex / Claude Code] and want
 > [project / personal] installation. List source and destination folders and all name
-> conflicts. Do not overwrite existing files. After my confirmation, copy the 12
+> conflicts. Do not overwrite existing files. After my confirmation, copy the 13
 > skill folders, check SKILL.md and relative references, and explain how to
 > invoke them in a new conversation.
 
@@ -116,6 +118,11 @@ stop an occupying process. Stopping an existing Node process requires the agent 
 identify the process, explain impact and request specific confirmation first.
 
 ## 3. Start with one small task
+
+Don't know what a UI part is called? Start with
+[ui-element-inspector](../ui-element-inspector/references/usage.md). Its local demo
+lets you hover, select a parent container and copy a locator report without opening
+DevTools. Screenshot mode keeps outlines while you use the system capture shortcut.
 
 Open your **website project** in your agent and paste:
 

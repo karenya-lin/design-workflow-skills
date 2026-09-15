@@ -5,7 +5,7 @@
 macOS／Linux 改用 `python3`。可選偏好、階段、多個 skills、外部 skill 名稱與指令參數，
 不必手改 JSON。偏好與流程各自確認前後差異並儲存；畫面顯示的
 `*.review.local.json` 可作為 runner 的 `--config`。
-選單不改第三方 skill 的設定，也不連接帳號。安裝時請將 12 個 skill 資料夾維持同層。
+選單不改第三方 skill 的設定，也不連接帳號。安裝時請將 13 個 skill 資料夾維持同層。
 
 多 skill 合用請讀[組合規則](../optional-skill-profile/references/composition.md)。
 設定可加選填 `external_skills` 清單，支援 `vendor:skill` 名稱；宣告不等於已安裝或相容。
@@ -14,7 +14,7 @@ Runner 先跑指令、AI 工作另列計畫，不能交錯「AI 修補→重驗�
 
 ## 安裝與觸發
 
-把 12 個含 SKILL.md 的資料夾保留同層，放到 agent 已設定的 skills 目錄。
+把 13 個含 SKILL.md 的資料夾保留同層，放到 agent 已設定的 skills 目錄。
 若已有同名私人 skill，不要直接覆蓋；使用另一個 agent profile／安裝環境，或先比較後
 明確遷移。runner、測試與文件留在這份 checkout，私人設定不得複製回來。
 

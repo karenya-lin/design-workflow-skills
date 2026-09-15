@@ -27,3 +27,7 @@ client tokens or source images go into public examples.
 
 繁中：先讀節點與設計系統，確認真值來源，再小批寫入並讀回驗證。
 Auto Layout／裁切依設計用途決定，不硬套品牌色或特定專案的尺寸表。
+
+## Illustrated quickstart / 圖解開始
+
+[Step 1 → 2 → 3, copyable prompts and limits / 三步圖解、可貼提示與限制](references/quickstart.md). The diagram is instructional, not evidence of execution.

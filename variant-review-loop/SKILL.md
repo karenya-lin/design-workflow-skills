@@ -25,3 +25,7 @@ decision history and unresolved questions. Do not publish client examples.
 
 繁中：永久編號、不重排；方案並列附理由；使用者確認後才落實。
 首次設定可略過，之後執行前顯示；淘汰理由保留，封存與刪除不混為一談。
+
+## Illustrated quickstart / 圖解開始
+
+[Step 1 → 2 → 3, copyable prompts and limits / 三步圖解、可貼提示與限制](references/quickstart.md). The diagram is instructional, not evidence of execution.

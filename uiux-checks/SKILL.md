@@ -39,3 +39,7 @@ deployment, Git push, account connection or remote submission.
 
 繁中：可單項、分階段或整批檢查；先列 scope 與指令，再執行。
 機械測試和 AI 判讀分開記錄，未執行的審查不能標為完成。
+
+## Illustrated quickstart / 圖解開始
+
+[Step 1 → 2 → 3, copyable prompts and limits / 三步圖解、可貼提示與限制](references/quickstart.md). The diagram is instructional, not evidence of execution.

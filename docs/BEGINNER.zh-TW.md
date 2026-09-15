@@ -1,5 +1,7 @@
 # 前端與 UI/UX 新手入門
 
+[圖解操作 / Visual walkthrough](VISUAL-GUIDE.md)
+
 [English](BEGINNER.en.md) · [首頁](../README.zh-TW.md) · [進階用法](USAGE.zh-TW.md)
 
 ## 先知道這套工具是什麼
@@ -42,7 +44,7 @@ cd design-workflow-skills
 來源：[Codex](https://learn.chatgpt.com/docs/build-skills)、
 [Claude Code](https://code.claude.com/docs/en/skills)。
 
-將首頁列出的 **12 個 skill 資料夾**複製到所選目錄，
+將首頁列出的 **13 個 skill 資料夾**複製到所選目錄，
 維持同層關係，讓相互引用可讀。例如：
 
 ```text
@@ -66,7 +68,7 @@ docs、根目錄 scripts 與 tests 留在原工具包，用來讀教學、開設
 
 > 請先讀 design-workflow-skills 的 README 與 SECURITY。我使用［Codex／Claude Code］，
 > 要安裝到［此專案／個人］範圍。先列出來源、目的資料夾與同名衝突，
-> 不覆蓋任何已有檔案。得到我的確認再複製 12 個 skill 資料夾。
+> 不覆蓋任何已有檔案。得到我的確認再複製 13 個 skill 資料夾。
 > 完成後檢查 SKILL.md 及相對引用可讀，告訴我怎麼在新對話觸發。
 
 ## 2. 一個快捷 Script 開設定選單
@@ -111,6 +113,11 @@ port 是本機預覽服務的入口號碼，不是密碼。設定號碼不會啟
 自動停止佔用它的程序。AI 若要停止既有 Node 程序，必須先告訴你是哪個與影響。
 
 ## 3. 先做一個小任務
+
+不知道畫面上的東西叫什麼？先用
+[ui-element-inspector](../ui-element-inspector/references/usage.md)。
+開本機示範頁，Hover 看名稱／父容器，點選固定後複製給 AI，不用先學 DevTools。
+截圖模式保留框線，再用系統快捷鍵剪取、畫記後貼給 AI。
 
 在你的**網站專案**開 AI 對話，貼上：
 

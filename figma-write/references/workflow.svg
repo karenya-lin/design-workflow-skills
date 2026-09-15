@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="350" viewBox="0 0 960 350" role="img" aria-labelledby="title desc">
+<title id="title">修改 Figma 設計 / Edit Figma designs</title>
+<desc id="desc">Three-step instructional diagram. Not an execution result.</desc>
+<rect width="960" height="350" rx="16" fill="#f4f7f8"/>
+<g font-family="system-ui, sans-serif">
+<text x="28" y="36" font-size="20" font-weight="700" fill="#20313f">修改 Figma 設計</text>
+<text x="28" y="61" font-size="13" fill="#526475">figma-write</text>
+<rect x="28" y="88" width="288" height="198" rx="12" fill="#fff" stroke="#c9d8de"/>
+<rect x="46" y="107" width="38" height="38" rx="10" fill="#0f766e"/>
+<text x="65" y="133" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">1</text>
+<text x="46" y="186" font-size="19" font-weight="650" fill="#20313f">讀節點與規則</text>
+<text x="46" y="215" font-size="14" fill="#526475">Inspect nodes and rules</text>
+<path d="M319 183h14m-5-5 5 5-5 5" fill="none" stroke="#0f766e" stroke-width="2"/>
+<rect x="336" y="88" width="288" height="198" rx="12" fill="#fff" stroke="#c9d8de"/>
+<rect x="354" y="107" width="38" height="38" rx="10" fill="#0f766e"/>
+<text x="373" y="133" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">2</text>
+<text x="354" y="186" font-size="19" font-weight="650" fill="#20313f">先做小批修改</text>
+<text x="354" y="215" font-size="14" fill="#526475">Make a small change</text>
+<path d="M627 183h14m-5-5 5 5-5 5" fill="none" stroke="#0f766e" stroke-width="2"/>
+<rect x="644" y="88" width="288" height="198" rx="12" fill="#fff" stroke="#c9d8de"/>
+<rect x="662" y="107" width="38" height="38" rx="10" fill="#0f766e"/>
+<text x="681" y="133" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">3</text>
+<text x="662" y="186" font-size="19" font-weight="650" fill="#20313f">讀回畫面與屬性</text>
+<text x="662" y="215" font-size="14" fill="#526475">Read back and inspect</text>
+<text x="28" y="323" font-size="12" fill="#526475">流程示意 / Instructional diagram · 使用者確認範圍後才工作 / Agree on scope before work</text>
+</g></svg>

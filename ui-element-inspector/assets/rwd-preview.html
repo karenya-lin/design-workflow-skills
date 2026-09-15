@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; frame-src 'self' http://localhost:* http://127.0.0.1:*; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>RWD 排版預覽 / Responsive layout preview</title>
+  <style>
+    :root{color-scheme:light;--ink:#20313f;--muted:#526475;--line:#d5dde3;--accent:#0f766e;--soft:#f5f7f9}
+    *{box-sizing:border-box}[hidden]{display:none!important}html,body{height:100%;overflow:hidden}body{margin:0;height:100dvh;background:#edf1f3;color:var(--ink);font:13px/1.5 system-ui;display:flex;flex-direction:column}
+    button,input,select{font:inherit;border:1px solid #bac8d3;border-radius:6px;padding:7px 9px;min-height:34px;max-width:100%;color:var(--ink);background:#fff}button,summary{cursor:pointer}button:hover{background:#e8f5f1}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid #b45309;outline-offset:-3px}p{margin:8px 0}a{color:var(--accent)}label{display:grid;gap:4px}
+    .workspace{display:grid;grid-template-columns:minmax(0,1fr) 400px;flex:1;min-height:0;overflow:hidden}
+    .preview-area{display:flex;flex-direction:column;min-height:0;min-width:0}.canvas-bar{height:42px;flex:none;display:flex;justify-content:space-between;gap:10px;align-items:center;padding:0 18px;background:#f8fafb;border-bottom:1px solid var(--line);color:var(--muted);font-size:11px}.canvas-title{font-weight:650;letter-spacing:.3px}.canvas-state{font-size:10px;white-space:nowrap}.canvas-state::before{content:'';display:inline-block;width:6px;height:6px;background:var(--accent);border-radius:50%;margin-right:6px}
+    .stage{padding:24px;min-height:0;min-width:0;flex:1;overflow:auto;display:grid;place-items:center;background-image:radial-gradient(#bac8d380 .7px,transparent .7px);background-size:14px 14px}
+    .preview-shell{position:relative;flex:none;box-shadow:0 3px 8px #20313f12,0 20px 60px #20313f17;outline:1px solid #d0d9df;background:#fff}iframe{display:block;border:0;background:#fff;width:390px;height:844px}.preview-shell iframe{position:absolute;left:0;top:0;transform-origin:top left;margin:0}
+    .canvas-footer{flex:none;padding:6px 18px;border-top:1px solid var(--line);color:var(--muted);font-size:10px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;background:#f8fafb}.legend-dot{display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:4px}.yellow{background:#fbbf24}.purple{background:#a855f7}.cyan{background:#0891b2}.gray{border:1px dashed #64748b}
+    .side{background:#fff;min-height:0;min-width:0;display:flex;flex-direction:column;border-left:1px solid var(--line);overflow:hidden}
+    [data-inspector-dock]{display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden}
+    .rwd-controls{flex:none;margin:0;background:#f8fafb;border-bottom:1px solid var(--line)}.rwd-controls>summary{display:flex;align-items:center;gap:8px;list-style:none;padding:10px 12px;font-size:11px;min-height:38px}.rwd-controls>summary::-webkit-details-marker{display:none}.rwd-controls>summary::before{content:'▸';color:var(--muted)}.rwd-controls[open]>summary::before{content:'▾'}.collapse-hint{margin-left:auto;color:var(--muted);font-size:10px}#size-summary{font-variant-numeric:tabular-nums;font-weight:650}
+    header{position:relative;display:flex;align-items:center;gap:6px;height:52px;max-height:60px;padding:4px 10px;border-top:1px solid var(--line);z-index:8}
+    .toolbar{display:flex;align-items:center;gap:8px;overflow-x:auto;min-width:0;flex:1;padding:1px;scrollbar-width:thin}.toolbar h1{display:none}#sizes{display:flex;flex-wrap:nowrap;gap:6px;align-items:center;flex:none}#sizes label{display:flex;align-items:center;gap:4px;white-space:nowrap;font-size:11px}#sizes select{width:162px;font-size:11px}#sizes input{width:65px;font-size:11px}#sizes button{white-space:nowrap;font-size:11px}#result{display:none}
+    .more{margin:0;flex:none}.more>summary{list-style:none;border:1px solid var(--line);border-radius:6px;padding:7px 9px;font-size:11px;min-height:34px;background:#fff}.more>summary::-webkit-details-marker{display:none}.more>summary::after{content:' ▾'}.more-content{position:absolute;right:10px;top:calc(100% + 4px);width:min(340px,calc(100vw - 24px));max-height:65dvh;overflow:auto;padding:16px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 30px #20313f24;font-size:12px}.more-content details{margin:10px 0}.more-content input[type=url]{width:100%;min-width:0}.more-content label{max-width:100%}.row{display:flex;flex-wrap:wrap;gap:8px;min-width:0}.row label{width:100%}.check{display:flex;align-items:start;gap:6px;margin-top:12px}.check input{min-height:auto;accent-color:var(--accent)}.hint{color:var(--muted)}
+    #inspect{margin:20px 16px 0;background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600;min-height:42px}#inspect-status{font-size:12px;line-height:1.7;color:var(--muted);margin:12px 16px}#rwd-feedback{flex:none;font-size:11px;background:#fff7df;color:#754600;padding:8px 12px;margin:0;max-height:20dvh;overflow:auto}
+    @media(min-width:1600px){.workspace{grid-template-columns:minmax(0,1fr) 440px}}
+    @media(max-width:850px){.workspace{grid-template-columns:minmax(0,1fr) 350px}.stage{padding:16px}.canvas-state{display:none}}
+    @media(max-width:700px){.workspace{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,36fr) minmax(0,64fr)}.side{border-left:0;border-top:1px solid var(--line)}.stage{padding:10px}.canvas-bar{height:30px;padding:0 12px}.canvas-footer{display:none}.rwd-controls>summary{padding:6px 10px;min-height:30px}}
+    @media(max-height:450px){.workspace{grid-template-rows:minmax(0,24fr) minmax(0,76fr)}.canvas-bar,.canvas-footer{display:none}.rwd-controls>summary{min-height:26px;padding:3px 8px}}
+  </style>
+</head>
+<body>
+
+  <main class="workspace"><section class="preview-area" aria-label="視覺工作區 / Visual workspace"><div class="canvas-bar"><span class="canvas-title">預覽畫布 / Preview canvas</span><span class="canvas-state">本機預覽 · 不自動上傳</span></div><div class="stage" aria-label="排版預覽區 / Preview area"><div class="preview-shell"><iframe id="preview" src="demo.html" title="核准的本機排版預覽 / Approved local layout preview" referrerpolicy="no-referrer"></iframe></div></div><div class="canvas-footer"><span><i class="legend-dot yellow"></i>選取</span><span><i class="legend-dot cyan"></i>Hover</span><span><i class="legend-dot purple"></i>同類</span><span><i class="legend-dot gray"></i>例外</span><span>縮放預覽 ≠ 真機測試</span></div></section>
+    <aside class="side" aria-label="預覽外側工具面板 / External inspector panel">
+      <details class="rwd-controls" open><summary>RWD <span id="size-summary">390 × 844</span><span class="collapse-hint"> · 展開／收合</span></summary>
+  <header>
+    <div class="toolbar" role="region" aria-label="RWD 尺寸工具列，可左右捲動 / Scrollable size controls" tabindex="0">
+    <h1>RWD</h1>
+    <form id="sizes">
+      <label>版型<select aria-label="版型 / Preset" id="preset">
+<optgroup label="通用 / Generic"><option value="390,844">常用手機 / Mobile · 390 × 844</option><option value="320,568">窄螢幕 / Narrow · 320 × 568</option><option value="768,1024">平板 / Tablet · 768 × 1024</option><option value="1280,800">桌機 / Desktop · 1280 × 800</option><option value="custom">自訂 / Custom</option></optgroup>
+<optgroup label="Apple · 8 款">
+<option value="iphone-18-pro-0" data-model="iphone-18-pro" data-size="402,874">iPhone 18 Pro · 約 402 × 874</option>
+<option value="iphone-18-pro-max-1" data-model="iphone-18-pro-max" data-size="440,956">iPhone 18 Pro Max · 約 440 × 956</option>
+<option value="iphone-duo-2" data-model="iphone-duo" data-size="466,678">iPhone Duo 外螢幕 / Cover · 約 466 × 678</option>
+<option value="iphone-duo-3" data-model="iphone-duo" data-size="890,626">iPhone Duo 展開 / Inner · 約 890 × 626</option>
+<option value="iphone-air-4" data-model="iphone-air" data-size="420,912">iPhone Air · 約 420 × 912</option>
+<option value="iphone-17-5" data-model="iphone-17" data-size="402,874">iPhone 17 · 約 402 × 874</option>
+<option value="iphone-17-pro-6" data-model="iphone-17-pro" data-size="402,874">iPhone 17 Pro · 約 402 × 874</option>
+<option value="iphone-17-pro-max-7" data-model="iphone-17-pro-max" data-size="440,956">iPhone 17 Pro Max · 約 440 × 956</option>
+<option value="iphone-16-8" data-model="iphone-16" data-size="393,852">iPhone 16 · 約 393 × 852</option>
+</optgroup>
+<optgroup label="Samsung · 8 款">
+<option value="galaxy-s26-0" data-model="galaxy-s26" data-size="360,780">Galaxy S26 · 約 360 × 780</option>
+<option value="galaxy-s26+-1" data-model="galaxy-s26+" data-size="411,891">Galaxy S26+ · 約 411 × 891</option>
+<option value="galaxy-s26-Ultra-2" data-model="galaxy-s26-Ultra" data-size="411,891">Galaxy S26 Ultra · 約 411 × 891</option>
+<option value="galaxy-s25-3" data-model="galaxy-s25" data-size="360,780">Galaxy S25 · 約 360 × 780</option>
+<option value="galaxy-s25+-4" data-model="galaxy-s25+" data-size="411,891">Galaxy S25+ · 約 411 × 891</option>
+<option value="galaxy-s25-Ultra-5" data-model="galaxy-s25-Ultra" data-size="411,891">Galaxy S25 Ultra · 約 411 × 891</option>
+<option value="galaxy-z-fold7-6" data-model="galaxy-z-fold7" data-size="360,840">Galaxy Z Fold7 外螢幕 / Cover · 約 360 × 840</option>
+<option value="galaxy-z-fold7-7" data-model="galaxy-z-fold7" data-size="750,832">Galaxy Z Fold7 展開 / Inner · 約 750 × 832</option>
+<option value="galaxy-z-flip7-8" data-model="galaxy-z-flip7" data-size="360,840">Galaxy Z Flip7 主螢幕 / Main · 約 360 × 840</option>
+</optgroup>
+<optgroup label="Google Pixel · 8 款">
+<option value="pixel-11-0" data-model="pixel-11" data-size="411,923">Pixel 11 · 約 411 × 923</option>
+<option value="pixel-11-pro-1" data-model="pixel-11-pro" data-size="410,914">Pixel 11 Pro · 約 410 × 914</option>
+<option value="pixel-11-pro-xl-2" data-model="pixel-11-pro-xl" data-size="448,997">Pixel 11 Pro XL · 約 448 × 997</option>
+<option value="pixel-11-pro-fold-3" data-model="pixel-11-pro-fold" data-size="411,892">Pixel 11 Pro Fold 外螢幕 / Cover · 約 411 × 892</option>
+<option value="pixel-11-pro-fold-4" data-model="pixel-11-pro-fold" data-size="791,820">Pixel 11 Pro Fold 展開 / Inner · 約 791 × 820</option>
+<option value="pixel-10-5" data-model="pixel-10" data-size="411,923">Pixel 10 · 約 411 × 923</option>
+<option value="pixel-10-pro-6" data-model="pixel-10-pro" data-size="410,914">Pixel 10 Pro · 約 410 × 914</option>
+<option value="pixel-10-pro-xl-7" data-model="pixel-10-pro-xl" data-size="448,997">Pixel 10 Pro XL · 約 448 × 997</option>
+<option value="pixel-9a-8" data-model="pixel-9a" data-size="411,923">Pixel 9a · 約 411 × 923</option>
+</optgroup>
+      </select></label>
+      <label>寬<input aria-label="寬 / Width" id="width" type="number" min="240" max="3840" step="1" value="390" required></label>
+      <label>高<input aria-label="高 / Height" id="height" type="number" min="240" max="3840" step="1" value="844" required></label>
+      <button type="submit" aria-label="套用尺寸 / Apply">套用</button><button type="button" id="rotate" aria-label="橫直切換 / Rotate">⇄ 橫直</button><button type="button" id="fit" aria-pressed="true" title="只縮放顯示，不改測試 CSS 尺寸 / Display scale only">適合畫面</button>
+    </form>
+    <p id="result" role="status"></p>
+    </div>
+    <details class="more" id="more"><summary>說明／設定</summary><div class="more-content">
+    <p>選寬度，看文字換行、卡片排列與按鈕是否被切掉。這是桌面瀏覽器中的排版視窗，不是真機模擬。</p>
+    <p class="hint">工具列空間不足時可左右捲動，或用 Tab 移到下一個控制。Esc 可關閉這個說明面板。</p>
+    <details><summary>換成自己的本機預覽 / Use your local preview</summary>
+      <p>先確認測試資料及分析停送。localhost 也可能連到真實後端；本工具不會替你阻擋網站分析或交易。</p>
+      <div class="row"><label>本機網址 / Local URL<input id="url" type="url" placeholder="http://localhost:3000/"></label>
+        <button id="load" type="button">載入已核准預覽 / Load approved preview</button><button id="demo" type="button">回示範頁 / Demo</button></div>
+      <label class="check"><input type="checkbox" id="approved">我已確認測試授權、資料與分析停送 / Scope, data and analytics gates checked</label>
+      <p class="hint">僅接受 localhost 或 127.0.0.1 的 HTTP 網址。網站若禁止嵌入，不降低 CSP 或繞過限制；改用瀏覽器 DevTools。不同 port 的頁面不能由外框讀取 DOM。</p>
+    </details>
+    <details><summary>怎麼檢查？尺寸準確嗎？ / How to check and limitations</summary>
+      <p>先看 320、390、768、1280，再輸入你的斷點前後寬度。每個寬度檢查：橫向溢出、文字截斷、選單、表單及鍵盤焦點。預覽不會自動宣告通過。</p>
+      <p>尺寸單位是 CSS px。機型為近似排版參考，不會改 User-Agent、DPR、觸控、瀏覽器引擎或安全區。手機瀏覽器工具列、縮放和系統顯示設定會改變實際可視範圍。最新機型資料核對日：2026-09-15。</p>
+      <p>Preview only changes the iframe layout size, not the browser engine or device. Check real Safari/Android separately. A clipped frame on your desktop can be scrolled horizontally; it is not automatically a page defect.</p>
+    </details>
+    <p>工作區填滿目前視窗，工具內容在各自區域內捲動。「適合畫面」將完整預覽視窗縮小顯示，不改實際 CSS 寬高；「100%」檢查原尺寸細節，必要時在預覽區捲動。長頁內容仍在網站視窗內捲動。</p>
+    </div></details>
+  </header>
+      </details>
+      <p id="rwd-feedback" role="status" hidden></p>
+      <button id="inspect" type="button">UI Inspect · 圖層指認</button>
+      <p id="inspect-status" role="status">先按 UI Inspect → ① 選元素 → ② 確認範圍 → ③ 寫需求與複製。可先展開 RWD 選尺寸。 / Open UI Inspect, then follow steps 1–3.</p>
+      <div data-inspector-dock></div>
+    </aside>
+  </main>
+  <script src="rwd-preview.js"></script>
+</body></html>
