@@ -123,3 +123,11 @@ node --test figma-workflow-rebrand/scripts/check-coverage.test.mjs
 Native Print Screen capture/paste, assistive-technology output, real-device rendering, account/OAuth flows and all AI-host combinations remain unverified. French/Japanese cover the UI and quickstart indexes; full per-skill manuals, screenshots and videos are EN/ZH. These checks do not certify WCAG or PCI compliance.
 
 繁中：本輪 47 個 Python、46 個基本瀏覽器、72 個語言／截圖、12 個 Node 測試通過。84 張圖與兩支影片已檢視；非 UI Inspect 圖為教學示範，不是各工作流程執行證據。原生截圖貼上、輔助科技與真機仍待使用者環境驗收。
+
+## Clipboard owner-window fix (2026-09-15)
+
+Reproduced with the actual Chromium Clipboard API and synthetic text: clicking the external panel called the iframe clipboard and rejected with `NotAllowedError: Document is not focused`. After switching to `panel.ownerDocument.defaultView.navigator.clipboard`, the same click invoked the outer document and its write promise resolved. No system clipboard contents were read; paste into an AI chat remains unverified.
+
+Updated inspector smoke: 52 PASS, including owner-window routing, iframe denial, outer denial with complete manual selection, retained request/exclusions, unavailable API and retry recovery. The public smoke still mocks writes; it is distinct from the actual API experiment above. Python suite: 47 PASS. No permissions-policy changes, clipboard reads or native screenshot checks were made by this fix.
+
+繁中：已用真實 Clipboard API 重現 iframe 未取得焦點的失敗，改用面板所屬視窗後寫入成功。未讀剪貼簿、未驗實際貼到 AI。52 個瀏覽器回歸與 47 個 Python 測試通過，拒絕時完整內容可手動複製。

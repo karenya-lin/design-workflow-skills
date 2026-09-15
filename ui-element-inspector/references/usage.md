@@ -189,3 +189,11 @@ The single-row category strip scrolls horizontally and displays one functional g
 3. Type the change, review context, copy, and paste into AI yourself. / 填需求、檢查資料、複製並自行貼給 AI。
 
 Back keeps request and exception state. Step tabs remain available while scrolling. Empty selection disables Next with a visible explanation. / 返回不清空需求與例外；捲動時仍可找到步驟列。未選元素時會說明為何不能下一步。
+
+## If Copy falls back to manual / 複製退回手動時
+
+The copy action uses the window owning the button. In the external workspace this is the outer panel, not the inspected iframe. A browser denial or unavailable API still leaves the full report selected for Ctrl+C / Cmd+C; your request and exclusions are preserved. No clipboard-read permission is requested and no browser policy is weakened.
+
+外側面板會使用按鈕所在視窗執行複製，不再誤用內側 iframe。若瀏覽器仍拒絕或沒有此 API，完整修改單會選取，按 Ctrl+C（Mac：Cmd+C）即可手動複製；需求與例外不會遺失。不要求讀取剪貼簿，也不降低瀏覽器安全限制。
+
+If an older open page still shows the old generic message, preserve any unsaved request first, reload the local workspace and reopen UI Inspect. A rejected write does not mean the request was erased or sent to AI.

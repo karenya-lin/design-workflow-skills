@@ -1123,5 +1123,10 @@
     "Got it",
     "Compris",
     "わかりました"
+  ],
+  "瀏覽器未允許自動複製。完整內容已選取，請按 Ctrl+C（Mac：Cmd+C），再貼給 AI；需求沒有遺失。": [
+    "The browser did not allow automatic copy. All text is selected: press Ctrl+C (Mac: Cmd+C), then paste into AI. Your request is still here.",
+    "Le navigateur a refusé la copie automatique. Tout le texte est sélectionné : appuyez sur Ctrl+C (Mac : Cmd+C), puis collez-le dans votre IA. Votre demande est conservée.",
+    "ブラウザーが自動コピーを許可しませんでした。全文を選択済みです。Ctrl+C（Mac：Cmd+C）を押して AI に貼り付けてください。入力内容は保持されています。"
   ]
 }
