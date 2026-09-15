@@ -204,5 +204,22 @@ async(page)=>{
   check('standalone demo opens external workspace instead of floating panel',await panel.count()===1&&await page.frameLocator('#preview').locator('#start-inspector').isHidden());
   check('automatic language choice visibly says Language',await panel.locator('select option[value=auto]').textContent()==='語言 / Language');
   check('exceptions have a prominent border and large target',await panel.locator('.exception-details > summary').evaluate(n=>getComputedStyle(n).borderTopWidth==='2px'&&getComputedStyle(n).fontWeight==='700'));
+  const treeToggle=panel.locator('.tree-toggle[aria-expanded]').first();
+  await treeToggle.click();await treeToggle.click();
+  check('DOM disclosure keeps its larger SVG after repeated toggles',await treeToggle.locator('svg').evaluate(n=>n.getBoundingClientRect().width===20));
+  const rwdSummary=page.locator('.rwd-controls > summary');
+  check('RWD disclosure is a full row target with a large right icon',await rwdSummary.evaluate(n=>{
+    const row=n.getBoundingClientRect(),icon=n.querySelector('svg').getBoundingClientRect();
+    return row.height>=44&&icon.width===24&&row.right-icon.right<25;
+  }));
+  if(!await page.locator('#rotate').isVisible())await rwdSummary.click();
+  check('rotate has a 44px hit target and 22px icon',await page.locator('#rotate').evaluate(n=>n.getBoundingClientRect().width===44&&n.getBoundingClientRect().height===44&&n.querySelector('svg').getBoundingClientRect().width===22));
+  const headingBefore=await panel.locator('.tree-name').count();
+  await panel.getByRole('button',{name:'更新圖層',exact:true}).click();
+  check('icon-only refresh still rebuilds usable layers',await panel.locator('.tree-name').count()===headingBefore);
+  await panel.getByRole('button',{name:'收合面板',exact:true}).click();
+  check('icon-only collapse hides panel and exposes reopen',!await panel.locator('.panel').isVisible()&&await panel.getByRole('button',{name:'詳情 / Details',exact:true}).isVisible());
+  await panel.getByRole('button',{name:'詳情 / Details',exact:true}).click();
+  check('collapsed panel can reopen',await panel.locator('.panel').isVisible());
   return {results,passed:results.filter(r=>r.pass).length,failed:results.filter(r=>!r.pass).length};
 }

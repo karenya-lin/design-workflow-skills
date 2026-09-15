@@ -27,13 +27,16 @@
     @media(max-width:850px){.workspace{grid-template-columns:minmax(0,1fr) 350px}.stage{padding:16px}.canvas-state{display:none}}
     @media(max-width:700px){.workspace{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,36fr) minmax(0,64fr)}.side{border-left:0;border-top:1px solid var(--line)}.stage{padding:10px}.canvas-bar{height:30px;padding:0 12px}.canvas-footer{display:none}.rwd-controls>summary{padding:6px 10px;min-height:30px}}
     @media(max-height:450px){.workspace{grid-template-rows:minmax(0,24fr) minmax(0,76fr)}.canvas-bar,.canvas-footer{display:none}.rwd-controls>summary{min-height:26px;padding:3px 8px}}
+    .rwd-controls>summary{min-height:44px;padding:8px 12px;font-size:12px}.rwd-controls>summary::before{content:none}.rwd-controls[open]>summary::before{content:none}
+    .collapse-hint{margin-left:auto;display:grid;place-items:center;width:28px;height:28px;flex:none;color:var(--ink)}.collapse-hint svg{width:24px;height:24px}.rwd-controls[open] .collapse-hint svg{transform:rotate(180deg)}
+    .size-actions{grid-template-columns:minmax(0,1fr) minmax(0,1fr) 44px minmax(82px,1.4fr)}#sizes #rotate{width:44px;height:44px;min-height:44px;padding:10px;display:grid;place-items:center}#rotate svg{width:22px;height:22px;pointer-events:none}
   </style>
 </head>
 <body>
 
   <main class="workspace"><section class="preview-area" aria-label="視覺工作區 / Visual workspace"><div class="canvas-bar"><span class="canvas-title">預覽畫布 / Preview canvas</span><span class="canvas-state">本機預覽 · 不自動上傳</span></div><div class="stage" aria-label="排版預覽區 / Preview area"><div class="preview-shell"><iframe id="preview" src="demo.html" title="核准的本機排版預覽 / Approved local layout preview" referrerpolicy="no-referrer"></iframe></div></div><div class="canvas-footer"><span><i class="legend-dot yellow"></i>選取</span><span><i class="legend-dot cyan"></i>Hover</span><span><i class="legend-dot purple"></i>同類</span><span><i class="legend-dot gray"></i>例外</span><span>縮放預覽 ≠ 真機測試</span></div></section>
     <aside class="side" aria-label="預覽外側工具面板 / External inspector panel">
-      <details class="rwd-controls" open><summary>RWD <span id="size-summary">390 × 844</span><span class="collapse-hint"> · 展開／收合</span></summary>
+      <details class="rwd-controls" open><summary title="RWD 尺寸設定 / Responsive size settings">RWD <span id="size-summary">390 × 844</span><span class="collapse-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
   <header>
     <div class="toolbar" role="region" aria-label="RWD 尺寸設定 / Responsive size settings">
     <h1>RWD</h1>
@@ -77,7 +80,7 @@
       </select></label>
       <div class="size-actions"><label>寬<input aria-label="寬 / Width" id="width" type="number" min="240" max="3840" step="1" value="390" required></label>
       <label>高<input aria-label="高 / Height" id="height" type="number" min="240" max="3840" step="1" value="844" required></label>
-      <button type="button" id="rotate" aria-label="橫直切換 / Rotate" title="橫直切換 / Rotate">⇄</button><button type="button" id="fit" aria-pressed="true" title="只縮放顯示，不改測試 CSS 尺寸 / Display scale only">適合畫面</button>
+      <button type="button" id="rotate" aria-label="橫直切換 / Rotate" title="橫直切換 / Rotate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16m-4-4 4 4-4 4M20 16H4m4-4-4 4 4 4"/></svg></button><button type="button" id="fit" aria-pressed="true" title="只縮放顯示，不改測試 CSS 尺寸 / Display scale only">適合畫面</button>
       </div>
     </form>
     <p class="auto-hint">機型立即切換；自訂尺寸離開欄位或按 Enter 更新。</p>

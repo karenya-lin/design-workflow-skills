@@ -30,7 +30,7 @@ Prefer `assets/rwd-preview.html` for the external control panel and DOM tree.
 Entering its approved same-origin preview activates inspection automatically; no Start/Resume click is needed. The launch button remains available for keyboard users. Hover previews names without replacing a held selection or request.
 The exact same-origin demo supports this directly. Cross-origin app previews can
 be resized but cannot be inspected from the outer page; do not bypass that boundary.
-Start with `assets/demo.html` for standalone overlay controls: it is a local,
+The launch button in `assets/demo.html` opens the external workspace. It is a local,
 synthetic example with no external requests. For their app, propose exact temporary
 dev-only integration paths or an allowed browser-tool injection, then use the host's
 authorized mechanism. Reuse the existing preview; starting a server requires an

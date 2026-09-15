@@ -34,3 +34,7 @@ Hovering the approved preview now starts identification directly and preserves h
 - The automatic-language option visibly says Language. Exclusions use an amber background, strong border and keyboard focus ring.
 - Selected markers use compact numbers. Matching/copy-only tick navigation appears only for a nonempty group. The editable report and request are preserved when language changes.
 - 示範入口改為外側面板，語言入口改名、例外加強對比、選取標記縮為編號。刻度只在有群組時出現，切語言保留手寫需求。
+
+## Larger icon actions (2026-09-15)
+
+Refresh layers, collapse, close and rotate now use local SVG icons with localized titles and accessible names. Toolbar icons are 22px with 44px targets; the full RWD disclosure row is 44px with a right-aligned 24px chevron. DOM chevrons are 20px. Keep words for steps, language, exclusions and Copy request to avoid ambiguous primary tasks. Reuse existing handlers, focus styling and color tokens; no icon package or remote asset was added. See TESTING.md for scoped evidence, not compliance certification.

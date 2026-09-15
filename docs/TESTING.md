@@ -143,3 +143,9 @@ Updated inspector smoke: 52 PASS, including owner-window routing, iframe denial,
 Real Clipboard API write was also repeated in the visible local workspace and resolved, preserving the user's request and report. No clipboard read or AI paste was performed. Browser suite writes and OS capture launches are mocked. Chrome/Edge/Firefox DevTools extension work is excluded from this release. See [per-skill verification status](RELEASE-STATUS.md).
 
 繁中：80 項指認、101 項語言／截圖、47 項 Python 通過。中英畫面已檢視。本機可見面板的真實剪貼簿寫入也成功，未讀剪貼簿、未驗貼給 AI。擴充套件未納入本次交付，其餘待驗項目逐 skill 列於狀態表。
+
+## Larger icon controls (2026-09-15)
+
+86 inspector checks, 125 locale/capture checks and 47 Python tests PASS. This supersedes the earlier 80/101 counts. Added DOM chevron survival after toggles, native RWD disclosure geometry, 44px rotate target, refresh/collapse/reopen behavior and labelled 44px header actions without overflow across four languages and six viewport sizes. Desktop EN/ZH and narrow EN screenshots were visually inspected. No dependencies added. Native capture, assistive technology, Firefox/Edge and real-device acceptance remain unverified.
+
+繁中：86 項指認、125 項語言／截圖、47 項 Python 通過。新增圖示大小、展開／收合、更新圖層、四語言六尺寸標頭檢查，中英桌機及窄螢幕圖片已目視檢查；未新增依賴。原生截圖、輔助科技、Firefox／Edge 與真機仍待驗。

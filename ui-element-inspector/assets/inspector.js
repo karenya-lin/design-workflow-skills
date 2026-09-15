@@ -100,10 +100,11 @@
     .match.excluded { border-color:#64748b;border-style:dashed;background:transparent; }
     .hover-target { z-index:2;border-color:#0891b2;background:#22d3ee10; }
     .label { z-index:3;position:fixed;pointer-events:none;background:#fbbf24;color:#111827;font:700 12px/1.4 system-ui;padding:4px 7px;border-radius:4px;max-width:calc(100vw - 16px);overflow:hidden;white-space:nowrap;text-overflow:ellipsis; }
-    .panel { pointer-events:auto;position:fixed;right:16px;bottom:16px;width:min(400px,calc(100vw - 32px));height:calc(100dvh - 32px);max-height:calc(100dvh - 32px);display:flex;flex-direction:column;overflow:hidden;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 40px #20313f26;font:13px/1.5 system-ui,sans-serif; }
+    .panel { container-type:inline-size;pointer-events:auto;position:fixed;right:16px;bottom:16px;width:min(400px,calc(100vw - 32px));height:calc(100dvh - 32px);max-height:calc(100dvh - 32px);display:flex;flex-direction:column;overflow:hidden;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 40px #20313f26;font:13px/1.5 system-ui,sans-serif; }
     .panel.left { right:auto;left:16px; }
-    .panel-header { display:flex;align-items:center;justify-content:space-between;gap:8px;flex:none;padding:10px 12px;border-bottom:1px solid var(--line); }
-    .panel-heading { display:flex;gap:7px;align-items:center;white-space:nowrap; }
+    .panel-header { display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px;flex:none;padding:6px 8px;border-bottom:1px solid var(--line); }
+    .panel-heading { display:flex;gap:6px;align-items:center;white-space:nowrap;min-width:0; }
+    @container(max-width:380px){.panel-heading .local-badge{display:none}.panel-heading h2{font-size:14px}}
     h2 { font-size:15px;letter-spacing:-.4px;margin:0; } p { margin:8px 0; }
     .local-badge { font-size:9px;letter-spacing:.8px;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:2px 5px;border-radius:4px; }
     .muted { color:var(--muted);font-size:11px;line-height:1.65; }
@@ -117,8 +118,9 @@
     button.primary:hover { background:#115e59; } button.primary:disabled { background:#edf1f4;color:#657584;border-color:#d5dde3; }
     button.text-button { border:0;padding:0;color:var(--muted);font-size:11px;min-height:26px; }
     .actions,.chain { display:flex;flex-wrap:wrap;gap:6px;margin:8px 0; }
-    .controls { display:flex;flex-wrap:nowrap;gap:2px;margin:0;overflow-x:auto; }
-    .controls button { flex:none;padding:4px 5px;min-height:28px;font-size:10px;border-color:transparent;color:var(--muted); }
+    .controls { display:flex;flex-wrap:nowrap;gap:2px;margin:0;margin-left:auto;flex:none; }
+    .controls button { flex:none;width:44px;height:44px;min-height:44px;padding:10px;border-color:transparent;color:var(--ink);display:grid;place-items:center; }
+    .ui-icon { display:block;width:22px;height:22px;flex:none;pointer-events:none; }
     .categories { flex:none;display:flex;flex-wrap:nowrap;gap:3px;overflow-x:auto;scrollbar-width:thin;padding:8px 10px;margin:0;background:var(--paper);border-bottom:1px solid var(--line); }
     .categories button { flex:1 0 auto;white-space:nowrap;font-size:12px;padding:7px 6px;border-color:transparent; }
     .categories button[aria-selected="true"] { background:var(--accent-soft);color:#115e59;border-color:#b8dbd2;font-weight:700; }
@@ -134,7 +136,8 @@
     .tree-row { display:flex;align-items:center;gap:2px;margin:1px 0;border-radius:5px; }
     .tree-row:hover { background:#e8f2f6; }
     .tree-row.current { background:var(--accent-soft);box-shadow:inset 3px 0 var(--accent); }
-    .tree .tree-toggle { width:26px;min-width:26px;min-height:30px;padding:3px;border:0;background:transparent;color:var(--muted); }
+    .tree .tree-toggle { width:32px;min-width:32px;min-height:34px;padding:6px;border:0;background:transparent;color:var(--ink);display:grid;place-items:center; }
+    .tree-toggle .ui-icon { width:20px;height:20px; }.tree-toggle[aria-expanded=true] .ui-icon{transform:rotate(90deg)}
     .tree .tree-name { flex:1;min-width:0;text-align:left;border:0;background:transparent;padding:5px;font-size:12px; }
     .tree-name small { display:block;color:#627486;font:10px/1.4 ui-monospace,monospace;overflow:hidden;text-overflow:ellipsis; }
     .tree-children { padding-left:11px;border-left:1px solid var(--line);margin-left:12px; }
@@ -173,6 +176,17 @@
     if (text !== undefined) node.textContent = text;
     return node;
   }
+  function icon(path){
+    const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('class','ui-icon');
+    svg.setAttribute('aria-hidden','true');svg.setAttribute('focusable','false');
+    svg.setAttribute('fill','none');svg.setAttribute('stroke','currentColor');
+    svg.setAttribute('stroke-width','2');svg.setAttribute('stroke-linecap','round');svg.setAttribute('stroke-linejoin','round');
+    const shape=document.createElementNS(svg.namespaceURI,'path');shape.setAttribute('d',path);svg.append(shape);return svg;
+  }
+  function iconButton(parent,text,path,handler){
+    const node=button(parent,'',handler);node.setAttribute('aria-label',text);node.title=text;node.append(icon(path));return node;
+  }
   const shield = make('div', 'shield');
   shield.tabIndex = 0;
   shield.setAttribute('aria-label', '元素選取層。移動滑鼠選取，Escape 關閉。Element picker; Escape closes.');
@@ -191,7 +205,7 @@
   const panelHeading=make('div','panel-heading');
   panelHeading.append(make('h2','','UI Inspect'),make('span','local-badge','LOCAL'));
   const language=make('select');language.setAttribute('aria-label','語言 / Language');
-  language.style.cssText='font:11px system-ui;max-width:100px;min-height:28px;background:#fff;color:#20313f;border:1px solid #bac8d3;border-radius:5px';
+  language.style.cssText='font:12px system-ui;width:96px;max-width:100px;min-height:36px;background:#fff;color:#20313f;border:1px solid #bac8d3;border-radius:5px';
   [['auto','語言 / Language'],['zh-TW','繁體中文'],['en','English'],['fr','Français'],['ja','日本語']].forEach(([value,text])=>{const option=make('option','',text);option.value=value;language.append(option);});
   language.value=locale?.choice||'auto';
   language.addEventListener('change',()=>{
@@ -579,7 +593,8 @@
       const item=make('div');const row=make('div','tree-row');
       const nodes=[...node.children].filter(n=>n!==host&&!['script','style','link','meta'].includes(tag(n)));
       const children=make('div','tree-children');children.hidden=true;
-      const toggle=button(row,nodes.length?'▸':'·',()=>entry.expand(children.hidden));
+      const toggle=button(row,nodes.length?'':'·',()=>entry.expand(children.hidden));
+      if(nodes.length)toggle.append(icon('m9 5 7 7-7 7'));
       toggle.className='tree-toggle';toggle.disabled=!nodes.length;
       toggle.setAttribute('aria-label','展開／收合 '+identity(node));
       if(nodes.length)toggle.setAttribute('aria-expanded','false');
@@ -596,7 +611,7 @@
         if(!nodes.length)return;
         if(open&&!built){built=true;nodes.slice(0,100).forEach(n=>branch(n,children,entry));
           if(nodes.length>100)children.append(make('p','','此層只顯示前 100 個 / First 100 children'));}
-        children.hidden=!open;toggle.textContent=open?'▾':'▸';toggle.setAttribute('aria-expanded',String(open));
+        children.hidden=!open;toggle.setAttribute('aria-expanded',String(open));
       }};
       const previewLayer=()=>{pointer=null;hovered=node.isConnected?node:null;draw();};
       const leaveLayer=()=>{if(hovered===node){hovered=null;draw();}};
@@ -672,8 +687,8 @@
   }
   button(navigation, '↑ 上一個', () => visitMatch(-1));
   button(navigation, '↓ 下一個', () => visitMatch(1));
-  button(controls, '更新圖層', renderTree);
-  button(controls, '收合面板', () => {
+  iconButton(controls, '更新圖層', 'M20 7v5h-5M4 17v-5h5M6 6a8 8 0 0 1 13 2l1 4M4 12l1 4a8 8 0 0 0 13 2', renderTree);
+  iconButton(controls, '收合面板', 'M5 12h14', () => {
     panel.hidden = true; dock.hidden = false;
     dock.querySelector('button').focus({ preventScroll: true });
   });
@@ -683,9 +698,9 @@
   });
   expand.setAttribute('aria-expanded', 'false');
   button(dock, '關閉 ×', stop);
-  const swapPanel=button(controls, '面板換邊', () => panel.classList.toggle('left'));
+  const swapPanel=iconButton(controls, '面板換邊', 'M4 8h16m-4-4 4 4-4 4M20 16H4m4-4-4 4 4 4', () => panel.classList.toggle('left'));
   swapPanel.hidden=!!externalHost; // External controls use the workspace layout, not overlay positioning.
-  button(controls, '關閉 ×', stop);
+  iconButton(controls, '關閉 ×', 'm6 6 12 12M18 6 6 18', stop);
   const copyName = button(copyControls, '複製元素位置', () => selected && copy(selector(selected)));
   function modificationText() {
     const alive=matches.filter(node=>node.isConnected);

@@ -1,5 +1,7 @@
 # Mode d’emploi · raccourcis
 
+**Icônes :** ↻ actualise les calques, sans recharger la page ; − réduit le panneau ; × le ferme ; ⇄ échange largeur et hauteur. Le chevron à droite de RWD ouvre ou ferme les réglages. Survolez une icône pour lire son nom, ou utilisez Tab puis Entrée/Espace. Les boutons ont une cible de 44px et une icône de 22px. Les étapes, la langue, les exclusions et la copie gardent leur texte. [Images actualisées](VISUAL-GUIDE.md#larger-icon-controls).
+
 **Commandes actuelles :** l’option par défaut affiche **Langue** et détecte la langue automatiquement. Le bouton de la démo ouvre le panneau extérieur. Dans Périmètre, les repères numérotés permettent de rejoindre les éléments. **À copier** affiche les éléments inclus et le bouton ambré permet de choisir les exclusions. [État des vérifications](RELEASE-STATUS.md).
 
 [Français](HOW-TO.fr.md) · [English](HOW-TO.en.md) · [繁體中文](HOW-TO.zh-TW.md) · [日本語](HOW-TO.ja.md)

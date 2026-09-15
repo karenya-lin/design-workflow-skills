@@ -64,6 +64,13 @@ async(page)=>{
       check(`${lang} ${width}x${height} language reachable`,await panel.locator('select').isVisible());
       check(`${lang} ${width}x${height} no document overflow`,await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
       check(`${lang} ${width}x${height} RWD controls fit without horizontal scrolling`,await page.locator('.toolbar').evaluate(n=>n.scrollWidth<=n.clientWidth));
+      check(`${lang} ${width}x${height} header fits with labelled 44px icon controls`,await panel.locator('.panel-header').evaluate(n=>{
+        const controls=[...n.querySelectorAll('.controls button')].filter(b=>!b.hidden);
+        return n.scrollWidth<=n.clientWidth&&controls.length===3&&controls.every(b=>{
+          const box=b.getBoundingClientRect(),svg=b.querySelector('svg');
+          return box.width===44&&box.height===44&&svg?.getBoundingClientRect().width===22&&svg.getAttribute('aria-hidden')==='true'&&b.title===b.getAttribute('aria-label')&&b.title.length>0;
+        });
+      }));
     }
   }
   await page.goto('http://127.0.0.1:4321/rwd-preview.html?aiLang=ja');

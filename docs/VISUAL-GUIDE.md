@@ -1,5 +1,19 @@
 # 圖解操作 / Visual walkthrough
 
+## Larger icon controls
+
+Updated 2026-09-15 / 更新日期：2026-09-15。These are the latest header controls; earlier captures below show older text buttons. / 以下是新版工具列，下方較早的截圖仍是舊文字按鈕。
+
+↻ **Refresh layers / 更新圖層** · − **Collapse / 收合** · × **Close / 關閉** · ⇄ **Rotate / 交換寬高**. Hover to read the localized name. Toolbar actions use 22px icons inside 44px buttons; the RWD chevron is 24px and the DOM chevron is 20px. / Hover 可看名稱，常用按鈕放大；步驟、語言、例外、複製仍保留文字。
+
+![Larger icon controls, Traditional Chinese](images/inspector-icon-controls-zh-TW.png)
+
+![Larger icon controls, English](images/inspector-icon-controls-en.png)
+
+On narrow screens, collapse RWD settings to leave more room for the tool. No horizontal header scrollbar is needed. These are synthetic Chromium captures, not real-device verification. / 窄螢幕可收合 RWD，留空間給工具；標頭不用橫向捲動。以下為本機假資料 Chromium 實拍，不是真機驗證。
+
+![Narrow layout with RWD collapsed](images/inspector-icon-controls-mobile.png)
+
 ## Current hover and RWD controls / 最新 Hover 與 RWD 操作
 
 1. **Hover preview / 移到預覽** → identification and DOM tree open automatically. No Start/Resume click. / 自動開啟指認與 DOM 樹，不必按開始或繼續。
