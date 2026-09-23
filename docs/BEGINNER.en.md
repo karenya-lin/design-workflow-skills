@@ -19,7 +19,7 @@ available implementation skill. Installing this bundle creates no site or connec
 | Work on an existing frontend | Its required Node/package manager versions, from its README |
 | Access Figma or Calendar | Separately available tools and scoped account authorization; optional |
 
-The code is free under MIT. AI services and connectors may have their own pricing.
+The current toolkit is source-available and free to use, modify and embed, including in commercial work, but the skill pack itself may not be resold under the MIT + Commons Clause terms. Earlier MIT-only revisions keep their original license. AI services and connectors may have their own pricing.
 You can start without Python when using instructions only: ask the agent to use
 session-only preferences and not claim durable saving.
 
