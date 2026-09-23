@@ -54,6 +54,12 @@ Canonical/mirror comparison, drift class, evidence, smallest repair and read-bac
 可把已確認 drift 交 reliable-delivery 做 bounded 修復與驗收。  
 Hand confirmed drift to reliable-delivery for bounded repair and acceptance.
 
+## 常見搭配平台 / Works well with
+
+常見搭配：**Supabase, GitHub, Vercel, Cloudflare, PostgreSQL**。這些名稱用來說明常見工作情境與提高 discoverability，不代表官方合作、內建 connector、預設帳號權限或已完成整合。
+
+Common workflow companions: **Supabase, GitHub, Vercel, Cloudflare, PostgreSQL**. These names describe common use cases and improve discoverability; they do not imply endorsement, bundled integrations, account access or verified connectivity.
+
 ## 自訂與選填 / Customize and optional
 
 可自訂 drift taxonomy 與 source registry，但 public 版只用抽象名稱。  
