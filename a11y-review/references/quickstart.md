@@ -67,6 +67,12 @@ May be coordinated by uiux-checks; recheck affected behavior after fixes.
 
 Reuse one settings preflight. Combining skills does not accumulate permissions or permit overlapping writers.
 
+## 常見搭配平台 / Works well with
+
+常見搭配：**Figma, GitHub, Vercel, Cloudflare Pages, React, Next.js**。這些名稱用來說明常見工作情境與提高 discoverability，不代表官方合作、內建 connector、預設帳號權限或已完成整合。
+
+Common workflow companions: **Figma, GitHub, Vercel, Cloudflare Pages, React, Next.js**. These names describe common use cases and improve discoverability; they do not imply endorsement, bundled integrations, account access or verified connectivity.
+
 ## 自訂與選填 / Customize and optional
 
 標準版本、頁面抽樣、狀態、鍵盤／對比／重排等項目及既有工具；缺工具可先做來源檢查。
