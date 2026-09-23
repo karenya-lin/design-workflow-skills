@@ -114,6 +114,12 @@ For an estimate only, add: “Read-only inventory this time. Do not create or mo
 
 Share one preference preflight. If another skill is unavailable, identify the capabilities actually needed for this task without installing it automatically.
 
+## 常見搭配平台 / Works well with
+
+常見搭配：**Figma, GitHub, Vercel, Cloudflare Pages, React, Next.js**。這些名稱用來說明常見工作情境與提高 discoverability，不代表官方合作、內建 connector、預設帳號權限或已完成整合。
+
+Common workflow companions: **Figma, GitHub, Vercel, Cloudflare Pages, React, Next.js**. These names describe common use cases and improve discoverability; they do not imply endorsement, bundled integrations, account access or verified connectivity.
+
 ## 自訂與選填 / Customize and optional
 
 可指定只處理某些流程、多品牌、多語、RTL、裝置版本、保留元件與匯出格式。品牌色、按鈕高度和畫面張數由你的專案決定。
