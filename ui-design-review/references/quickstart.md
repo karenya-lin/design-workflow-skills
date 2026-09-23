@@ -67,6 +67,12 @@ Use states-preview-loop first; follow relevant fixes with a11y-review.
 
 Reuse one settings preflight. Combining skills does not accumulate permissions or permit overlapping writers.
 
+## 常見搭配平台 / Works well with
+
+常見搭配：**Figma, GitHub, Vercel, Cloudflare Pages, React, Next.js**。這些名稱用來說明常見工作情境與提高 discoverability，不代表官方合作、內建 connector、預設帳號權限或已完成整合。
+
+Common workflow companions: **Figma, GitHub, Vercel, Cloudflare Pages, React, Next.js**. These names describe common use cases and improve discoverability; they do not imply endorsement, bundled integrations, account access or verified connectivity.
+
 ## 自訂與選填 / Customize and optional
 
 比較頁面、狀態、尺寸、參考版本、修正檔案與優先順序；可只 review 不修。
