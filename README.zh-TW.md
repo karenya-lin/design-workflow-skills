@@ -58,7 +58,7 @@ Python 3.11+ 在執行 Python 設定／profile helper、runner 時需要。Node.
 
 
 
-[14 個 skills 完整圖解 / All 14 skill guides](docs/SKILL-MAP.md) · [UI Inspect 畫面 / Screenshots](docs/VISUAL-GUIDE.md)
+[18 個 skills 完整圖解 / All 14 skill guides](docs/SKILL-MAP.md) · [UI Inspect 畫面 / Screenshots](docs/VISUAL-GUIDE.md)
 
 
 14 個通用 skills，支援首次選填設定、執行前顯示設定，以及單項／分階段／整批檢查。
@@ -87,6 +87,10 @@ Python 3.11+ 在執行 Python 設定／profile helper、runner 時需要。Node.
 | [content-pipeline-dashboard](content-pipeline-dashboard/references/quickstart.md) | 把稿件、圖片和語系進度放在同一張表，較容易看出阻擋點。區分草稿、已審與已公開，減少把私人交付誤當網站上線。 |
 | [work-sync-daily](work-sync-daily/references/quickstart.md) | 先只讀對帳，能看出遺漏與重複，而不立即改動原始紀錄。用明確 before／after 表格批准更新，讓同步結果更可追蹤。 |
 | [work-report-weekly](work-report-weekly/references/quickstart.md) | 依完成證據整理一週成果，減少從零回想與重寫的負擔。先交草稿再決定寄送，可降低未確認內容或收件對象就外傳的風險。 |
+| [ai-workflow-orchestrator](ai-workflow-orchestrator/references/quickstart.md) | 先用規則、標籤與已知 facts 分流，只有 unresolved 才做 semantic classification，並留下 routing receipt。 |
+| [state-drift-review](state-drift-review/references/quickstart.md) | 分開 canonical truth 與 mirror，分類 drift，以 read-back evidence 驗證最小修復。 |
+| [uiux-runtime-audit](uiux-runtime-audit/references/quickstart.md) | 檢查實際可點擊性、狀態、手機／鍵盤與隱私，把有證據和未驗項目分開。 |
+| [reliable-delivery](reliable-delivery/references/quickstart.md) | 把原始驗收條件帶過中斷與交接，避免把進度誤寫成完成。 |
 
 ## 新手從這裡開始
 
@@ -342,3 +346,8 @@ Nielsen 的來源／MIT 條件及 TWG 排除理由見 [第三方聲明](THIRD_PA
 | [![work-sync-daily Step 1 zh-TW](work-sync-daily/references/screenshots/step-01-zh-TW.png)](work-sync-daily/references/screenshots/step-01-zh-TW.png) | [![work-sync-daily Step 2 zh-TW](work-sync-daily/references/screenshots/step-02-zh-TW.png)](work-sync-daily/references/screenshots/step-02-zh-TW.png) | [![work-sync-daily Step 3 zh-TW](work-sync-daily/references/screenshots/step-03-zh-TW.png)](work-sync-daily/references/screenshots/step-03-zh-TW.png) |
 
 </details>
+
+
+## 公開 Skill 資安
+
+新增公開 Skill 必須遵守 [Public Skill Sanitization](docs/PUBLIC-SKILL-SANITIZATION.md)：公開可重用的方法，不公開私人 repo／Issue、production URL、內部資料名稱、本機路徑、AI/provider 名冊與額度、原始 log／payload、憑證或可反推出內部拓樸的識別資訊。
