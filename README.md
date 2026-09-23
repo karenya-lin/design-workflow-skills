@@ -68,6 +68,19 @@ The current package is **source-available and free to use, modify and embed**, i
 [繁體中文](README.zh-TW.md) · [English usage](docs/USAGE.en.md) ·
 [Security / 資安](SECURITY.md) · [Free use / no-resale license](LICENSE)
 
+## Popular platform combinations / discoverability
+
+These skills are designed to fit common workflows around **Vercel, Supabase, Cloudflare, GitHub, Figma, Jira, Google Calendar, Google Drive, Gmail, React, Next.js, Vite, Codex and Claude Code**. Platform names describe common workflow contexts only: this repository does not claim official partnerships, bundle account connectors, or grant access to those services.
+
+| Platform / stack | Useful skills |
+|---|---|
+| Vercel, Cloudflare Pages, React, Next.js, Vite | `states-preview-loop`, `uiux-runtime-audit`, `ui-design-review`, `a11y-review`, `audit-fix-loop-no-preview` |
+| Supabase, PostgreSQL, app state | `state-drift-review`, `ai-workflow-orchestrator`, `reliable-delivery`, `uiux-checks` |
+| GitHub Issues / Pull Requests | `reliable-delivery`, `multi-session-protocol`, `ai-workflow-orchestrator`, `state-drift-review` |
+| Figma, Canva, design systems | `figma-write`, `figma-workflow-rebrand`, `variant-review-loop`, `ui-design-review` |
+| Jira, Google Calendar, Google Drive, Gmail | `work-sync-daily`, `work-report-weekly`, `content-pipeline-dashboard` |
+| Codex, Claude Code and other skill-capable agents | `optional-skill-profile`, `ai-workflow-orchestrator`, `reliable-delivery`, `multi-session-protocol` |
+
 ## Every skill: two benefits and a complete walkthrough
 
 Each guide covers project types, lifecycle stages, preparation, Step 1/2/3, finish/handoff, customization/optional choices and copyable English/Traditional Chinese prompts. Click a name for its illustrated guide. The skill-local `references/quickstart.md` and diagram also survive copy installation.
