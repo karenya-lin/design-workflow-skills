@@ -67,6 +67,19 @@ Python 3.11+ 在執行 Python 設定／profile helper、runner 時需要。Node.
 [English](README.md) · [繁中使用方法](docs/USAGE.zh-TW.md) ·
 [資安規則](SECURITY.md) · [免費使用／禁止轉售授權](LICENSE)
 
+## 常見平台搭配 / 搜尋與選 Skill
+
+這些 Skills 適合放進 **Vercel、Supabase、Cloudflare、GitHub、Figma、Jira、Google Calendar、Google Drive、Gmail、React、Next.js、Vite、Codex、Claude Code** 等常見工作流程。平台名稱只是使用情境與 discoverability 關鍵字，不代表官方合作、內建 connector、預設帳號權限或已完成連線。
+
+| 平台 / 技術 | 適合搭配的 Skills |
+|---|---|
+| Vercel、Cloudflare Pages、React、Next.js、Vite | `states-preview-loop`、`uiux-runtime-audit`、`ui-design-review`、`a11y-review`、`audit-fix-loop-no-preview` |
+| Supabase、PostgreSQL、應用狀態 | `state-drift-review`、`ai-workflow-orchestrator`、`reliable-delivery`、`uiux-checks` |
+| GitHub Issues / Pull Requests | `reliable-delivery`、`multi-session-protocol`、`ai-workflow-orchestrator`、`state-drift-review` |
+| Figma、Canva、Design System | `figma-write`、`figma-workflow-rebrand`、`variant-review-loop`、`ui-design-review` |
+| Jira、Google Calendar、Google Drive、Gmail | `work-sync-daily`、`work-report-weekly`、`content-pipeline-dashboard` |
+| Codex、Claude Code 與其他支援 Skills 的 agents | `optional-skill-profile`、`ai-workflow-orchestrator`、`reliable-delivery`、`multi-session-protocol` |
+
 ## 每個 skill 的兩句優點與完整教學
 
 每篇都有：適用專案與階段、開始準備、Step 1／2／3、結束交接、自訂／optional 及中英可貼提示。點名稱進入獨立圖解，安裝到 AI 的 skill 資料夾後，`references/quickstart.md` 與流程圖也會一起保留。
