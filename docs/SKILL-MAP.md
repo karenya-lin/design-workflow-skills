@@ -34,6 +34,12 @@ Every skill has a three-step diagram, use case, bilingual prompt, expected outpu
 | 可靠交付 / Continue to acceptance | [reliable-delivery](../reliable-delivery/references/quickstart.md) |
 
 
+## 平台關鍵字 / Platform keywords
+
+常見情境包括 Vercel、Supabase、Cloudflare Pages、GitHub、Figma、Canva、Jira、Google Calendar、Google Drive、Gmail、React、Next.js、Vite、Codex 與 Claude Code。名稱只表示常見搭配，不代表官方合作、內建整合或帳號授權。
+
+Common contexts include Vercel, Supabase, Cloudflare Pages, GitHub, Figma, Canva, Jira, Google Calendar, Google Drive, Gmail, React, Next.js, Vite, Codex and Claude Code. Names indicate workflow compatibility only, not endorsement, bundled integration or authorization.
+
 ## 常見合用路線 / Common combinations
 
 ```mermaid
