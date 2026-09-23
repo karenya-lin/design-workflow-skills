@@ -54,6 +54,12 @@ Acceptance, owner/scope, base/result revision, changed artifacts, QA, done/remai
 搭配 multi-session-protocol 管 ownership；搭配專項 audit skill 定義要修的 bounded findings。  
 Use multi-session-protocol for ownership and specialist audit skills for bounded findings.
 
+## 常見搭配平台 / Works well with
+
+常見搭配：**GitHub, Vercel, Cloudflare, Supabase, Jira, Codex, Claude Code**。這些名稱用來說明常見工作情境與提高 discoverability，不代表官方合作、內建 connector、預設帳號權限或已完成整合。
+
+Common workflow companions: **GitHub, Vercel, Cloudflare, Supabase, Jira, Codex, Claude Code**. These names describe common use cases and improve discoverability; they do not imply endorsement, bundled integrations, account access or verified connectivity.
+
 ## 自訂與選填 / Customize and optional
 
 可指定 acceptance IDs、handoff owner、驗收者與 release policy。公開模板不要寫入私人 issue/repo/branch/person identifier。  
