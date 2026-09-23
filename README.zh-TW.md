@@ -58,14 +58,14 @@ Python 3.11+ 在執行 Python 設定／profile helper、runner 時需要。Node.
 
 
 
-[18 個 skills 完整圖解 / All 14 skill guides](docs/SKILL-MAP.md) · [UI Inspect 畫面 / Screenshots](docs/VISUAL-GUIDE.md)
+[18 個 skills 完整圖解 / All 18 skill guides](docs/SKILL-MAP.md) · [UI Inspect 畫面 / Screenshots](docs/VISUAL-GUIDE.md)
 
 
-14 個通用 skills，支援首次選填設定、執行前顯示設定，以及單項／分階段／整批檢查。
+18 個通用 skills，支援首次選填設定、執行前顯示設定，以及單項／分階段／整批檢查。
 這份通用包不含作者私人設定；安裝不會自動連接帳號或建立排程。
 
 [English](README.md) · [繁中使用方法](docs/USAGE.zh-TW.md) ·
-[資安規則](SECURITY.md) · [MIT 授權](LICENSE)
+[資安規則](SECURITY.md) · [免費使用／禁止轉售授權](LICENSE)
 
 ## 每個 skill 的兩句優點與完整教學
 
@@ -122,7 +122,7 @@ Runner 可重複 `--phase`，依選取順序去重。先跑指令、AI 計畫另
 | 修補 | `audit-fix-loop-no-preview` |
 | 工作整理 | `work-sync-daily`、`work-report-weekly`、`content-pipeline-dashboard` |
 
-將以上 14 個含 SKILL.md 的資料夾保留為同層，安裝到所用 agent 支援的 skills 目錄。
+將以上 18 個含 SKILL.md 的資料夾保留為同層，安裝到所用 agent 支援的 skills 目錄。
 首次使用會詢問是否選填、是否保存。之後每次跑之前會顯示目前設定；可說
 「修改設定」「改 port」「切換帳號」「停用日曆」「這次不用」或「重設」。
 
@@ -149,7 +149,7 @@ cd design-workflow-skills
 
 安裝或執行前先看[使用方法](docs/USAGE.zh-TW.md)。若已有同名私人 skill，先比較，不直接覆蓋。
 
-這是 MIT 開源套件；不附第三方 Nielsen skill，不附 TWG，也不提供客戶素材權利。
+目前版本採 **source-available：人人可免費使用、修改，也可放進自己的商業工作或產品使用；但不能把這套 Skill 本身或只是改名／薄包裝的版本拿去販售。** 授權為 MIT + Commons Clause；較早已發布的 MIT-only revision 仍保留原授權。第三方內容維持各自 upstream license。不附第三方 Nielsen skill、不附 TWG，也不提供客戶素材權利。
 Nielsen 的來源／MIT 條件及 TWG 排除理由見 [第三方聲明](THIRD_PARTY.md)。
 
 ## 測試
