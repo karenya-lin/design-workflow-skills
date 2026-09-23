@@ -55,6 +55,12 @@ Routing scope, facts/labels, selected skill, fallback decision, actual calls, QA
 它是協調層，不取代專項 skill。搭配 reliable-delivery 時共用同一份 scope/receipt。  
 It coordinates specialists rather than replacing them. Reuse the same scope/receipt with reliable-delivery.
 
+## 常見搭配平台 / Works well with
+
+常見搭配：**GitHub Issues/PRs, Supabase, Vercel, Cloudflare, Jira, Figma, Codex, Claude Code**。這些名稱用來說明常見工作情境與提高 discoverability，不代表官方合作、內建 connector、預設帳號權限或已完成整合。
+
+Common workflow companions: **GitHub Issues/PRs, Supabase, Vercel, Cloudflare, Jira, Figma, Codex, Claude Code**. These names describe common use cases and improve discoverability; they do not imply endorsement, bundled integrations, account access or verified connectivity.
+
 ## 自訂與選填 / Customize and optional
 
 可自訂受控 labels、skill registry、semantic fallback 門檻與 receipt 欄位。不要把私人 provider 名單、quota 或 production identifier 寫進公共 skill。  
