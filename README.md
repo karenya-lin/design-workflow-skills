@@ -32,7 +32,7 @@ Current interaction: hover the preview to open Inspect; click to select. [Update
 
 ### Minimum install and optional companions
 
-Install only what your task needs; all 14 skills are not mandatory. Use the [folder-copy installation guide](docs/BEGINNER.en.md#1-download-and-install), preserving each selected skill's bundled references, scripts and assets.
+Install only what your task needs; all 18 skills are not mandatory. Use the [folder-copy installation guide](docs/BEGINNER.en.md#1-download-and-install), preserving each selected skill's bundled references, scripts and assets.
 
 | When needed | Install / connect | If absent |
 |---|---|---|
@@ -58,7 +58,7 @@ Actual local demo, silent video. Clipboard is mocked; native capture is not invo
 
 
 
-[14 個 skills 完整圖解 / All 14 skill guides](docs/SKILL-MAP.md) · [UI Inspect 畫面 / Screenshots](docs/VISUAL-GUIDE.md)
+[18 個 skills 完整圖解 / All 18 skill guides](docs/SKILL-MAP.md) · [UI Inspect 畫面 / Screenshots](docs/VISUAL-GUIDE.md)
 
 
 Configurable skills for design reviews, UI quality checks and work coordination.
@@ -90,6 +90,11 @@ Each guide covers project types, lifecycle stages, preparation, Step 1/2/3, fini
 | [content-pipeline-dashboard](content-pipeline-dashboard/references/quickstart.md) | Put drafts, media and locale progress in one matrix to spot blockers. Separating draft, reviewed and public states prevents private delivery from being mistaken for publication. |
 | [work-sync-daily](work-sync-daily/references/quickstart.md) | Read-only reconciliation reveals gaps and duplicates before changing records. Explicit before/after approvals make updates easier to trace. |
 | [work-report-weekly](work-report-weekly/references/quickstart.md) | Draft a week’s outcomes from evidence instead of reconstructing everything from memory. Reviewing the draft before sending reduces the risk of sharing unconfirmed content or using the wrong recipient. |
+| [ai-workflow-orchestrator](ai-workflow-orchestrator/references/quickstart.md) | Route with rules, labels and known facts first; use semantic classification only for unresolved meaning and leave a routing receipt. |
+| [state-drift-review](state-drift-review/references/quickstart.md) | Separate canonical truth from mirrors, classify drift and propose the smallest safe repair with read-back evidence. |
+| [uiux-runtime-audit](uiux-runtime-audit/references/quickstart.md) | Check real interaction reachability, state clarity, mobile/keyboard behavior and privacy while separating observed from unverified. |
+| [reliable-delivery](reliable-delivery/references/quickstart.md) | Carry original acceptance through interruptions and handoffs so progress is not mistaken for completion. |
+
 
 ## Start here
 
@@ -114,7 +119,7 @@ Combine this bundle with other installed skills using the
 coordinator, shared preflight, explicit ownership and separate evidence per step.
 External skill declarations do not install or certify those skills.
 
-## Included: 14 skills
+## Included: 18 skills
 
 - `optional-skill-profile`: optional onboarding, local persistence, preview and editing.
 - `ui-element-inspector`: hover to identify DOM elements/parent containers and copy context for AI.
@@ -130,13 +135,19 @@ External skill declarations do not install or certify those skills.
 - `uiux-checks`: configurable overall quality review.
 - `audit-fix-loop-no-preview`: source-backed triage and approved fixes.
 - `content-pipeline-dashboard`: content ID/locale progress reconciliation.
+- `ai-workflow-orchestrator`: deterministic-first skill/tool routing with bounded semantic fallback and receipts.
+- `state-drift-review`: canonical-vs-mirror state reconciliation and minimal repair planning.
+- `uiux-runtime-audit`: runtime interaction, mobile, accessibility and privacy-oriented UX evidence.
+- `reliable-delivery`: acceptance-preserving continuation, verification and handoff receipts.
 
-Install these fourteen sibling directories together into the skill directory supported
+Install these eighteen sibling directories together into the skill directory supported
 by your agent. The profile helper requires Python 3.11+, standard library only.
 The other skills explicitly read the sibling profile skill. If it is missing,
 they operate without persistence and explain that limitation. There is no hook,
 background service, OAuth implementation, or automatic scheduler in this package.
 The agent asks the questions; the helper only stores validated preferences.
+
+New public skills must follow [Public Skill Sanitization](docs/PUBLIC-SKILL-SANITIZATION.md): publish reusable methods, not private operational identifiers, logs or topology.
 
 No third-party skill is bundled. See [THIRD_PARTY.md](THIRD_PARTY.md).
 
