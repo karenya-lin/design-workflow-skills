@@ -67,6 +67,12 @@ Can feed work-report-weekly or use multi-session-protocol for ownership.
 
 Reuse one settings preflight. Combining skills does not accumulate permissions or permit overlapping writers.
 
+## 常見搭配平台 / Works well with
+
+常見搭配：**GitHub, Google Drive, Figma, Vercel, Cloudflare Pages, Supabase**。這些名稱用來說明常見工作情境與提高 discoverability，不代表官方合作、內建 connector、預設帳號權限或已完成整合。
+
+Common workflow companions: **GitHub, Google Drive, Figma, Vercel, Cloudflare Pages, Supabase**. These names describe common use cases and improve discoverability; they do not imply endorsement, bundled integrations, account access or verified connectivity.
+
 ## 自訂與選填 / Customize and optional
 
 資料源、內容 ID、語系、階段、owner、完成證據與矩陣格式；可只用本機清單，不需連帳號。
