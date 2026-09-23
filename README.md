@@ -63,12 +63,10 @@ Actual local demo, silent video. Clipboard is mocked; native capture is not invo
 
 Configurable skills for design reviews, UI quality checks and work coordination.
 Installing this package does not connect accounts or create automatic schedules.
-The original package
-is offered under MIT; third-party exclusions are documented separately. This does
-not grant rights to company/customer material, none of which should be added here.
+The current package is **source-available and free to use, modify and embed**, including in commercial work. **Reselling this skill pack itself, or a substantially equivalent repackaging whose value comes from these skills, is not permitted** under the MIT + Commons Clause terms. Earlier MIT-only revisions keep their original license. Third-party material keeps its own upstream license. See [License](LICENSE) and [third-party notes](THIRD_PARTY.md). This does not grant rights to company/customer material.
 
 [繁體中文](README.zh-TW.md) · [English usage](docs/USAGE.en.md) ·
-[Security / 資安](SECURITY.md) · [License](LICENSE)
+[Security / 資安](SECURITY.md) · [Free use / no-resale license](LICENSE)
 
 ## Every skill: two benefits and a complete walkthrough
 
