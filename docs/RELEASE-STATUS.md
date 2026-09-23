@@ -1,8 +1,8 @@
 # Release status / 交付與測試狀態
 
-Updated 2026-09-15. Available instructions are not a guarantee of every AI host, account or browser working. No skill grants account access by installation.
+Updated 2026-09-23. Available instructions are not a guarantee of every AI host, account or browser working. No skill grants account access by installation.
 
-更新日期：2026-09-15。文件可使用不代表所有 AI、帳號與瀏覽器都已實測；安裝不等於授權。
+更新日期：2026-09-23。文件可使用不代表所有 AI、帳號與瀏覽器都已實測；安裝不等於授權。
 
 | Skill | Verified scope / 已驗範圍 | Still testing / 待驗範圍 |
 |---|---|---|
@@ -20,6 +20,11 @@ Updated 2026-09-15. Available instructions are not a guarantee of every AI host,
 | content-pipeline-dashboard | Instructions and illustrated guide / 文件圖解 | Real content publication and source connections / 真實發布與來源連接 |
 | work-sync-daily | Instructions and illustrated guide / 文件圖解 | Google/Jira OAuth, reconciliation and scheduled runs / 授權、對帳與排程 |
 | work-report-weekly | Instructions and illustrated guide / 文件圖解 | Real reports and delivery; user must trial-run routines / 真實週報寄送，routine 必須自行跑一次 |
+| ai-workflow-orchestrator | Instructions, bilingual quickstart, workflow diagram and public-sanitization boundary / 文件、雙語 quickstart、流程圖與公開去識別化邊界 | Real multi-agent routing and calibrated semantic fallback / 真實多 agent routing 與校準後 semantic fallback |
+| state-drift-review | Instructions, drift taxonomy, bilingual quickstart and workflow diagram / 文件、drift taxonomy、雙語 quickstart 與流程圖 | Real cross-system repairs and read-back / 真實跨系統修復與 read-back |
+| uiux-runtime-audit | Instructions, bilingual quickstart, runtime/privacy limits and workflow diagram / 文件、雙語 quickstart、執行期／隱私邊界與流程圖 | Real project/browser/assistive-technology audits / 真實專案、瀏覽器與輔助科技驗收 |
+| reliable-delivery | Instructions, bilingual quickstart, acceptance/handoff receipt and workflow diagram / 文件、雙語 quickstart、驗收／交接 receipt 與流程圖 | Real cross-host continuation and integration / 真實跨機接續與整合 |
+
 
 ## Not released / 未交付功能
 
