@@ -67,6 +67,12 @@ Can feed work-report-weekly; share source preferences through optional-skill-pro
 
 Reuse one settings preflight. Combining skills does not accumulate permissions or permit overlapping writers.
 
+## 常見搭配平台 / Works well with
+
+常見搭配：**GitHub, Jira, Google Calendar, Google Drive**。這些名稱用來說明常見工作情境與提高 discoverability，不代表官方合作、內建 connector、預設帳號權限或已完成整合。
+
+Common workflow companions: **GitHub, Jira, Google Calendar, Google Drive**. These names describe common use cases and improve discoverability; they do not imply endorsement, bundled integrations, account access or verified connectivity.
+
 ## 自訂與選填 / Customize and optional
 
 日期、時區、included／excluded projects、各來源開關、日曆 ID 與私人事件排除；更新需另批。
