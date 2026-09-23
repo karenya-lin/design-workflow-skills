@@ -54,6 +54,12 @@ Finding IDs, page/state/viewport, evidence, impact, correction and verified/infe
 可在 ui-design-review 後補 runtime evidence，或把確認問題交 reliable-delivery。  
 Use after ui-design-review for runtime evidence or hand confirmed findings to reliable-delivery.
 
+## 常見搭配平台 / Works well with
+
+常見搭配：**Vercel, Cloudflare Pages, Supabase, GitHub, Figma, React, Next.js**。這些名稱用來說明常見工作情境與提高 discoverability，不代表官方合作、內建 connector、預設帳號權限或已完成整合。
+
+Common workflow companions: **Vercel, Cloudflare Pages, Supabase, GitHub, Figma, React, Next.js**. These names describe common use cases and improve discoverability; they do not imply endorsement, bundled integrations, account access or verified connectivity.
+
 ## 自訂與選填 / Customize and optional
 
 可指定 viewport、核心 flow、browser/tool、測試資料與禁止動作。 / Specify viewports, core flow, browser/tool, test data and prohibited actions.
