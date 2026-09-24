@@ -67,6 +67,27 @@ OpenAI's current skill guidance emphasizes two things that matter here: the **na
 
 This is also why **“more skills” is not a goal**. Add a new skill only when it has a distinct trigger, input contract or success criterion. Otherwise extend an existing specialist or reference file.
 
+### Human-readable outside, compact semantics inside
+
+Human-facing instructions and final answers stay readable. **AI-to-AI / Skill-to-Skill handoffs may use a compact semantic envelope** so the same project history and rules are not rewritten every turn.
+
+Example:
+
+```text
+intent=review
+scope=home.mobile
+constraints=no-prod,no-push
+facts=locale:zh-TW; target:save-button
+unresolved=empty-state-copy
+evidence=src/ui/save.tsx#L20-L44
+state=partial
+next=copy-review
+```
+
+The shared [compact semantic contract](optional-skill-profile/references/compact-semantic-handoff.md) uses stable fields such as `intent`, `scope`, `facts`, `constraints`, `unresolved`, `evidence`, `state` and `next`. Empty/default fields are omitted. Exact raw wording is preserved only when nuance, authority, safety, legal terms or acceptance criteria would be lost.
+
+This is meant to reduce **repeated input context and repeated formatting instructions**. It is not a promise of a fixed percentage of token savings; measure representative before/after handoffs.
+
 ### Skill, project rule, hook or connector?
 
 | If you need… | Put it here |
