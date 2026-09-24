@@ -1,6 +1,6 @@
 ---
 name: figma-workflow-rebrand
-description: Rebrand an entire Figma frame set and its workflows for another brand while preserving the source, screen states, components, and prototype behavior. Use for whole-file or multi-page rebranding, white-label design adaptation, brand migration, 換品牌, 整套 frame 換皮, or workflow rebrand, including optional localization and RTL. Supports reusable brand profiles without embedding company-specific assets or rules.
+description: Rebrand a whole Figma workflow while preserving source, states, components and prototype behavior. Use for multi-frame white-label or brand migration; not for one isolated edit or generic UI review.
 ---
 
 # Figma Workflow Rebrand
