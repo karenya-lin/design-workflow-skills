@@ -67,6 +67,17 @@ OpenAI 目前的 Skill 指南有兩個跟這裡直接相關的重點：**name／
 
 因此，**「Skill 越多越好」不是這個 repo 的目標**。只有當新流程有不同 trigger、input contract 或成功條件時，才新增 Skill；否則優先擴充既有 specialist 或 reference。
 
+### 到底該放 Skill、專案規則、hook 還是 connector？
+
+| 你需要的是… | 比較適合放哪裡 |
+|---|---|
+| 只有符合某類任務才載入的可重複工作流程 | **Skill** |
+| 同一專案幾乎每個任務都要遵守的規則 | 該 host 的專案指引，例如 **AGENTS.md / CLAUDE.md** |
+| 某個 host 事件發生時一定要執行的 deterministic 動作 | 該 host 支援的 **hook／automation**，不要只靠文字 Skill |
+| 帳號即時資料、登入授權、受控外部操作 | 已授權的 **connector / MCP tool**；Skill 只負責描述如何使用它完成流程 |
+
+不同 AI host 的 discovery、hook 與 connector 能力不完全一樣。`SKILL.md` 可攜，不代表每個 host 的 runtime 功能完全相同。
+
 
 
 | English | 繁體中文 | Français | 日本語 |
