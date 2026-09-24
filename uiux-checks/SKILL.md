@@ -1,6 +1,6 @@
 ---
 name: uiux-checks
-description: Plan or coordinate a scoped UI quality review across responsive layout, accessibility, localization, SEO and performance using selected checks.
+description: Coordinate a scoped UI quality review across responsive layout, accessibility, localization, SEO and performance. Use when several review dimensions are requested; for one narrow dimension use its specialist skill.
 ---
 
 # UI quality coordinator / 整體品質檢查
