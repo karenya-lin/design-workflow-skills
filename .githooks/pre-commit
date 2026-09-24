@@ -1,0 +1,48 @@
+#!/bin/sh
+# Public identity guard for karenya-lin/design-workflow-skills.
+#
+# This repository is public, and Git commit metadata is public too: the author
+# and committer email of every commit is visible to anyone who clones it. On
+# 2026-09-23 an audit found a personal address in that metadata, and on
+# 2026-09-24 the reachable history was rewritten to the GitHub noreply address
+# below. This hook stops it from coming back.
+#
+# Turn it on once per clone:
+#
+#     git config core.hooksPath .githooks
+#
+# It refuses a commit whose author or committer email is not the approved
+# public identity. It never rewrites anything; fix the identity and commit again:
+#
+#     git config user.name "Karenya Lin"
+#     git config user.email "99601006+karenya-lin@users.noreply.github.com"
+#
+# Skip only when the owner has said so: SKIP_IDENTITY_GUARD=1 git commit ...
+
+APPROVED="99601006+karenya-lin@users.noreply.github.com"
+
+if [ "$SKIP_IDENTITY_GUARD" = "1" ]; then
+  echo "identity guard: skipped by SKIP_IDENTITY_GUARD=1"
+  exit 0
+fi
+
+author="${GIT_AUTHOR_EMAIL:-$(git config user.email)}"
+committer="${GIT_COMMITTER_EMAIL:-$(git config user.email)}"
+status=0
+
+for email in "$author" "$committer"; do
+  if [ "$email" != "$APPROVED" ]; then
+    echo "identity guard: '$email' is not the approved public identity for this repository." >&2
+    status=1
+  fi
+done
+
+if [ "$status" != "0" ]; then
+  echo "" >&2
+  echo "Set the public identity for this clone and commit again:" >&2
+  echo "    git config user.name \"Karenya Lin\"" >&2
+  echo "    git config user.email \"$APPROVED\"" >&2
+  echo "See docs/PUBLIC-IDENTITY.md." >&2
+fi
+
+exit "$status"
