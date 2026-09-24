@@ -1,6 +1,6 @@
 ---
 name: multi-session-protocol
-description: Coordinate multiple agents sharing files or resources through explicit ownership, acknowledged handoffs and bounded changes.
+description: Coordinate multiple agents sharing files or resources through explicit ownership, handoffs and bounded changes. Use when parallel agents could collide; not for a single-agent task.
 ---
 
 # Shared-work coordination / 多工作階段協作
