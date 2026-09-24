@@ -67,6 +67,27 @@ OpenAI 目前的 Skill 指南有兩個跟這裡直接相關的重點：**name／
 
 因此，**「Skill 越多越好」不是這個 repo 的目標**。只有當新流程有不同 trigger、input contract 或成功條件時，才新增 Skill；否則優先擴充既有 specialist 或 reference。
 
+### 對人白話，AI 內部用精簡語意
+
+給人看的說明與最後答案維持自然語言。**AI 對 AI／Skill 對 Skill 的交接可以改用固定語意欄位**，避免每一輪都重貼專案歷史、規章與整段 prompt。
+
+例如：
+
+```text
+intent=review
+scope=home.mobile
+constraints=no-prod,no-push
+facts=locale:zh-TW; target:save-button
+unresolved=empty-state-copy
+evidence=src/ui/save.tsx#L20-L44
+state=partial
+next=copy-review
+```
+
+共用的[精簡語意合約](optional-skill-profile/references/compact-semantic-handoff.md)使用 `intent`、`scope`、`facts`、`constraints`、`unresolved`、`evidence`、`state`、`next` 等固定欄位；空值與預設值不送。只有在語氣、授權、安全、法律或驗收條件會因壓縮而失真時，才保留必要原文。
+
+這主要省的是**重複輸入 context 與重複格式提示**，不是宣稱固定能省幾成 token；應用代表性任務做前後量測。
+
 ### 到底該放 Skill、專案規則、hook 還是 connector？
 
 | 你需要的是… | 比較適合放哪裡 |

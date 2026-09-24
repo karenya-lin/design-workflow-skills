@@ -46,6 +46,8 @@ project rules, host permissions or higher-priority instructions.
    outside public artifacts. External skill settings remain owned by that skill;
    this package does not rewrite arbitrary third-party configuration.
 
+10. **Compact AI-to-AI handoff.** When specialists hand work back to the coordinator or to another authorized specialist, prefer the [compact semantic contract](compact-semantic-handoff.md) instead of repeating the whole prompt, project history or rulebook. Keep human-facing answers in normal language. Preserve exact user wording only when nuance, authority, safety, legal terms or acceptance criteria would be lost.
+
 Suggested small combination: an available implementation skill owns the requested
 component; `ui-design-review` compares it with the reference; `a11y-review` checks
 accessibility; `uiux-checks` summarizes. Use separate implementation and verification
@@ -75,6 +77,8 @@ steps instead of having all skills edit the component simultaneously.
    中間有修改必須分次執行，重設證據基準。設定 hash 不涵蓋被呼叫的 script 內容。
 9. 合成一份報告，各步保留證據、問題 ID、已改檔案、阻擋與下一位 owner。
    私人設定不放公開報告；第三方 skill 的私人設定仍由它自己的流程管理。
+
+10. **AI 對 AI 的精簡交接。** 專項 skill 回給協調者或交給另一個已授權 specialist 時，優先使用[精簡語意合約](compact-semantic-handoff.md)，不要重貼整份 prompt、專案歷史或規章。對人的回覆仍用正常白話；只有語意、授權、安全、法律或驗收條件會因壓縮而遺失時，才保留使用者原文。
 
 入門組合：已安裝的實作 skill 負責元件 → ui-design-review 比對設計 →
 a11y-review 檢查無障礙 → uiux-checks 彙整。不要讓所有 skill 同時改同一元件。
