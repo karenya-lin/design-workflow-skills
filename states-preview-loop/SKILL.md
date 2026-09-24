@@ -1,6 +1,6 @@
 ---
 name: states-preview-loop
-description: Create a local UI state preview and compare screenshots across requested viewport sizes, using a user-selected port.
+description: Create a local UI-state preview and compare screenshots across requested viewports. Use for normal, loading, empty and error states; not for source-only review or production monitoring.
 ---
 
 # States preview loop
