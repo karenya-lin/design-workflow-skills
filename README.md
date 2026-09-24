@@ -81,6 +81,23 @@ These skills are designed to fit common workflows around **Vercel, Supabase, Clo
 | Jira, Google Calendar, Google Drive, Gmail | `work-sync-daily`, `work-report-weekly`, `content-pipeline-dashboard` |
 | Codex, Claude Code and other skill-capable agents | `optional-skill-profile`, `ai-workflow-orchestrator`, `reliable-delivery`, `multi-session-protocol` |
 
+## AI compatibility and token efficiency
+
+**Which AI can follow these skills.** Every skill here is vendor-neutral Markdown: a written workflow with steps, checks and prompts, not an API for one vendor. Codex, Claude Code, Gemini, Grok or any other agent can follow a skill when its host can read or load the skill file and has the capabilities the skill needs (file access, a browser, a connector). Not every host discovers or installs skills on its own. Where native discovery is missing, the compatibility path is manual: load, paste or import the skill text. Skills that depend on a tool (Figma, a browser, Calendar, Gmail, Jira) stay capability-gated whatever the host.
+
+**How the skills keep token use down.** These mechanisms are in the skills as written:
+
+- install or load only the skills a task needs, and keep the rest out of context;
+- deterministic rules, labels and known facts run before any semantic classification;
+- a bounded semantic fallback handles only meaning the rules could not resolve;
+- one preflight and one profile are reused across composed skills instead of repeated;
+- inventories and evidence are reused while their inputs are unchanged;
+- a skill asks for the node or data scope it needs, never the whole workspace;
+- work runs in bounded batches with resumable receipts and checkpoints;
+- progress is reported compactly rather than by repeating full inventories.
+
+**What is not claimed.** They are designed to reduce repeated context, semantic or model calls and redundant tool reads. No benchmark in this repository measures a percentage of tokens saved, so none is stated. Savings vary by model, host, context window and task, and a connector's quota or rate limit is a different thing from model tokens.
+
 ## Every skill: two benefits and a complete walkthrough
 
 Each guide covers project types, lifecycle stages, preparation, Step 1/2/3, finish/handoff, customization/optional choices and copyable English/Traditional Chinese prompts. Click a name for its illustrated guide. The skill-local `references/quickstart.md` and diagram also survive copy installation.
@@ -198,6 +215,8 @@ stay with an authorized connector/OAuth provider. Disconnecting in these skills
 disables reads; revoke OAuth separately in the provider to remove remote access.
 
 ## Verification
+
+Commits to this public repository carry one public identity, enforced by two hooks; see [docs/PUBLIC-IDENTITY.md](docs/PUBLIC-IDENTITY.md).
 
 Run `python -m unittest discover -s tests -v`. Tests use temporary directories and
 synthetic data. They do not connect accounts, stop processes or access a website.
