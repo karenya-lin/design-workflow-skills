@@ -80,6 +80,23 @@ Python 3.11+ 在執行 Python 設定／profile helper、runner 時需要。Node.
 | Jira、Google Calendar、Google Drive、Gmail | `work-sync-daily`、`work-report-weekly`、`content-pipeline-dashboard` |
 | Codex、Claude Code 與其他支援 Skills 的 agents | `optional-skill-profile`、`ai-workflow-orchestrator`、`reliable-delivery`、`multi-session-protocol` |
 
+## AI 相容性與省 token
+
+**哪些 AI 能照著做。** 這裡每個 skill 都是不綁廠商的 Markdown：一份寫好的工作方法，有步驟、檢查和提示詞，不是某一家的 API。Codex、Claude Code、Gemini、Grok 或其他 agent，只要它的執行環境讀得到或載得進 skill 檔，而且具備該 skill 需要的能力（檔案、瀏覽器、connector），就能照著做。不是每個環境都會自己發現或安裝 skill。沒有原生發現機制的，相容方式就是手動：載入、貼上或匯入 skill 文字。依賴工具的 skill（Figma、瀏覽器、日曆、Gmail、Jira）不論在哪個環境，都要先有那個能力才會動。
+
+**skill 怎麼讓 token 用得少。** 下面這些做法已經寫在 skill 裡：
+
+- 只安裝或載入這次任務需要的 skill，其他的不進 context；
+- 固定規則、標籤和已知事實先跑，語意分類排在後面；
+- 有邊界的語意後備只處理規則解不開的意思；
+- 多個 skill 合用時，前置檢查和偏好設定只做一次、共用；
+- 輸入沒變，清單和證據就重複使用，不重做；
+- skill 只要它需要的節點或資料範圍，不拿整個工作區；
+- 工作分成有邊界的批次，附可續跑的收據和檢查點；
+- 進度用精簡的方式回報，不重貼整份清單。
+
+**沒有主張的事。** 這些設計是為了減少重複的 context、語意或模型呼叫，以及多餘的工具讀取。這個 repo 裡沒有任何量測 token 節省百分比的基準，所以不寫百分比。省多少會隨模型、環境、context 長度和任務而變，connector 的配額或速率限制跟模型 token 也是兩回事。
+
 ## 每個 skill 的兩句優點與完整教學
 
 每篇都有：適用專案與階段、開始準備、Step 1／2／3、結束交接、自訂／optional 及中英可貼提示。點名稱進入獨立圖解，安裝到 AI 的 skill 資料夾後，`references/quickstart.md` 與流程圖也會一起保留。

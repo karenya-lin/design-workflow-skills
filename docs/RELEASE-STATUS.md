@@ -33,6 +33,13 @@ Updated 2026-09-23. Available instructions are not a guarantee of every AI host,
 - Automatic AI sending and automatic GitHub error uploads are not enabled. Review and copy locally, then choose where to paste. No private screenshot or log is uploaded automatically.
 - 不自動傳送 AI，也不自動上傳 GitHub 錯誤；先在本機審閱、複製，再自行貼上，不自動送出私密截圖或 log。
 
+## Compatibility and token claims / 相容性與省 token 的主張範圍
+
+- Skills are vendor-neutral Markdown. Codex, Claude Code, Gemini, Grok and other agents can follow them where the host loads the skill and has the required capabilities. Native discovery and installation are not claimed for every host; manual load, paste or import is the compatibility path.
+- The token-efficiency mechanisms in the README are design properties of the skills as written. No percentage of tokens saved has been measured in this repository, and none is claimed.
+- Skill 是不綁廠商的 Markdown。Codex、Claude Code、Gemini、Grok 與其他 agent 在能載入 skill 且具備所需能力的環境下都能照著做。不主張每個環境都有原生發現與安裝，手動載入、貼上或匯入是相容方式。
+- README 裡的省 token 做法是 skill 本身的設計，這個 repo 沒有量過節省百分比，也不主張。
+
 ## Evidence / 驗證依據
 
 [Test commands and limitations](TESTING.md): 106 inspector checks, 154 language/capture checks and 47 Python tests passed on the local synthetic fixture. Includes larger icon targets and headers across four languages and six viewport sizes. Browser copy tests mock writes; the separately documented real Clipboard API write resolved, but pasting into AI was not verified. Native capture launches remain mocked. CSS variable references are candidates, not proof of the winning cascade.
