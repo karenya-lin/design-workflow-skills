@@ -1,6 +1,6 @@
 ---
 name: ui-design-review
-description: Compare an implemented UI with an approved design, separate visual discrepancies from functional defects before scoped fixes, and check the author's UX principles (related content stacked vertically, positive action on the right, verification and password rules, shared components, tokens).
+description: Compare implemented UI with an approved design and separate visual from functional defects. Use for design-vs-implementation review; not for accessibility-only audits or element identification.
 ---
 
 # UI design review / 設計還原審查

@@ -1,6 +1,6 @@
 ---
 name: optional-skill-profile
-description: Set up, display or change optional local preferences for workflow skills, including project context, preview ports and work-record sources.
+description: Set up, display or change optional local workflow preferences such as project context, preview ports and sources. Use for reusable project settings; not for secrets, authentication or task execution.
 ---
 
 # Optional local profile

@@ -1,6 +1,6 @@
 ---
 name: a11y-review
-description: Review accessibility with explicit test scope and evidence, separating automated findings, manual checks and unverified behavior.
+description: Review accessibility with explicit automated/manual evidence. Use for keyboard, focus, semantics, labeling, contrast or a11y evidence; not for a full UI review or unverified legal-compliance claims.
 ---
 
 # Accessibility review / 無障礙審查

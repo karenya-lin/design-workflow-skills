@@ -1,6 +1,6 @@
 ---
 name: figma-write
-description: Modify Figma layouts and tokens using inspected design context and before/after verification, without hardcoded brand defaults.
+description: Modify specific Figma layouts or tokens after inspecting design context and verify read-back. Use for targeted Figma edits; not for whole-workflow rebrands or broad visual review.
 ---
 
 # Figma write / Figma 寫入

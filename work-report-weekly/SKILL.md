@@ -1,6 +1,6 @@
 ---
 name: work-report-weekly
-description: Draft a weekly work report from user-approved sources, optionally selected Google calendars, without sending or changing records by default.
+description: Draft a weekly work report from approved evidence and optional selected calendars. Use for report drafting; do not send messages or change source records unless separately approved.
 ---
 
 # Weekly work report

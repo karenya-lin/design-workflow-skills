@@ -1,6 +1,6 @@
 ---
 name: variant-review-loop
-description: Compare design alternatives with stable IDs, record review decisions and converge on an approved direction.
+description: Compare design alternatives with stable IDs, record tradeoffs and decisions, and converge on an approved direction. Use when choosing between variants; not for generating unrequested variants or implementation.
 ---
 
 # Variant review / 設計方案評審
