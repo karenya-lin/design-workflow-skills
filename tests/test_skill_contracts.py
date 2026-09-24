@@ -46,6 +46,26 @@ class SkillContractTests(unittest.TestCase):
         self.assertIn("you do not need to install all fourteen", en)
         self.assertIn("不需要 14 個全部安裝", zh)
 
+    def test_compact_semantic_handoff_is_shared_and_ai_only(self):
+        contract = ROOT / "optional-skill-profile" / "references" / "compact-semantic-handoff.md"
+        self.assertTrue(contract.is_file())
+        text = contract.read_text(encoding="utf-8")
+        for field in ["intent", "scope", "facts", "constraints", "unresolved", "evidence", "state", "next"]:
+            self.assertIn(f"`{field}`", text)
+        self.assertIn("Human-facing answers stay readable natural language", text)
+        self.assertIn("Omit empty/default fields", text)
+        self.assertIn("Do not resend known context", text)
+
+        composition = (ROOT / "optional-skill-profile" / "references" / "composition.md").read_text(encoding="utf-8")
+        multi = (ROOT / "multi-session-protocol" / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("compact-semantic-handoff.md", composition)
+        self.assertIn("compact-semantic-handoff.md", multi)
+
+        en = (ROOT / "README.md").read_text(encoding="utf-8")
+        zh = (ROOT / "README.zh-TW.md").read_text(encoding="utf-8")
+        self.assertIn("Human-readable outside, compact semantics inside", en)
+        self.assertIn("對人白話，AI 內部用精簡語意", zh)
+
 
 if __name__ == "__main__":
     unittest.main()
