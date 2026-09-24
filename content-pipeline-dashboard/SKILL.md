@@ -1,6 +1,6 @@
 ---
 name: content-pipeline-dashboard
-description: Reconcile approved content-production sources into an evidence-backed status dashboard keyed by content ID and locale.
+description: Reconcile approved content-production sources into an evidence-backed dashboard by content ID and locale. Use for content-ops status; not for writing or publishing content.
 ---
 
 # Content status / 內容產線進度
