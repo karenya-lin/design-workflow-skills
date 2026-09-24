@@ -1,6 +1,6 @@
 ---
 name: audit-fix-loop-no-preview
-description: Triage source-backed defects and apply approved scoped fixes when visual preview is unavailable, leaving runtime claims unverified.
+description: Triage source-backed defects and apply approved scoped fixes when no browser or preview is available. Use for code-only recovery; do not claim visual or runtime verification.
 ---
 
 # Static audit and fix / 靜態稽核與修補
