@@ -22,12 +22,17 @@ authorized work. Disagreement: present alternatives and wait for a decision.
 Preserve dirty files and untracked work. No automatic stash/reset/force push or
 process termination. A proposed handoff is not an accepted handoff. On completion,
 send exact changed scope, base/result revision, test evidence and release status.
+For AI-to-AI handoff, use the sibling profile's
+[compact semantic contract](../optional-skill-profile/references/compact-semantic-handoff.md)
+when available: send intent/scope/facts/constraints/unresolved/evidence/state/next,
+omit empty fields, and cite the revision instead of restating the whole project history.
 Receiver checks the actual diff and relevant evidence, avoiding unnecessary full QA
 repeats. Record partial/blocked/unverified states separately. Do not promise that
 this protocol enforces global exclusivity when the platform cannot enforce it.
 
 繁中：先宣告精確範圍並取得 ACK，再動共用檔；訊息不等於真正鎖。
 跨機狀態不可猜測，交付必須附差異與驗證，不能搶 index 或覆蓋別人的工作。
+AI 對 AI 交接時優先用 compact semantic contract，只傳必要的 intent／scope／facts／constraints／unresolved／evidence／state／next；對人的回覆仍保持白話。
 
 ## Illustrated quickstart / 圖解開始
 
