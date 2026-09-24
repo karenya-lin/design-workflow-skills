@@ -1,6 +1,6 @@
 ---
 name: work-sync-daily
-description: Reconcile a day's work against optional selected Calendar, Jira and user-provided records; preview gaps before any approved updates.
+description: Reconcile a day's work against selected Calendar, Jira and user-provided records and preview gaps before writes. Use for daily reconciliation; not for weekly reporting, and never write without explicit approval.
 ---
 
 # Daily work reconciliation
