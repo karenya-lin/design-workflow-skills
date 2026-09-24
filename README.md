@@ -67,6 +67,17 @@ OpenAI's current skill guidance emphasizes two things that matter here: the **na
 
 This is also why **“more skills” is not a goal**. Add a new skill only when it has a distinct trigger, input contract or success criterion. Otherwise extend an existing specialist or reference file.
 
+### Skill, project rule, hook or connector?
+
+| If you need… | Put it here |
+|---|---|
+| A repeatable workflow that should load only for matching tasks | **Skill** |
+| A rule that should apply to nearly every task in one project | The host's project-instruction file, such as **AGENTS.md / CLAUDE.md** |
+| A deterministic action that must fire on a specific host event | A host-supported **hook/automation**, not a prose-only skill |
+| Live account data, authentication or controlled external actions | An authorized **connector / MCP tool**; the Skill only explains the workflow around it |
+
+Host products differ in discovery, hooks and connector support. A portable `SKILL.md` does not mean every host provides identical runtime features.
+
 
 
 | English | 繁體中文 | Français | 日本語 |
