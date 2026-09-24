@@ -1,6 +1,6 @@
 ---
 name: ui-element-inspector
-description: Help a user point at a web UI when they do not know its element names, with a temporary hover overlay showing DOM selectors, ancestor containers and copyable AI context in an authorized local preview.
+description: Identify a web UI element and its containers when the user cannot name it, using an authorized local preview and copyable context. Use for point-and-identify; not for production injection, source guessing or implementation.
 ---
 
 # UI element inspector / UI 元素指認
