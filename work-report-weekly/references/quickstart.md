@@ -67,6 +67,12 @@ Consumes work-sync-daily reconciliation or content status matrices.
 
 Reuse one settings preflight. Combining skills does not accumulate permissions or permit overlapping writers.
 
+## 常見搭配平台 / Works well with
+
+常見搭配：**GitHub, Jira, Google Calendar, Gmail, Google Drive**。這些名稱用來說明常見工作情境與提高 discoverability，不代表官方合作、內建 connector、預設帳號權限或已完成整合。
+
+Common workflow companions: **GitHub, Jira, Google Calendar, Gmail, Google Drive**. These names describe common use cases and improve discoverability; they do not imply endorsement, bundled integrations, account access or verified connectivity.
+
 ## 自訂與選填 / Customize and optional
 
 起迄日期、時區、專案、語言、輸出位置與個別來源；可不連帳號，寄送與排程不是預設。

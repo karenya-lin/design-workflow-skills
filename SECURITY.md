@@ -67,6 +67,12 @@ When combining skills, permissions do not accumulate and overlapping writers mus
 resolve ownership before editing. The menu cannot manage arbitrary third-party
 skill settings or stop those skills from violating instructions; inspect them first.
 
+## Public skill publication / 公開 Skill 發布
+
+Before publishing a reusable skill, follow [Public Skill Sanitization](docs/PUBLIC-SKILL-SANITIZATION.md). Keep the reusable method; remove private repo/ticket identifiers, production URLs, internal data names, local paths, account IDs, provider rosters/quotas, raw logs/payloads and operational topology. Public examples and screenshots should use synthetic fixtures or complete redaction.
+
+公開 Skill 要保留方法、移除營運識別資訊。不可把私人 repo／Issue、正式站網址、內部資料名稱、本機路徑、帳號 ID、provider 名冊／額度、raw log／payload 或可利用的內部拓樸一起公開。範例與截圖優先使用 synthetic fixture。
+
 ## Accessibility, security and PCI DSS are separate
 
 `a11y-review` checks accessibility, not payment security. The toolkit does not provide

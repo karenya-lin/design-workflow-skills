@@ -1,4 +1,4 @@
-# 14 skills 圖解入口 / Illustrated skill guide
+# 18 skills 圖解入口 / Illustrated skill guide
 
 每個 skill 都有三步圖、使用時機、中英提示、輸出與合用方式。圖是教學示意，不表示已操作你的帳號或網站。
 
@@ -9,6 +9,12 @@ Every skill has a three-step diagram, use case, bilingual prompt, expected outpu
 1. [下載與安裝 / Install](BEGINNER.en.md) · [繁中](BEGINNER.zh-TW.md)。
 2. 先確認 AI 找到哪些 skill，再用下面的提示開始。 / Confirm discovered skills, then use a prompt below.
 3. 選一項，或交 uiux-checks 組合。來源連接、程序終止、寄送與 Git push 仍須個別授權。 / Choose one or compose with uiux-checks; connections, process termination, sending and Git push still need scoped approval.
+
+### 哪些 AI 能用 / Which AI can use these
+
+每個 skill 都是不綁廠商的 Markdown 工作方法。Codex、Claude Code、Gemini、Grok 或其他 agent，只要能載入 skill 檔、具備它需要的能力就能照著做；沒有原生發現機制的環境，就手動載入或貼上。省 token 的做法寫在 [README](../README.md#ai-相容性與省-token)，沒有百分比，因為沒有量過。
+
+Every skill is vendor-neutral Markdown. Codex, Claude Code, Gemini, Grok or any other agent can follow one when it can load the file and has the capabilities the skill needs; without native discovery, load or paste it by hand. The token-efficiency mechanisms are listed in the [README](../README.md#ai-compatibility-and-token-efficiency), without a percentage, because none has been measured.
 
 ## 選你現在的工作 / Choose your task
 
@@ -28,6 +34,17 @@ Every skill has a three-step diagram, use case, bilingual prompt, expected outpu
 | 整理內容進度 / Track content readiness | [content-pipeline-dashboard](../content-pipeline-dashboard/references/quickstart.md) |
 | 每日工作對帳 / Reconcile daily work | [work-sync-daily](../work-sync-daily/references/quickstart.md) |
 | 草擬週報 / Draft a weekly report | [work-report-weekly](../work-report-weekly/references/quickstart.md) |
+| AI 工作流程分流 / Route AI work | [ai-workflow-orchestrator](../ai-workflow-orchestrator/references/quickstart.md) |
+| 狀態漂移檢查 / Review state drift | [state-drift-review](../state-drift-review/references/quickstart.md) |
+| UIUX 執行期檢查 / Audit runtime UI/UX | [uiux-runtime-audit](../uiux-runtime-audit/references/quickstart.md) |
+| 可靠交付 / Continue to acceptance | [reliable-delivery](../reliable-delivery/references/quickstart.md) |
+
+
+## 平台關鍵字 / Platform keywords
+
+常見情境包括 Vercel、Supabase、Cloudflare Pages、GitHub、Figma、Canva、Jira、Google Calendar、Google Drive、Gmail、React、Next.js、Vite、Codex 與 Claude Code。名稱只表示常見搭配，不代表官方合作、內建整合或帳號授權。
+
+Common contexts include Vercel, Supabase, Cloudflare Pages, GitHub, Figma, Canva, Jira, Google Calendar, Google Drive, Gmail, React, Next.js, Vite, Codex and Claude Code. Names indicate workflow compatibility only, not endorsement, bundled integration or authorization.
 
 ## 常見合用路線 / Common combinations
 
@@ -54,3 +71,8 @@ flowchart LR
 [English shortcuts](HOW-TO.en.md) · [繁中快捷索引](HOW-TO.zh-TW.md) · [Français](HOW-TO.fr.md) · [日本語](HOW-TO.ja.md)
 
 [Every step in English](../README.md#step-by-step-pictures) · [每步繁中圖](../README.zh-TW.md#step-by-step-pictures) · [Videos / 影片](videos/README.md)
+
+
+## 公開 Skill 資安 / Public skill safety
+
+公開前依 [Public Skill Sanitization](PUBLIC-SKILL-SANITIZATION.md) 去識別化。新 v0.1 skills 目前提供 workflow diagram，不以假 screenshots 冒充實測證據。

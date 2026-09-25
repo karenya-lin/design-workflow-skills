@@ -32,74 +32,17 @@ Current interaction: hover the preview to open Inspect; click to select. [Update
 
 ### Minimum install and optional companions
 
-Install only what your task needs; all 14 skills are not mandatory. Use the [folder-copy installation guide](docs/BEGINNER.en.md#1-download-and-install), preserving each selected skill's bundled references, scripts and assets.
+Install only what your task needs; all 18 skills are not mandatory. Use the [folder-copy installation guide](docs/BEGINNER.en.md#1-download-and-install), preserving each selected skill's bundled references, scripts and assets.
 
-| Goal | Primary skill | Add only if needed |
+| When needed | Install / connect | If absent |
 |---|---|---|
-| Point at an unnamed UI element | `ui-element-inspector` | `optional-skill-profile` for reusable project settings |
-| Compare implementation with an approved design | `ui-design-review` | `a11y-review` for a dedicated accessibility pass; `states-preview-loop` for state/viewport evidence |
-| Run a broad UI quality sweep | `uiux-checks` | Only the specialist checks selected for this task |
-| Make one targeted Figma edit | `figma-write` | An authorized Figma connector/tool with the required capability |
-| Rebrand a whole Figma workflow | `figma-workflow-rebrand` | `figma-write` only when an operation needs its targeted-edit guidance |
-| Coordinate parallel agents | `multi-session-protocol` | `optional-skill-profile` if shared settings are useful |
-| Reconcile today's work | `work-sync-daily` | Only the approved Calendar/Jira/source connectors |
-| Draft a weekly report | `work-report-weekly` | Optional selected Calendar/source access |
-| Reconcile content status | `content-pipeline-dashboard` | Only the approved content sources |
-
-**Do not install `uiux-checks` plus every specialist by default.** Use one primary skill, then add only the checks the task actually requires.
+| Rebrand a Figma workflow | `figma-workflow-rebrand` and its bundled files | This workflow is unavailable |
+| Actually read/write Figma | A separately authorized connector with the required capabilities, plus its operation-specific skill when required | No Figma changes; report missing capability |
+| Save shared preferences | Optional `optional-skill-profile` | Session-only preferences; do not claim persistence |
+| Additional Figma editing guidance | Optional `figma-write` when relevant | Follow rebrand and connector rules |
+| Design/accessibility review | Optional `ui-design-review`, `uiux-checks` or `a11y-review` as needed | Identify reviews not performed |
 
 Python 3.11+ is needed for Python settings/profile helpers and the runner. Node.js (tested with Node 22) is needed only when running the rebrand coverage checker. Neither runtime is a skill or an account authorization.
-
-## Why this bundle is intentionally lean at runtime
-
-This repo is designed around a few common Agent Skill failure modes, not around making every skill bigger.
-
-OpenAI's current skill guidance emphasizes two things that matter here: the **name/description are the routing contract**, and detailed procedures should use **progressive disclosure** through `references/`, `scripts/` and `assets/` instead of flooding the initial context. See [Build skills](https://developers.openai.com/plugins/build/skills) and [Skills](https://developers.openai.com/plugins/concepts/skills).
-
-| Common pain point | What this repo does |
-|---|---|
-| A vague skill triggers on the wrong task | Every skill description now says what it is for and, where overlap is likely, what it is **not** for. |
-| Too many installed skills compete for attention | The README recommends the smallest useful install set instead of all 14 by default. Coordinator skills do not require every specialist. |
-| A giant `SKILL.md` consumes context before the work starts | Long operational detail is kept in on-demand references. The two largest skills, `figma-workflow-rebrand` and `ui-element-inspector`, use short routing/safety files plus execution runbooks. |
-| Users cannot tell a Skill from a connector, hook or account login | Skills define workflow. Connectors/tools provide live access, authentication and controlled actions. Installing this repo never logs into an account or creates a background schedule. |
-| A skill says “done” without proving what ran | Each workflow separates verified evidence, untested behavior and blocked/missing capability. The runner keeps AI steps as `NOT_RUN` until an agent actually performs them. |
-| Copying a public skill hides security assumptions | Third-party skills are not bundled. Review `SKILL.md`, scripts and requested permissions before installation; see [SECURITY.md](SECURITY.md) and [THIRD_PARTY.md](THIRD_PARTY.md). |
-
-This is also why **“more skills” is not a goal**. Add a new skill only when it has a distinct trigger, input contract or success criterion. Otherwise extend an existing specialist or reference file.
-
-### Human-readable outside, compact semantics inside
-
-Human-facing instructions and final answers stay readable. **AI-to-AI / Skill-to-Skill handoffs may use a compact semantic envelope** so the same project history and rules are not rewritten every turn.
-
-Example:
-
-```text
-intent=review
-scope=home.mobile
-constraints=no-prod,no-push
-facts=locale:zh-TW; target:save-button
-unresolved=empty-state-copy
-evidence=src/ui/save.tsx#L20-L44
-state=partial
-next=copy-review
-```
-
-The shared [compact semantic contract](optional-skill-profile/references/compact-semantic-handoff.md) uses stable fields such as `intent`, `scope`, `facts`, `constraints`, `unresolved`, `evidence`, `state` and `next`. Empty/default fields are omitted. Exact raw wording is preserved only when nuance, authority, safety, legal terms or acceptance criteria would be lost.
-
-This is meant to reduce **repeated input context and repeated formatting instructions**. It is not a promise of a fixed percentage of token savings; measure representative before/after handoffs.
-
-### Skill, project rule, hook or connector?
-
-| If you need… | Put it here |
-|---|---|
-| A repeatable workflow that should load only for matching tasks | **Skill** |
-| A rule that should apply to nearly every task in one project | The host's project-instruction file, such as **AGENTS.md / CLAUDE.md** |
-| A deterministic action that must fire on a specific host event | A host-supported **hook/automation**, not a prose-only skill |
-| Live account data, authentication or controlled external actions | An authorized **connector / MCP tool**; the Skill only explains the workflow around it |
-
-Host products differ in discovery, hooks and connector support. A portable `SKILL.md` does not mean every host provides identical runtime features.
-
-
 
 | English | 繁體中文 | Français | 日本語 |
 |---|---|---|---|
@@ -115,17 +58,45 @@ Actual local demo, silent video. Clipboard is mocked; native capture is not invo
 
 
 
-[14 個 skills 完整圖解 / All 14 skill guides](docs/SKILL-MAP.md) · [UI Inspect 畫面 / Screenshots](docs/VISUAL-GUIDE.md)
+[18 個 skills 完整圖解 / All 18 skill guides](docs/SKILL-MAP.md) · [UI Inspect 畫面 / Screenshots](docs/VISUAL-GUIDE.md)
 
 
 Configurable skills for design reviews, UI quality checks and work coordination.
 Installing this package does not connect accounts or create automatic schedules.
-The original package
-is offered under MIT; third-party exclusions are documented separately. This does
-not grant rights to company/customer material, none of which should be added here.
+The current package is **source-available and free to use, modify and embed**, including in commercial work. **Reselling this skill pack itself, or a substantially equivalent repackaging whose value comes from these skills, is not permitted** under the MIT + Commons Clause terms. Earlier MIT-only revisions keep their original license. Third-party material keeps its own upstream license. See [License](LICENSE) and [third-party notes](THIRD_PARTY.md). This does not grant rights to company/customer material.
 
 [繁體中文](README.zh-TW.md) · [English usage](docs/USAGE.en.md) ·
-[Security / 資安](SECURITY.md) · [License](LICENSE)
+[Security / 資安](SECURITY.md) · [Free use / no-resale license](LICENSE)
+
+## Popular platform combinations / discoverability
+
+These skills are designed to fit common workflows around **Vercel, Supabase, Cloudflare, GitHub, Figma, Jira, Google Calendar, Google Drive, Gmail, React, Next.js, Vite, Codex and Claude Code**. Platform names describe common workflow contexts only: this repository does not claim official partnerships, bundle account connectors, or grant access to those services.
+
+| Platform / stack | Useful skills |
+|---|---|
+| Vercel, Cloudflare Pages, React, Next.js, Vite | `states-preview-loop`, `uiux-runtime-audit`, `ui-design-review`, `a11y-review`, `audit-fix-loop-no-preview` |
+| Supabase, PostgreSQL, app state | `state-drift-review`, `ai-workflow-orchestrator`, `reliable-delivery`, `uiux-checks` |
+| GitHub Issues / Pull Requests | `reliable-delivery`, `multi-session-protocol`, `ai-workflow-orchestrator`, `state-drift-review` |
+| Figma, Canva, design systems | `figma-write`, `figma-workflow-rebrand`, `variant-review-loop`, `ui-design-review` |
+| Jira, Google Calendar, Google Drive, Gmail | `work-sync-daily`, `work-report-weekly`, `content-pipeline-dashboard` |
+| Codex, Claude Code and other skill-capable agents | `optional-skill-profile`, `ai-workflow-orchestrator`, `reliable-delivery`, `multi-session-protocol` |
+
+## AI compatibility and token efficiency
+
+**Which AI can follow these skills.** Every skill here is vendor-neutral Markdown: a written workflow with steps, checks and prompts, not an API for one vendor. Codex, Claude Code, Gemini, Grok or any other agent can follow a skill when its host can read or load the skill file and has the capabilities the skill needs (file access, a browser, a connector). Not every host discovers or installs skills on its own. Where native discovery is missing, the compatibility path is manual: load, paste or import the skill text. Skills that depend on a tool (Figma, a browser, Calendar, Gmail, Jira) stay capability-gated whatever the host.
+
+**How the skills keep token use down.** These mechanisms are in the skills as written:
+
+- install or load only the skills a task needs, and keep the rest out of context;
+- deterministic rules, labels and known facts run before any semantic classification;
+- a bounded semantic fallback handles only meaning the rules could not resolve;
+- one preflight and one profile are reused across composed skills instead of repeated;
+- inventories and evidence are reused while their inputs are unchanged;
+- a skill asks for the node or data scope it needs, never the whole workspace;
+- work runs in bounded batches with resumable receipts and checkpoints;
+- progress is reported compactly rather than by repeating full inventories.
+
+**What is not claimed.** They are designed to reduce repeated context, semantic or model calls and redundant tool reads. No benchmark in this repository measures a percentage of tokens saved, so none is stated. Savings vary by model, host, context window and task, and a connector's quota or rate limit is a different thing from model tokens.
 
 ## Every skill: two benefits and a complete walkthrough
 
@@ -147,6 +118,11 @@ Each guide covers project types, lifecycle stages, preparation, Step 1/2/3, fini
 | [content-pipeline-dashboard](content-pipeline-dashboard/references/quickstart.md) | Put drafts, media and locale progress in one matrix to spot blockers. Separating draft, reviewed and public states prevents private delivery from being mistaken for publication. |
 | [work-sync-daily](work-sync-daily/references/quickstart.md) | Read-only reconciliation reveals gaps and duplicates before changing records. Explicit before/after approvals make updates easier to trace. |
 | [work-report-weekly](work-report-weekly/references/quickstart.md) | Draft a week’s outcomes from evidence instead of reconstructing everything from memory. Reviewing the draft before sending reduces the risk of sharing unconfirmed content or using the wrong recipient. |
+| [ai-workflow-orchestrator](ai-workflow-orchestrator/references/quickstart.md) | Route with rules, labels and known facts first; use semantic classification only for unresolved meaning and leave a routing receipt. |
+| [state-drift-review](state-drift-review/references/quickstart.md) | Separate canonical truth from mirrors, classify drift and propose the smallest safe repair with read-back evidence. |
+| [uiux-runtime-audit](uiux-runtime-audit/references/quickstart.md) | Check real interaction reachability, state clarity, mobile/keyboard behavior and privacy while separating observed from unverified. |
+| [reliable-delivery](reliable-delivery/references/quickstart.md) | Carry original acceptance through interruptions and handoffs so progress is not mistaken for completion. |
+
 
 ## Start here
 
@@ -171,7 +147,7 @@ Combine this bundle with other installed skills using the
 coordinator, shared preflight, explicit ownership and separate evidence per step.
 External skill declarations do not install or certify those skills.
 
-## Included: 14 skills
+## Included: 18 skills
 
 - `optional-skill-profile`: optional onboarding, local persistence, preview and editing.
 - `ui-element-inspector`: hover to identify DOM elements/parent containers and copy context for AI.
@@ -187,10 +163,19 @@ External skill declarations do not install or certify those skills.
 - `uiux-checks`: configurable overall quality review.
 - `audit-fix-loop-no-preview`: source-backed triage and approved fixes.
 - `content-pipeline-dashboard`: content ID/locale progress reconciliation.
+- `ai-workflow-orchestrator`: deterministic-first skill/tool routing with bounded semantic fallback and receipts.
+- `state-drift-review`: canonical-vs-mirror state reconciliation and minimal repair planning.
+- `uiux-runtime-audit`: runtime interaction, mobile, accessibility and privacy-oriented UX evidence.
+- `reliable-delivery`: acceptance-preserving continuation, verification and handoff receipts.
 
-This repository ships fourteen sibling skill directories, but **you do not need to install all fourteen**. Keep the checkout intact for documentation and tests, then copy only the skill directories required by your task, preserving each selected skill's own `references/`, `scripts/` and `assets/`.
+Install these eighteen sibling directories together into the skill directory supported
+by your agent. The profile helper requires Python 3.11+, standard library only.
+The other skills explicitly read the sibling profile skill. If it is missing,
+they operate without persistence and explain that limitation. There is no hook,
+background service, OAuth implementation, or automatic scheduler in this package.
+The agent asks the questions; the helper only stores validated preferences.
 
-`optional-skill-profile` is optional. Skills that can use it must fall back to session-only behavior when it is absent and say so. The profile helper requires Python 3.11+, standard library only. There is no hook, background service, OAuth implementation or automatic scheduler in this package. The agent asks the questions; the helper only stores validated preferences.
+New public skills must follow [Public Skill Sanitization](docs/PUBLIC-SKILL-SANITIZATION.md): publish reusable methods, not private operational identifiers, logs or topology.
 
 No third-party skill is bundled. See [THIRD_PARTY.md](THIRD_PARTY.md).
 
@@ -230,6 +215,8 @@ stay with an authorized connector/OAuth provider. Disconnecting in these skills
 disables reads; revoke OAuth separately in the provider to remove remote access.
 
 ## Verification
+
+Commits to this public repository carry one public identity, enforced by two hooks; see [docs/PUBLIC-IDENTITY.md](docs/PUBLIC-IDENTITY.md).
 
 Run `python -m unittest discover -s tests -v`. Tests use temporary directories and
 synthetic data. They do not connect accounts, stop processes or access a website.

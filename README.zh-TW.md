@@ -34,72 +34,15 @@ CSS 變數區列出可讀且匹配宣告內的 `var(--名稱)` 引用候選，�
 
 只裝這次工作需要的 skills，**不必全部 14 個都裝**。依[資料夾複製安裝教學](docs/BEGINNER.zh-TW.md)操作，保留所選 skill 的 references、scripts 與隨附素材。
 
-| 目標 | 主要 Skill | 真的需要才加 |
+| 何時需要 | 安裝／連接什麼 | 未安裝時行為 |
 |---|---|---|
-| 指認一個叫不出名字的 UI 元素 | `ui-element-inspector` | 要重用專案設定時才加 `optional-skill-profile` |
-| 比對實作與核准設計 | `ui-design-review` | 要獨立無障礙檢查才加 `a11y-review`；要狀態／viewport 證據才加 `states-preview-loop` |
-| 做一輪較完整的 UI 品質檢查 | `uiux-checks` | 只加這次真的有選到的專項檢查 |
-| 做一個明確的 Figma 局部修改 | `figma-write` | 另行授權、具所需能力的 Figma connector/tool |
-| 整套 Figma workflow 換品牌 | `figma-workflow-rebrand` | 某一步真的需要局部編修指引時才加 `figma-write` |
-| 多個 agent 平行協作 | `multi-session-protocol` | 需要共用偏好時才加 `optional-skill-profile` |
-| 對帳今天做了什麼 | `work-sync-daily` | 只接使用者核准的 Calendar／Jira／資料來源 |
-| 草擬週報 | `work-report-weekly` | 需要時才接選定的 Calendar／資料來源 |
-| 對帳內容製作狀態 | `content-pipeline-dashboard` | 只接核准的內容來源 |
-
-**不要預設把 `uiux-checks` 和所有專項 Skill 一次全裝。** 先選一個主要 Skill，再加這次工作真的需要的檢查。
+| Figma 整套流程換品牌 | `figma-workflow-rebrand` 與隨附檔案 | 無法使用這套流程 |
+| 實際讀寫 Figma | 另行授權、具所需能力的 connector，按其規則載入對應操作 skill | 不改 Figma，回報缺少能力 |
+| 保存共用偏好 | 選用 `optional-skill-profile` | 使用 session-only，不宣稱已保存 |
+| 額外 Figma 編修引導 | 工作需要時搭配 `figma-write` | 依 rebrand 流程與 connector 規則執行 |
+| 設計或無障礙審查 | 按需求選 `ui-design-review`、`uiux-checks`、`a11y-review` | 明列未執行的審查 |
 
 Python 3.11+ 在執行 Python 設定／profile helper、runner 時需要。Node.js（Node 22 已測）只在執行 rebrand 清單檢查器時需要；runtime 不是 skill，也不代表帳號授權。
-
-## 為什麼這套 Skill 刻意讓 runtime 保持精簡
-
-這個 repo 不是以「把每個 Skill 寫得越大越好」為目標，而是刻意處理幾個常見的 Agent Skill 痛點。
-
-OpenAI 目前的 Skill 指南有兩個跟這裡直接相關的重點：**name／description 是 routing contract**，而長篇操作細節應透過 `references/`、`scripts/`、`assets/` 做 **progressive disclosure**，不要一開始就把全部內容塞進 context。可參考 [Build skills](https://developers.openai.com/plugins/build/skills) 與 [Skills](https://developers.openai.com/plugins/concepts/skills)。
-
-| 常見痛點 | 這個 repo 的做法 |
-|---|---|
-| description 太泛，Skill 容易誤觸發 | 每個 Skill 的 description 都寫清楚「適合做什麼」，容易重疊的也補「不適合做什麼」。 |
-| 裝太多 Skill 後彼此搶注意力 | README 改成推薦最小安裝組合，不再預設 14 個全部裝。協調型 Skill 也不要求所有專項 Skill 一起載入。 |
-| 巨大的 `SKILL.md` 一啟用就吃掉大量 context | 長操作細節移到按需 reference。兩個原本最大的 `figma-workflow-rebrand`、`ui-element-inspector` 現在改成短版 routing／安全規則＋ execution runbook。 |
-| 使用者分不清 Skill、connector、hook、登入的差別 | Skill 定義工作方法；connector/tool 才負責即時資料、登入授權和受控操作。安裝這個 repo 不會自動登入帳號，也不會自己建立背景排程。 |
-| Skill 說「完成」但沒有證據 | 每個流程都區分 verified evidence、未驗證行為與缺少能力／受阻狀態。Runner 的 AI 步驟在真的由 agent 執行前會保持 `NOT_RUN`。 |
-| 從網路複製公開 Skill，卻看不到它背後的安全假設 | 這個 repo 不打包第三方 Skill。安裝前應讀 `SKILL.md`、scripts 與權限需求；另見 [SECURITY.md](SECURITY.md) 和 [THIRD_PARTY.md](THIRD_PARTY.md)。 |
-
-因此，**「Skill 越多越好」不是這個 repo 的目標**。只有當新流程有不同 trigger、input contract 或成功條件時，才新增 Skill；否則優先擴充既有 specialist 或 reference。
-
-### 對人白話，AI 內部用精簡語意
-
-給人看的說明與最後答案維持自然語言。**AI 對 AI／Skill 對 Skill 的交接可以改用固定語意欄位**，避免每一輪都重貼專案歷史、規章與整段 prompt。
-
-例如：
-
-```text
-intent=review
-scope=home.mobile
-constraints=no-prod,no-push
-facts=locale:zh-TW; target:save-button
-unresolved=empty-state-copy
-evidence=src/ui/save.tsx#L20-L44
-state=partial
-next=copy-review
-```
-
-共用的[精簡語意合約](optional-skill-profile/references/compact-semantic-handoff.md)使用 `intent`、`scope`、`facts`、`constraints`、`unresolved`、`evidence`、`state`、`next` 等固定欄位；空值與預設值不送。只有在語氣、授權、安全、法律或驗收條件會因壓縮而失真時，才保留必要原文。
-
-這主要省的是**重複輸入 context 與重複格式提示**，不是宣稱固定能省幾成 token；應用代表性任務做前後量測。
-
-### 到底該放 Skill、專案規則、hook 還是 connector？
-
-| 你需要的是… | 比較適合放哪裡 |
-|---|---|
-| 只有符合某類任務才載入的可重複工作流程 | **Skill** |
-| 同一專案幾乎每個任務都要遵守的規則 | 該 host 的專案指引，例如 **AGENTS.md / CLAUDE.md** |
-| 某個 host 事件發生時一定要執行的 deterministic 動作 | 該 host 支援的 **hook／automation**，不要只靠文字 Skill |
-| 帳號即時資料、登入授權、受控外部操作 | 已授權的 **connector / MCP tool**；Skill 只負責描述如何使用它完成流程 |
-
-不同 AI host 的 discovery、hook 與 connector 能力不完全一樣。`SKILL.md` 可攜，不代表每個 host 的 runtime 功能完全相同。
-
-
 
 | English | 繁體中文 | Français | 日本語 |
 |---|---|---|---|
@@ -115,14 +58,44 @@ next=copy-review
 
 
 
-[14 個 skills 完整圖解 / All 14 skill guides](docs/SKILL-MAP.md) · [UI Inspect 畫面 / Screenshots](docs/VISUAL-GUIDE.md)
+[18 個 skills 完整圖解 / All 18 skill guides](docs/SKILL-MAP.md) · [UI Inspect 畫面 / Screenshots](docs/VISUAL-GUIDE.md)
 
 
-14 個通用 skills，支援首次選填設定、執行前顯示設定，以及單項／分階段／整批檢查。
+18 個通用 skills，支援首次選填設定、執行前顯示設定，以及單項／分階段／整批檢查。
 這份通用包不含作者私人設定；安裝不會自動連接帳號或建立排程。
 
 [English](README.md) · [繁中使用方法](docs/USAGE.zh-TW.md) ·
-[資安規則](SECURITY.md) · [MIT 授權](LICENSE)
+[資安規則](SECURITY.md) · [免費使用／禁止轉售授權](LICENSE)
+
+## 常見平台搭配 / 搜尋與選 Skill
+
+這些 Skills 適合放進 **Vercel、Supabase、Cloudflare、GitHub、Figma、Jira、Google Calendar、Google Drive、Gmail、React、Next.js、Vite、Codex、Claude Code** 等常見工作流程。平台名稱只是使用情境與 discoverability 關鍵字，不代表官方合作、內建 connector、預設帳號權限或已完成連線。
+
+| 平台 / 技術 | 適合搭配的 Skills |
+|---|---|
+| Vercel、Cloudflare Pages、React、Next.js、Vite | `states-preview-loop`、`uiux-runtime-audit`、`ui-design-review`、`a11y-review`、`audit-fix-loop-no-preview` |
+| Supabase、PostgreSQL、應用狀態 | `state-drift-review`、`ai-workflow-orchestrator`、`reliable-delivery`、`uiux-checks` |
+| GitHub Issues / Pull Requests | `reliable-delivery`、`multi-session-protocol`、`ai-workflow-orchestrator`、`state-drift-review` |
+| Figma、Canva、Design System | `figma-write`、`figma-workflow-rebrand`、`variant-review-loop`、`ui-design-review` |
+| Jira、Google Calendar、Google Drive、Gmail | `work-sync-daily`、`work-report-weekly`、`content-pipeline-dashboard` |
+| Codex、Claude Code 與其他支援 Skills 的 agents | `optional-skill-profile`、`ai-workflow-orchestrator`、`reliable-delivery`、`multi-session-protocol` |
+
+## AI 相容性與省 token
+
+**哪些 AI 能照著做。** 這裡每個 skill 都是不綁廠商的 Markdown：一份寫好的工作方法，有步驟、檢查和提示詞，不是某一家的 API。Codex、Claude Code、Gemini、Grok 或其他 agent，只要它的執行環境讀得到或載得進 skill 檔，而且具備該 skill 需要的能力（檔案、瀏覽器、connector），就能照著做。不是每個環境都會自己發現或安裝 skill。沒有原生發現機制的，相容方式就是手動：載入、貼上或匯入 skill 文字。依賴工具的 skill（Figma、瀏覽器、日曆、Gmail、Jira）不論在哪個環境，都要先有那個能力才會動。
+
+**skill 怎麼讓 token 用得少。** 下面這些做法已經寫在 skill 裡：
+
+- 只安裝或載入這次任務需要的 skill，其他的不進 context；
+- 固定規則、標籤和已知事實先跑，語意分類排在後面；
+- 有邊界的語意後備只處理規則解不開的意思；
+- 多個 skill 合用時，前置檢查和偏好設定只做一次、共用；
+- 輸入沒變，清單和證據就重複使用，不重做；
+- skill 只要它需要的節點或資料範圍，不拿整個工作區；
+- 工作分成有邊界的批次，附可續跑的收據和檢查點；
+- 進度用精簡的方式回報，不重貼整份清單。
+
+**沒有主張的事。** 這些設計是為了減少重複的 context、語意或模型呼叫，以及多餘的工具讀取。這個 repo 裡沒有任何量測 token 節省百分比的基準，所以不寫百分比。省多少會隨模型、環境、context 長度和任務而變，connector 的配額或速率限制跟模型 token 也是兩回事。
 
 ## 每個 skill 的兩句優點與完整教學
 
@@ -144,6 +117,10 @@ next=copy-review
 | [content-pipeline-dashboard](content-pipeline-dashboard/references/quickstart.md) | 把稿件、圖片和語系進度放在同一張表，較容易看出阻擋點。區分草稿、已審與已公開，減少把私人交付誤當網站上線。 |
 | [work-sync-daily](work-sync-daily/references/quickstart.md) | 先只讀對帳，能看出遺漏與重複，而不立即改動原始紀錄。用明確 before／after 表格批准更新，讓同步結果更可追蹤。 |
 | [work-report-weekly](work-report-weekly/references/quickstart.md) | 依完成證據整理一週成果，減少從零回想與重寫的負擔。先交草稿再決定寄送，可降低未確認內容或收件對象就外傳的風險。 |
+| [ai-workflow-orchestrator](ai-workflow-orchestrator/references/quickstart.md) | 先用規則、標籤與已知 facts 分流，只有 unresolved 才做 semantic classification，並留下 routing receipt。 |
+| [state-drift-review](state-drift-review/references/quickstart.md) | 分開 canonical truth 與 mirror，分類 drift，以 read-back evidence 驗證最小修復。 |
+| [uiux-runtime-audit](uiux-runtime-audit/references/quickstart.md) | 檢查實際可點擊性、狀態、手機／鍵盤與隱私，把有證據和未驗項目分開。 |
+| [reliable-delivery](reliable-delivery/references/quickstart.md) | 把原始驗收條件帶過中斷與交接，避免把進度誤寫成完成。 |
 
 ## 新手從這裡開始
 
@@ -175,9 +152,9 @@ Runner 可重複 `--phase`，依選取順序去重。先跑指令、AI 計畫另
 | 修補 | `audit-fix-loop-no-preview` |
 | 工作整理 | `work-sync-daily`、`work-report-weekly`、`content-pipeline-dashboard` |
 
-這個 repo 內有 14 個同層 Skill 資料夾，但**不需要 14 個全部安裝**。完整 checkout 可以保留做文件與測試；實際安裝時，只複製這次需要的 Skill 資料夾，並保留該 Skill 自己的 `references/`、`scripts/`、`assets/`。
-
-`optional-skill-profile` 是選用。能搭配它的 Skill，在沒有安裝 profile 時必須退回 session-only，並清楚說明沒有保存。首次使用 profile 時才會詢問是否選填、是否保存；之後可說「修改設定」「改 port」「切換帳號」「停用日曆」「這次不用」或「重設」。
+將以上 18 個含 SKILL.md 的資料夾保留為同層，安裝到所用 agent 支援的 skills 目錄。
+首次使用會詢問是否選填、是否保存。之後每次跑之前會顯示目前設定；可說
+「修改設定」「改 port」「切換帳號」「停用日曆」「這次不用」或「重設」。
 
 個人 profile 存在作業系統使用者設定目錄、repo 外，不回寫 SKILL.md。可不保存，
 不保存就不能保證下一個 session 記得。選填 email 不代表完成 OAuth，日曆連接也
@@ -202,7 +179,7 @@ cd design-workflow-skills
 
 安裝或執行前先看[使用方法](docs/USAGE.zh-TW.md)。若已有同名私人 skill，先比較，不直接覆蓋。
 
-這是 MIT 開源套件；不附第三方 Nielsen skill，不附 TWG，也不提供客戶素材權利。
+目前版本採 **source-available：人人可免費使用、修改，也可放進自己的商業工作或產品使用；但不能把這套 Skill 本身或只是改名／薄包裝的版本拿去販售。** 授權為 MIT + Commons Clause；較早已發布的 MIT-only revision 仍保留原授權。第三方內容維持各自 upstream license。不附第三方 Nielsen skill、不附 TWG，也不提供客戶素材權利。
 Nielsen 的來源／MIT 條件及 TWG 排除理由見 [第三方聲明](THIRD_PARTY.md)。
 
 ## 測試
@@ -399,3 +376,8 @@ Nielsen 的來源／MIT 條件及 TWG 排除理由見 [第三方聲明](THIRD_PA
 | [![work-sync-daily Step 1 zh-TW](work-sync-daily/references/screenshots/step-01-zh-TW.png)](work-sync-daily/references/screenshots/step-01-zh-TW.png) | [![work-sync-daily Step 2 zh-TW](work-sync-daily/references/screenshots/step-02-zh-TW.png)](work-sync-daily/references/screenshots/step-02-zh-TW.png) | [![work-sync-daily Step 3 zh-TW](work-sync-daily/references/screenshots/step-03-zh-TW.png)](work-sync-daily/references/screenshots/step-03-zh-TW.png) |
 
 </details>
+
+
+## 公開 Skill 資安
+
+新增公開 Skill 必須遵守 [Public Skill Sanitization](docs/PUBLIC-SKILL-SANITIZATION.md)：公開可重用的方法，不公開私人 repo／Issue、production URL、內部資料名稱、本機路徑、AI/provider 名冊與額度、原始 log／payload、憑證或可反推出內部拓樸的識別資訊。

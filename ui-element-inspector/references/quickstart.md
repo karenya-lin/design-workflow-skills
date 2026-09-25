@@ -69,6 +69,12 @@ Hand off to ui-design-review or an authorized implementation workflow; source lo
 
 Reuse one settings preflight. Combining skills does not accumulate permissions or permit overlapping writers.
 
+## 常見搭配平台 / Works well with
+
+常見搭配：**GitHub, Vercel, Cloudflare Pages, React, Next.js, Vite**。這些名稱用來說明常見工作情境與提高 discoverability，不代表官方合作、內建 connector、預設帳號權限或已完成整合。
+
+Common workflow companions: **GitHub, Vercel, Cloudflare Pages, React, Next.js, Vite**. These names describe common use cases and improve discoverability; they do not imply endorsement, bundled integrations, account access or verified connectivity.
+
 ## 自訂與選填 / Customize and optional
 
 預設或自訂 CSS 尺寸、橫直、Fit／100%、同類方式、例外、需求文案；Windows launcher 另選用。

@@ -67,6 +67,12 @@ Shares ownership with other skills; it does not automatically create agents.
 
 Reuse one settings preflight. Combining skills does not accumulate permissions or permit overlapping writers.
 
+## 常見搭配平台 / Works well with
+
+常見搭配：**GitHub, Figma, Supabase, Vercel, Cloudflare**。這些名稱用來說明常見工作情境與提高 discoverability，不代表官方合作、內建 connector、預設帳號權限或已完成整合。
+
+Common workflow companions: **GitHub, Figma, Supabase, Vercel, Cloudflare**. These names describe common use cases and improve discoverability; they do not imply endorsement, bundled integrations, account access or verified connectivity.
+
 ## 自訂與選填 / Customize and optional
 
 現有 session、base revision、owner、允許／禁止路徑、依賴與驗收者；不自動建立 agent。
