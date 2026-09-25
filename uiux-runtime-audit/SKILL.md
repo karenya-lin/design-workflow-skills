@@ -1,6 +1,6 @@
 ---
 name: uiux-runtime-audit
-description: Audit a running or inspectable interface for reachability, state clarity, mobile behavior, accessibility and privacy risks, separating observed evidence from unverified behavior.
+description: Audit a running or inspectable interface for reachability, state clarity, mobile behavior, accessibility and privacy risks, separating observed evidence from unverified behavior. Use when a running interface needs UX, accessibility or privacy evidence rather than a design review.
 ---
 
 # UI/UX runtime audit / UIUX 執行期檢查

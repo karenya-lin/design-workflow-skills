@@ -1,6 +1,6 @@
 ---
 name: ai-workflow-orchestrator
-description: Route bounded work through deterministic rules, labels and installed skills first, using semantic classification only for unresolved meaning and preserving explicit fallback and receipts.
+description: Route bounded work through deterministic rules, labels and installed skills first, using semantic classification only for unresolved meaning and preserving explicit fallback and receipts. Use when a request has to be routed to skills or tools and the routing decision must stay auditable.
 ---
 
 # AI workflow orchestrator / AI 工作流程協調器

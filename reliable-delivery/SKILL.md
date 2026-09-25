@@ -1,6 +1,6 @@
 ---
 name: reliable-delivery
-description: Keep a bounded task moving through its original acceptance criteria across interruptions or handoffs, with explicit checkpoints, targeted verification and truthful completion status.
+description: Keep a bounded task moving through its original acceptance criteria across interruptions or handoffs, with explicit checkpoints, targeted verification and truthful completion status. Use when a task must survive interruptions or handoffs without losing its acceptance criteria.
 ---
 
 # Reliable delivery / 可靠交付
