@@ -1,6 +1,6 @@
 ---
 name: state-drift-review
-description: Diagnose disagreements between an authoritative source and its mirrors, indexes, dashboards or runtime status before proposing the smallest safe repair.
+description: Diagnose disagreements between an authoritative source and its mirrors, indexes, dashboards or runtime status before proposing the smallest safe repair. Use when a dashboard, index, mirror or status disagrees with its source of truth.
 ---
 
 # State drift review / 狀態漂移檢查

@@ -11,7 +11,7 @@ class SkillContractTests(unittest.TestCase):
 
     def test_all_skill_descriptions_have_explicit_trigger_contracts(self):
         skills = self.skill_files()
-        self.assertEqual(14, len(skills))
+        self.assertEqual(18, len(skills))
         for path in skills:
             text = path.read_text(encoding="utf-8")
             match = re.search(r"^description:\s*(.+)$", text, re.MULTILINE)
@@ -43,8 +43,8 @@ class SkillContractTests(unittest.TestCase):
     def test_readme_recommends_minimal_install_instead_of_all_skills(self):
         en = (ROOT / "README.md").read_text(encoding="utf-8")
         zh = (ROOT / "README.zh-TW.md").read_text(encoding="utf-8")
-        self.assertIn("you do not need to install all fourteen", en)
-        self.assertIn("不需要 14 個全部安裝", zh)
+        self.assertIn("you do not need to install all eighteen", en)
+        self.assertIn("不需要 18 個全部安裝", zh)
 
     def test_compact_semantic_handoff_is_shared_and_ai_only(self):
         contract = ROOT / "optional-skill-profile" / "references" / "compact-semantic-handoff.md"

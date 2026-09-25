@@ -30,7 +30,14 @@ A hosted connector that commits on the owner's behalf may write its own default 
 
 代替擁有者提交的雲端 connector 可能寫入它自己的預設信箱，而且無法更改。這種工具不能直接對這個 repo 發布 commit。用它準備變更，再從已設定上述身分、已開啟 hook 的 clone 提交與推送。
 
+## Commits GitHub makes for you / GitHub 代你產生的 commit
+
+Merging a pull request on github.com, squashing it, pressing "Update branch" or editing a file in the web editor creates a commit on GitHub's servers. No local hook runs there. The author email of that commit comes from the account's email settings: with "Keep my email addresses private" off, GitHub writes the account's primary address, which is how two web merges leaked the personal address on 2026-09-24. Keep that setting on, together with "Block command line pushes that expose my email", so web operations use the noreply address and a push whose newest commit carries a private address is refused by GitHub itself. The hooks below and that setting cover different paths; the repository needs both.
+
+在 github.com 上合併 PR、squash、按「Update branch」或用網頁編輯器改檔案，commit 是在 GitHub 伺服器上產生的，本機 hook 管不到。那個 commit 的作者信箱來自帳號的 Email 設定：「Keep my email addresses private」關著時，GitHub 會寫入帳號的主要信箱，2026-09-24 的兩次網頁合併就是這樣把個人信箱寫進去的。這個設定要保持開啟，並同時勾「Block command line pushes that expose my email」，網頁操作就會用 noreply，最新 commit 帶私人信箱的 push 也會被 GitHub 拒絕。hook 與帳號設定守的是不同的路，兩個都要。
+
 ## History / 紀錄
 
 - 2026-09-23: an audit found a personal address in the author and committer metadata of the reachable history, while file contents were clean.
 - 2026-09-24: the reachable history of `main`, `dev` and the open work branches was rewritten to the noreply address, preserving trees, messages, names, dates and parent order. Copies held elsewhere, such as forks or caches, cannot be recalled by a rewrite; this rule and these hooks stop a recurrence.
+- 2026-09-25: the rewrite was pushed and verified from a fresh clone (zero personal addresses on every branch). GitHub still holds the pre-rewrite commits behind the merged pull requests' `refs/pull/*/head` and by direct SHA until GitHub Support purges them, which the owner requests. The account's email privacy settings were turned on the same day. The hooks gained their executable bit so that Linux and macOS clones run them too.

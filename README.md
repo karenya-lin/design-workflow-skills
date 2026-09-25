@@ -34,15 +34,72 @@ Current interaction: hover the preview to open Inspect; click to select. [Update
 
 Install only what your task needs; all 18 skills are not mandatory. Use the [folder-copy installation guide](docs/BEGINNER.en.md#1-download-and-install), preserving each selected skill's bundled references, scripts and assets.
 
-| When needed | Install / connect | If absent |
+| Goal | Primary skill | Add only if needed |
 |---|---|---|
-| Rebrand a Figma workflow | `figma-workflow-rebrand` and its bundled files | This workflow is unavailable |
-| Actually read/write Figma | A separately authorized connector with the required capabilities, plus its operation-specific skill when required | No Figma changes; report missing capability |
-| Save shared preferences | Optional `optional-skill-profile` | Session-only preferences; do not claim persistence |
-| Additional Figma editing guidance | Optional `figma-write` when relevant | Follow rebrand and connector rules |
-| Design/accessibility review | Optional `ui-design-review`, `uiux-checks` or `a11y-review` as needed | Identify reviews not performed |
+| Point at an unnamed UI element | `ui-element-inspector` | `optional-skill-profile` for reusable project settings |
+| Compare implementation with an approved design | `ui-design-review` | `a11y-review` for a dedicated accessibility pass; `states-preview-loop` for state/viewport evidence |
+| Run a broad UI quality sweep | `uiux-checks` | Only the specialist checks selected for this task |
+| Make one targeted Figma edit | `figma-write` | An authorized Figma connector/tool with the required capability |
+| Rebrand a whole Figma workflow | `figma-workflow-rebrand` | `figma-write` only when an operation needs its targeted-edit guidance |
+| Coordinate parallel agents | `multi-session-protocol` | `optional-skill-profile` if shared settings are useful |
+| Reconcile today's work | `work-sync-daily` | Only the approved Calendar/Jira/source connectors |
+| Draft a weekly report | `work-report-weekly` | Optional selected Calendar/source access |
+| Reconcile content status | `content-pipeline-dashboard` | Only the approved content sources |
+
+**Do not install `uiux-checks` plus every specialist by default.** Use one primary skill, then add only the checks the task actually requires.
 
 Python 3.11+ is needed for Python settings/profile helpers and the runner. Node.js (tested with Node 22) is needed only when running the rebrand coverage checker. Neither runtime is a skill or an account authorization.
+
+## Why this bundle is intentionally lean at runtime
+
+This repo is designed around a few common Agent Skill failure modes, not around making every skill bigger.
+
+OpenAI's current skill guidance emphasizes two things that matter here: the **name/description are the routing contract**, and detailed procedures should use **progressive disclosure** through `references/`, `scripts/` and `assets/` instead of flooding the initial context. See [Build skills](https://developers.openai.com/plugins/build/skills) and [Skills](https://developers.openai.com/plugins/concepts/skills).
+
+| Common pain point | What this repo does |
+|---|---|
+| A vague skill triggers on the wrong task | Every skill description now says what it is for and, where overlap is likely, what it is **not** for. |
+| Too many installed skills compete for attention | The README recommends the smallest useful install set instead of all 14 by default. Coordinator skills do not require every specialist. |
+| A giant `SKILL.md` consumes context before the work starts | Long operational detail is kept in on-demand references. The two largest skills, `figma-workflow-rebrand` and `ui-element-inspector`, use short routing/safety files plus execution runbooks. |
+| Users cannot tell a Skill from a connector, hook or account login | Skills define workflow. Connectors/tools provide live access, authentication and controlled actions. Installing this repo never logs into an account or creates a background schedule. |
+| A skill says “done” without proving what ran | Each workflow separates verified evidence, untested behavior and blocked/missing capability. The runner keeps AI steps as `NOT_RUN` until an agent actually performs them. |
+| Copying a public skill hides security assumptions | Third-party skills are not bundled. Review `SKILL.md`, scripts and requested permissions before installation; see [SECURITY.md](SECURITY.md) and [THIRD_PARTY.md](THIRD_PARTY.md). |
+
+This is also why **“more skills” is not a goal**. Add a new skill only when it has a distinct trigger, input contract or success criterion. Otherwise extend an existing specialist or reference file.
+
+### Human-readable outside, compact semantics inside
+
+Human-facing instructions and final answers stay readable. **AI-to-AI / Skill-to-Skill handoffs may use a compact semantic envelope** so the same project history and rules are not rewritten every turn.
+
+Example:
+
+```text
+intent=review
+scope=home.mobile
+constraints=no-prod,no-push
+facts=locale:zh-TW; target:save-button
+unresolved=empty-state-copy
+evidence=src/ui/save.tsx#L20-L44
+state=partial
+next=copy-review
+```
+
+The shared [compact semantic contract](optional-skill-profile/references/compact-semantic-handoff.md) uses stable fields such as `intent`, `scope`, `facts`, `constraints`, `unresolved`, `evidence`, `state` and `next`. Empty/default fields are omitted. Exact raw wording is preserved only when nuance, authority, safety, legal terms or acceptance criteria would be lost.
+
+This is meant to reduce **repeated input context and repeated formatting instructions**. It is not a promise of a fixed percentage of token savings; measure representative before/after handoffs.
+
+### Skill, project rule, hook or connector?
+
+| If you need… | Put it here |
+|---|---|
+| A repeatable workflow that should load only for matching tasks | **Skill** |
+| A rule that should apply to nearly every task in one project | The host's project-instruction file, such as **AGENTS.md / CLAUDE.md** |
+| A deterministic action that must fire on a specific host event | A host-supported **hook/automation**, not a prose-only skill |
+| Live account data, authentication or controlled external actions | An authorized **connector / MCP tool**; the Skill only explains the workflow around it |
+
+Host products differ in discovery, hooks and connector support. A portable `SKILL.md` does not mean every host provides identical runtime features.
+
+
 
 | English | 繁體中文 | Français | 日本語 |
 |---|---|---|---|
@@ -168,12 +225,9 @@ External skill declarations do not install or certify those skills.
 - `uiux-runtime-audit`: runtime interaction, mobile, accessibility and privacy-oriented UX evidence.
 - `reliable-delivery`: acceptance-preserving continuation, verification and handoff receipts.
 
-Install these eighteen sibling directories together into the skill directory supported
-by your agent. The profile helper requires Python 3.11+, standard library only.
-The other skills explicitly read the sibling profile skill. If it is missing,
-they operate without persistence and explain that limitation. There is no hook,
-background service, OAuth implementation, or automatic scheduler in this package.
-The agent asks the questions; the helper only stores validated preferences.
+This repository ships eighteen sibling skill directories, but **you do not need to install all eighteen**. Keep the checkout intact for documentation and tests, then copy only the skill directories required by your task, preserving each selected skill's own `references/`, `scripts/` and `assets/`.
+
+`optional-skill-profile` is optional. Skills that can use it must fall back to session-only behavior when it is absent and say so. The profile helper requires Python 3.11+, standard library only. There is no hook, background service, OAuth implementation or automatic scheduler in this package. The agent asks the questions; the helper only stores validated preferences.
 
 New public skills must follow [Public Skill Sanitization](docs/PUBLIC-SKILL-SANITIZATION.md): publish reusable methods, not private operational identifiers, logs or topology.
 
