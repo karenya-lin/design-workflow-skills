@@ -10,6 +10,12 @@ Every skill has a three-step diagram, use case, bilingual prompt, expected outpu
 2. 先確認 AI 找到哪些 skill，再用下面的提示開始。 / Confirm discovered skills, then use a prompt below.
 3. 選一項，或交 uiux-checks 組合。來源連接、程序終止、寄送與 Git push 仍須個別授權。 / Choose one or compose with uiux-checks; connections, process termination, sending and Git push still need scoped approval.
 
+### 哪些 AI 能用 / Which AI can use these
+
+每個 skill 都是不綁廠商的 Markdown 工作方法。Codex、Claude Code、Gemini、Grok 或其他 agent，只要能載入 skill 檔、具備它需要的能力就能照著做；沒有原生發現機制的環境，就手動載入或貼上。省 token 的做法寫在 [README](../README.md#ai-相容性與省-token)，沒有百分比，因為沒有量過。
+
+Every skill is vendor-neutral Markdown. Codex, Claude Code, Gemini, Grok or any other agent can follow one when it can load the file and has the capabilities the skill needs; without native discovery, load or paste it by hand. The token-efficiency mechanisms are listed in the [README](../README.md#ai-compatibility-and-token-efficiency), without a percentage, because none has been measured.
+
 ## 選你現在的工作 / Choose your task
 
 | 想做什麼 / Goal | Skill + 圖解 / Guide |
