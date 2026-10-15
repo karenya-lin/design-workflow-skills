@@ -1,5 +1,7 @@
 # Design Workflow Skills — 可自訂設計工作流程包
 
+**影片製作：** [video-production-workflow](video-production-workflow/SKILL.md) 串起小說正史、拍攝劇本、人景參考、大景站位、連續四格、動作試片、聲音與接續交接。[雙語快速開始](video-production-workflow/references/quickstart.md)採文字版，另附唯讀素材腳本檢查檔案SHA與PNG尺寸。完整成片流程及獨立教學圖檔仍未驗證。
+
 **交付狀態：** [每個 skill 已驗證與仍在測試的範圍](docs/RELEASE-STATUS.md)。UI Inspect 本機主要流程已測，DevTools 擴充套件尚未交付。
 
 ## 誰做什麼？先用配合 AI 的 Skill 版

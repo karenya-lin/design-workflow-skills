@@ -6,6 +6,7 @@ Updated 2026-09-23. Available instructions are not a guarantee of every AI host,
 
 | Skill | Verified scope / 已驗範圍 | Still testing / 待驗範圍 |
 |---|---|---|
+| video-production-workflow | Instruction frontmatter, self-contained bilingual text quickstart, local reference links, read-only asset inspector with file/hash/PNG-size/error cases / 文件格式、雙語文字指引、可攜連結、唯讀素材檢查腳本 | Complete film execution, cross-session adoption and independent illustrated guide files; existing bundle illustration requirement is not met by this text-first delivery / 完整成片、跨session採用與獨立教學圖檔，文字版未符合既有bundle插圖要求 |
 | ui-element-inspector | Local synthetic Chromium workflow: hover/tree, simplified wrapper groups, structure review, external panel, RWD, matches, numbered navigation, exclusions, request/copy feedback, four languages / 本機假資料主要流程 | Real projects, other browser engines, native screenshot/paste, assistive technology / 真實專案、其他瀏覽器、原生截圖貼上、輔助科技 |
 | optional-skill-profile | Python settings save/reset, conflicts, optional prompts / 設定儲存、重設、衝突與選填 | Every AI host's repeated invocation / 各 AI 多次啟動 |
 | uiux-checks | Runner plans, stage composition and deduplication / runner 計畫、階段組合去重 | Real multi-skill end-to-end runs / 真實多 skill 全流程 |
