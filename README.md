@@ -1,5 +1,7 @@
 # Design Workflow Skills
 
+**Film production:** [video-production-workflow](video-production-workflow/SKILL.md) connects canonical prose, shooting scripts, character and scene references, wide-shot blocking, four-panel boards, motion pilots, sound, and resumable handoffs. Its [bilingual quickstart](video-production-workflow/references/quickstart.md) is text-first; the optional read-only asset inspector checks file hashes and PNG dimensions. End-to-end film production and standalone illustrated guides remain unverified.
+
 **Release status:** [What is verified and what is still testing, for every skill](docs/RELEASE-STATUS.md). UI Inspect's main local workflow is tested. DevTools extensions are not released.
 
 ## Who does what? Start with the AI-assisted skill
