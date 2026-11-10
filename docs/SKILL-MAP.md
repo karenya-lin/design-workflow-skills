@@ -1,4 +1,4 @@
-# 18 skills 圖解入口 / Illustrated skill guide
+# 19 skills 圖解入口 / Illustrated skill guide
 
 每個 skill 都有三步圖、使用時機、中英提示、輸出與合用方式。圖是教學示意，不表示已操作你的帳號或網站。
 
@@ -38,6 +38,7 @@ Every skill is vendor-neutral Markdown. Codex, Claude Code, Gemini, Grok or any 
 | 狀態漂移檢查 / Review state drift | [state-drift-review](../state-drift-review/references/quickstart.md) |
 | UIUX 執行期檢查 / Audit runtime UI/UX | [uiux-runtime-audit](../uiux-runtime-audit/references/quickstart.md) |
 | 可靠交付 / Continue to acceptance | [reliable-delivery](../reliable-delivery/references/quickstart.md) |
+| 阿拉伯文 RTL 介面 / Arabic RTL UI | [rtl-arabic-ui](../rtl-arabic-ui/references/quickstart.md) |
 
 
 ## 平台關鍵字 / Platform keywords
