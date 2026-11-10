@@ -21,17 +21,17 @@ Use a proven bilingual site of a very large Middle East retailer as the baseline
 
 ## 啟動前 / Before starting
 
-確認 AI 已載入這個 skill 並回報 SKILL.md 路徑。準備同一畫面的英文與阿拉伯文版本（設計稿或可執行的頁面），以及要檢查的狀態清單。這是市場參考慣例，不是標準；品牌規範另有規定時以擁有者決定為準。
+確認 AI 已載入這個 skill 並回報 SKILL.md 路徑。準備同一畫面的英文與阿拉伯文版本（設計稿或可執行的頁面），以及要檢查的狀態清單。這份規則以市場龍頭客戶（有 UX 團隊、客戶數最多）的正式網站為唯一標準；跟 AI 建議或國際大站不同時，照這份做。
 
-Confirm the agent loaded this skill and reports its SKILL.md path. Have the same screen in EN and AR (design frames or a running page) and the list of states to check. This is a market reference convention, not a standard; the owner's brand rules win.
+Confirm the agent loaded this skill and reports its SKILL.md path. Have the same screen in EN and AR (design frames or a running page) and the list of states to check. The rules follow the market leader's production site (own UX team, largest customer base) as the single source of truth; when AI advice or international sites differ, follow this skill.
 
 ## Step 1 → 2 → 3
 
 ### Step 1 · 分類 / Classify
 
-逐個元件標成「轉／不轉／部分轉」，依 `references/rules.md`。不確定的列給擁有者決定。
+逐個元件標成「轉／不轉／部分轉」，依 `references/rules.md`。參考網站沒涵蓋的情況列為待確認，不用 AI 或其他網站的做法補。
 
-Mark every element Mirror / Keep / Partial using `references/rules.md`; open questions go to the owner.
+Mark every element Mirror / Keep / Partial using `references/rules.md`; cases the reference does not cover become open questions, not guesses from AI or other sites.
 
 ### Step 2 · 實作 / Implement
 
@@ -53,9 +53,9 @@ Compare EN and AR per state, run the QA checklist and bidi test strings, and lis
 
 ## 你會拿到 / Expected output
 
-分類表、修正清單、EN／AR 並排證據、`+` 號慣例的決定（`971+` 或 `+971`）、未翻譯文字清單與未驗項目。
+分類表、修正清單、EN／AR 並排證據（含電話 `971+` 檢查）、未翻譯文字清單、待確認問題與未驗項目。
 
-Classification table, fix list, EN/AR side-by-side evidence, the chosen `+` convention (`971+` or `+971`), untranslated-copy list and unverified items.
+Classification table, fix list, EN/AR side-by-side evidence (including the `971+` phone check), untranslated-copy list, open questions and unverified items.
 
 ## 和其他 skill 合用 / Combine with others
 
@@ -71,22 +71,22 @@ Common workflow companions: **Figma, React, Next.js, Vite, Codex, Claude Code**.
 
 ## 自訂與選填 / Customize and optional
 
-可指定 `+` 號慣例、是否使用東阿拉伯數字（٠١٢٣，預設不用）、要支援的國碼與驗證方式、哪些物件圖示要翻轉。
+可指定要支援的國碼與驗證方式、要檢查的頁面與狀態。電話 `971+`、西式數字 0-9 等規則不開放自訂。
 
-Choose the `+` convention, whether to use Eastern Arabic digits (default: no), supported country codes and validation, and which object icons to mirror.
+Choose supported country codes, validation, and which pages and states to check. Rules such as the `971+` phone code and Western digits 0-9 are fixed.
 
 ## 結束與交接 / Finish and hand off
 
 1. 交分類表與修正清單。 / Hand over the classification table and fixes.
 2. 附 EN／AR 同狀態並排證據。 / Attach EN/AR evidence per state.
-3. 記錄 `+` 號與數字慣例的決定。 / Record the `+` and digit decisions.
+3. 列出參考網站沒涵蓋的待確認問題。 / List open questions the reference does not cover.
 4. 列出未翻譯文字與未驗項目（裝置、瀏覽器、螢幕閱讀器、母語審稿）。 / List untranslated copy and unverified items (device, browser, screen reader, native review).
 
 ## 邊界 / Limits
 
-規則來自單一正式網站的 EN/AR 並排比對，不是 Unicode 或任何標準；阿拉伯文文案需要母語者確認；各國號碼規則請以最新號碼計畫或 libphonenumber 為準。
+規則來自市場龍頭正式網站的 EN/AR 並排比對，刻意不採用一般 RTL 建議；阿拉伯文文案需要母語者確認；各國號碼規則請以最新號碼計畫或 libphonenumber 為準。
 
-Rules come from a side-by-side EN/AR review of one production site, not from a standard; Arabic copy needs a native reviewer; confirm numbering plans against current sources or libphonenumber.
+Rules come from a side-by-side EN/AR review of the market leader's production site and intentionally override generic RTL advice; Arabic copy needs a native reviewer; confirm numbering plans against current sources or libphonenumber.
 
 [回到 skill 規則 / Skill instructions](../SKILL.md)
 

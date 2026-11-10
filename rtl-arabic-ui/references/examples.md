@@ -75,7 +75,7 @@ Fix: `dir` from the UI language. A UAE customer reading English gets LTR.
 | Rendering in AR | Why it is right |
 |---|---|
 | `%22 خصم` | logical `خصم 22%`; bidi places `%` on the left |
-| `971+` | logical `+971` in an RTL run (reference convention; see phone-numbers.md) |
+| `971+` | the `+` flips with the phone frame while digits keep their order (reference rule; AI often suggests `+971` - do not follow) |
 | `AED 122.56` with Latin letters on an Arabic page | currency code is an ISO identifier kept as one LTR unit |
 | Western digits `6:30` next to Arabic `م` | the reference never uses Eastern Arabic digits |
 | Packaging photo shows Latin text in its original orientation | photos are not mirrored |

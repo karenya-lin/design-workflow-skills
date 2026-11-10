@@ -2,8 +2,11 @@
 
 Source: a production EN/AR e-commerce site of a very large Middle East retailer,
 compared screen by screen in both languages (home, product detail, quantity picker,
-cart, phone login, email login, validation error). "Observed" means the reference
-does it; "Recommended" means general RTL practice where the reference showed nothing.
+cart, phone login, email login, validation error). The reference is the single
+source of truth: when it differs from AI advice or international sites, it wins.
+"Observed" means the reference does it. "Recommended" marks the few rows the
+reference did not show; treat them as provisional and replace them as soon as the
+reference shows otherwise.
 
 Contents: 1 Mirror · 2 Keep · 3 Partial · 4 Numbers, prices, time · 5 Implementation · 6 QA checklist · 7 Bidi test strings
 
@@ -58,7 +61,7 @@ Container mirrors, inner content keeps its own direction.
 
 | Element | RTL rendering | Rule |
 |---|---|---|
-| Phone input | `[ 501234567     971+ 🇦🇪 ]` | prefix group at start (right); digits LTR. See [phone-numbers.md](phone-numbers.md) |
+| Phone input | `[ 501234567     971+ 🇦🇪 ]` | frame flips (number left, country right), `+` flips (`971+`), flag at the outer edge; digits never flip. See [phone-numbers.md](phone-numbers.md) |
 | Email input | placeholder `you@example.com` right-aligned | box and placeholder align right; typed value is LTR (`dir="ltr"` on the value or `dir="auto"`) |
 | Price in a sentence or summary | `AED 122.56` | currency + amount is one LTR unit; only its slot in the row moves |
 | Price on a card | big `49`, small `.98` and `AED` stacked | same composition as EN; card content is right-aligned |

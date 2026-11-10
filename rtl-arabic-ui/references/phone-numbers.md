@@ -1,22 +1,32 @@
 # Phone numbers in RTL / RTL 電話號碼
 
-Phone fields are where RTL goes wrong most often: the field mirrors, the number must
-not. This file records the reference spec (a very large Middle East retailer's
-EN/AR login), the alternative, validation and copy.
+Phone fields are where RTL goes wrong most often. This file records the reference
+spec (a very large Middle East retailer's EN/AR login), validation and copy.
 
-## 1. Anatomy / 結構
+**Single source of truth.** The reference differs from what AI assistants and most
+international sites recommend (they isolate the code so it reads `+971` in Arabic).
+Follow the reference, not them. Do not "fix" `971+` back to `+971`.
 
-A phone field has four parts. Only the order of the parts changes; parts 3 and 4
-never change their inner direction.
+## 1. The rule in three lines / 三句規則
 
-| # | Part | EN (LTR) | AR (RTL) |
+1. **The frame flips: two segments swap sides.** Segment A = country (flag + code),
+   segment B = national number. EN: `[A][B]`. AR: `[B][A]`.
+2. **The `+` flips.** Inside segment A the `+` moves to the other side of the code
+   and the flag moves to the outer edge: EN `🇦🇪 +971`, AR `971+ 🇦🇪`.
+3. **The digits never flip.** `971` stays `971`, `501234567` stays `501234567`, in
+   both segments.
+
+| What | Flips? | EN (LTR) | AR (RTL) |
 |---|---|---|---|
-| 1 | Label + required mark | `Phone Number*` above, left | `رقم الهاتف*` above, right |
-| 2 | Country flag | far left | far right |
-| 3 | Country code | `+971` | `971+` (see section 2) |
-| 4 | National number | `501234567`, typed left → right | `501234567`, typed left → right, block sits left of the code |
-| - | Error line | `(!) Invalid phone number format...` left | `(!)` on the right, Arabic text right-aligned |
-| - | Continue button | disabled until valid | same |
+| Frame: segment order | Yes | `[🇦🇪 +971] [501234567]` | `[501234567] [971+ 🇦🇪]` |
+| Segment A: flag position | Yes | flag on the left | flag on the right |
+| Segment A: `+` position | **Yes** | `+971` | `971+` |
+| Segment A: code digits | No | `971` | `971` (not `179`) |
+| Segment B: number digits | No | `501234567` | `501234567` (not `765432105`) |
+| Label `*` | follows text end | `Phone Number*` | `رقم الهاتف*` |
+| Stored / sent value | No | `+971501234567` | `+971501234567` |
+
+## 2. Examples / 範例
 
 Visual, side by side (`|` is the input border):
 
@@ -25,38 +35,50 @@ EN  | 🇦🇪 +971   501234567                         |
 AR  |                         501234567   971+ 🇦🇪 |
 ```
 
-Rules that never bend:
-- Digits are never reversed. `501234567` must not appear as `765432105`.
-- Spaces or grouping you add for readability stay in LTR order (`50 123 4567`).
-- The value submitted and stored is identical in both languages, E.164:
-  `+971501234567`. Direction is presentation only.
+Per country (synthetic numbers):
 
-## 2. The `+` sign: two conventions / 加號位置
+| Country | EN shows | AR shows | Stored (E.164) |
+|---|---|---|---|
+| UAE | `🇦🇪 +971  501234567` | `501234567  971+ 🇦🇪` | `+971501234567` |
+| Saudi Arabia | `🇸🇦 +966  512345678` | `512345678  966+ 🇸🇦` | `+966512345678` |
+| Kuwait | `🇰🇼 +965  51234567` | `51234567  965+ 🇰🇼` | `+96551234567` |
+| Qatar | `🇶🇦 +974  33123456` | `33123456  974+ 🇶🇦` | `+97433123456` |
+| Bahrain | `🇧🇭 +973  36123456` | `36123456  973+ 🇧🇭` | `+97336123456` |
+| Oman | `🇴🇲 +968  92123456` | `92123456  968+ 🇴🇲` | `+96892123456` |
 
-**Reference spec (default for this skill): `971+` in Arabic.**
-The reference renders the code as plain text inside the RTL field without isolating
-it. By the Unicode bidi algorithm, a leading `+` before digits in an RTL paragraph
-resolves to the paragraph direction, so `+971` displays as `971+`. The reference
-keeps this in production on both the empty field and the error state, so Arabic
-users of that market see it every day.
+Wrong in AR, and why:
 
-To reproduce it, render the code in the RTL flow with no `dir="ltr"` / `<bdi>`:
+| Shown in AR | Problem |
+|---|---|
+| `501234567  +971 🇦🇪` | `+` did not flip: code was isolated as LTR (common AI / international-site advice) |
+| `🇦🇪 971+  501234567` | frame did not flip: segments still in EN order |
+| `765432105  971+ 🇦🇪` | number digits reversed |
+| `501234567  179+ 🇦🇪` | code digits reversed |
+| `501234567  🇦🇪 971+` | flag not on the outer edge of segment A |
+| `971+501234567` in the database | display string stored instead of E.164 |
+
+Same rule wherever a phone number is shown in Arabic, not only in the input:
+OTP screen, profile, order summary, error copy. Example: the Arabic sentence "code
+sent to" followed by logical `+971 501234567` renders the number part as
+`501234567 971+`, number on the left, code with `+` on the right.
+
+## 3. How the reference produces `971+` / 參考網站怎麼做出 `971+`
+
+The reference renders the code as plain text inside the RTL flow, with no isolation.
+By the Unicode bidi algorithm a leading `+` before digits in an RTL run takes the
+paragraph direction, so logical `+971` displays as `971+` while `971` keeps its order.
+The reference shows this on the empty field, filled field and error state.
 
 ```html
-<span class="phone-code">+971</span>   <!-- inside dir="rtl": shows 971+ -->
+<span class="phone-code">+971</span>          <!-- inside dir="rtl": shows 971+  (correct) -->
+<bdi dir="ltr" class="phone-code">+971</bdi>  <!-- shows +971 in AR  (do not use) -->
 ```
 
-**Alternative: `+971` in Arabic.** Some brand books and many international apps
-isolate the code as LTR so it reads `+971` everywhere:
+Keep the logical string `+971` in code and data; let the RTL flow do the flip. Never
+hard-code a reversed string such as `"971+"`, because it would also show reversed in
+the English UI.
 
-```html
-<bdi dir="ltr" class="phone-code">+971</bdi>
-```
-
-Choose one per product and record it; do not mix both in one flow. If the owner has
-not decided, use the reference spec and list the choice as an open decision.
-
-## 3. Implementation / 實作
+## 4. Implementation / 實作
 
 ```html
 <label for="phone">رقم الهاتف*</label>
@@ -79,7 +101,7 @@ not decided, use the reference spec and list the choice as an open decision.
 - Validate with a maintained library (for example libphonenumber) rather than
   hand-written lengths; numbering plans change.
 
-## 4. Validation and examples / 驗證與範例
+## 5. Validation and examples / 驗證與範例
 
 Lengths below are national significant numbers for mobiles, as a starting point.
 Confirm against the current numbering plan or the library before shipping.
@@ -102,7 +124,7 @@ Reference behaviour seen on screen:
 Use synthetic numbers such as `501234567` in designs and docs, never a real person's
 number.
 
-## 5. Error copy / 錯誤文案
+## 6. Error copy / 錯誤文案
 
 | EN | AR (as used by the reference) |
 |---|---|
@@ -113,7 +135,7 @@ number.
 - Error icon sits at the start (right) of the line in AR.
 - Change the example per selected country (`512345678` for +966, and so on).
 
-## 6. Switching phone ↔ email / 切換電話與 email
+## 7. Switching phone ↔ email / 切換電話與 email
 
 The login offers "Login with email" under the phone field and "Login with phone" under
 the email field. In AR:
@@ -123,10 +145,11 @@ the email field. In AR:
   a copy gap, not a rule. Prefer `البريد الإلكتروني` / `رقم الهاتف`.
 - Email value is LTR; placeholder `you@example.com` is right-aligned with the field.
 
-## 7. Phone QA / 電話驗收
+## 8. Phone QA / 電話驗收
 
 - [ ] AR: flag and code on the right, number to their left, digits not reversed.
-- [ ] `+` position matches the chosen convention (`971+` reference / `+971` alternative) on every screen, including error and OTP-resend screens.
+- [ ] AR shows `971+` (the `+` flipped, digits not) on every screen: empty, filled, error, OTP, profile, order summary.
+- [ ] Frame flipped: number segment on the left, country segment (code + flag) on the right, flag at the outer edge.
 - [ ] Typing, deleting, caret arrows and paste behave LTR inside the number.
 - [ ] Leading `0`, spaces and Eastern Arabic digits are normalized.
 - [ ] Error state: label and border red, icon on the right, example matches country.
