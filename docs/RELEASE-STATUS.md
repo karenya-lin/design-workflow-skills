@@ -24,6 +24,7 @@ Updated 2026-09-23. Available instructions are not a guarantee of every AI host,
 | state-drift-review | Instructions, drift taxonomy, bilingual quickstart and workflow diagram / 文件、drift taxonomy、雙語 quickstart 與流程圖 | Real cross-system repairs and read-back / 真實跨系統修復與 read-back |
 | uiux-runtime-audit | Instructions, bilingual quickstart, runtime/privacy limits and workflow diagram / 文件、雙語 quickstart、執行期／隱私邊界與流程圖 | Real project/browser/assistive-technology audits / 真實專案、瀏覽器與輔助科技驗收 |
 | reliable-delivery | Instructions, bilingual quickstart, acceptance/handoff receipt and workflow diagram / 文件、雙語 quickstart、驗收／交接 receipt 與流程圖 | Real cross-host continuation and integration / 真實跨機接續與整合 |
+| rtl-arabic-ui | Instructions, bilingual quickstart, rules derived from side-by-side EN/AR review of one production site, phone patterns and bidi test strings (added 2026-11-10) / 文件、雙語 quickstart、以單一正式網站 EN/AR 並排比對整理的規則、電話寫法與 bidi 測試字串 | Applying the rules on real projects, native Arabic copy review, numbering-plan checks per country / 實際專案套用、阿拉伯文母語審稿、各國號碼規則查核 |
 
 
 ## Not released / 未交付功能

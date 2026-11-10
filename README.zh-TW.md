@@ -58,10 +58,10 @@ Python 3.11+ 在執行 Python 設定／profile helper、runner 時需要。Node.
 
 
 
-[18 個 skills 完整圖解 / All 18 skill guides](docs/SKILL-MAP.md) · [UI Inspect 畫面 / Screenshots](docs/VISUAL-GUIDE.md)
+[19 個 skills 完整圖解 / All 19 skill guides](docs/SKILL-MAP.md) · [UI Inspect 畫面 / Screenshots](docs/VISUAL-GUIDE.md)
 
 
-18 個通用 skills，支援首次選填設定、執行前顯示設定，以及單項／分階段／整批檢查。
+19 個通用 skills，支援首次選填設定、執行前顯示設定，以及單項／分階段／整批檢查。
 這份通用包不含作者私人設定；安裝不會自動連接帳號或建立排程。
 
 [English](README.md) · [繁中使用方法](docs/USAGE.zh-TW.md) ·
@@ -121,6 +121,7 @@ Python 3.11+ 在執行 Python 設定／profile helper、runner 時需要。Node.
 | [state-drift-review](state-drift-review/references/quickstart.md) | 分開 canonical truth 與 mirror，分類 drift，以 read-back evidence 驗證最小修復。 |
 | [uiux-runtime-audit](uiux-runtime-audit/references/quickstart.md) | 檢查實際可點擊性、狀態、手機／鍵盤與隱私，把有證據和未驗項目分開。 |
 | [reliable-delivery](reliable-delivery/references/quickstart.md) | 把原始驗收條件帶過中斷與交接，避免把進度誤寫成完成。 |
+| [rtl-arabic-ui](rtl-arabic-ui/references/quickstart.md) | 以大型中東在地零售商的正式中英阿雙語網站為基準，逐一判定轉、不轉、部分轉。電話、金額、時間與 email 有固定寫法與 bidi 測試字串，先擋下最常見的 RTL 錯誤。 |
 
 ## 新手從這裡開始
 
@@ -152,7 +153,7 @@ Runner 可重複 `--phase`，依選取順序去重。先跑指令、AI 計畫另
 | 修補 | `audit-fix-loop-no-preview` |
 | 工作整理 | `work-sync-daily`、`work-report-weekly`、`content-pipeline-dashboard` |
 
-將以上 18 個含 SKILL.md 的資料夾保留為同層，安裝到所用 agent 支援的 skills 目錄。
+將以上 19 個含 SKILL.md 的資料夾保留為同層，安裝到所用 agent 支援的 skills 目錄。
 首次使用會詢問是否選填、是否保存。之後每次跑之前會顯示目前設定；可說
 「修改設定」「改 port」「切換帳號」「停用日曆」「這次不用」或「重設」。
 

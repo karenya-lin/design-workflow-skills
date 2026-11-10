@@ -32,7 +32,7 @@ Current interaction: hover the preview to open Inspect; click to select. [Update
 
 ### Minimum install and optional companions
 
-Install only what your task needs; all 18 skills are not mandatory. Use the [folder-copy installation guide](docs/BEGINNER.en.md#1-download-and-install), preserving each selected skill's bundled references, scripts and assets.
+Install only what your task needs; all 19 skills are not mandatory. Use the [folder-copy installation guide](docs/BEGINNER.en.md#1-download-and-install), preserving each selected skill's bundled references, scripts and assets.
 
 | When needed | Install / connect | If absent |
 |---|---|---|
@@ -58,7 +58,7 @@ Actual local demo, silent video. Clipboard is mocked; native capture is not invo
 
 
 
-[18 個 skills 完整圖解 / All 18 skill guides](docs/SKILL-MAP.md) · [UI Inspect 畫面 / Screenshots](docs/VISUAL-GUIDE.md)
+[19 個 skills 完整圖解 / All 19 skill guides](docs/SKILL-MAP.md) · [UI Inspect 畫面 / Screenshots](docs/VISUAL-GUIDE.md)
 
 
 Configurable skills for design reviews, UI quality checks and work coordination.
@@ -122,6 +122,7 @@ Each guide covers project types, lifecycle stages, preparation, Step 1/2/3, fini
 | [state-drift-review](state-drift-review/references/quickstart.md) | Separate canonical truth from mirrors, classify drift and propose the smallest safe repair with read-back evidence. |
 | [uiux-runtime-audit](uiux-runtime-audit/references/quickstart.md) | Check real interaction reachability, state clarity, mobile/keyboard behavior and privacy while separating observed from unverified. |
 | [reliable-delivery](reliable-delivery/references/quickstart.md) | Carry original acceptance through interruptions and handoffs so progress is not mistaken for completion. |
+| [rtl-arabic-ui](rtl-arabic-ui/references/quickstart.md) | Classify every element as mirror, keep or partial using a large Middle East retailer's production EN/AR site as the baseline. Phone, price, time and email patterns plus bidi test strings catch the most common RTL defects first. |
 
 
 ## Start here
@@ -147,7 +148,7 @@ Combine this bundle with other installed skills using the
 coordinator, shared preflight, explicit ownership and separate evidence per step.
 External skill declarations do not install or certify those skills.
 
-## Included: 18 skills
+## Included: 19 skills
 
 - `optional-skill-profile`: optional onboarding, local persistence, preview and editing.
 - `ui-element-inspector`: hover to identify DOM elements/parent containers and copy context for AI.
@@ -167,8 +168,9 @@ External skill declarations do not install or certify those skills.
 - `state-drift-review`: canonical-vs-mirror state reconciliation and minimal repair planning.
 - `uiux-runtime-audit`: runtime interaction, mobile, accessibility and privacy-oriented UX evidence.
 - `reliable-delivery`: acceptance-preserving continuation, verification and handoff receipts.
+- `rtl-arabic-ui`: Arabic/RTL mirror, keep and partial rules, phone-number patterns and bidi QA.
 
-Install these eighteen sibling directories together into the skill directory supported
+Install these nineteen sibling directories together into the skill directory supported
 by your agent. The profile helper requires Python 3.11+, standard library only.
 The other skills explicitly read the sibling profile skill. If it is missing,
 they operate without persistence and explain that limitation. There is no hook,
